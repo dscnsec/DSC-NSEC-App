@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../screens/screen5_projects.dart';
+import '../screens/screen1_home.dart';
+
+final obJECT = HomeScreen();
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -22,8 +26,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.only(left: 2),
-                                      child: Text(
+                  Padding(
+                    padding: EdgeInsets.only(left: 2),
+                    child: Text(
                       'More to',
                       style: TextStyle(
                         fontFamily: 'productSans',
@@ -32,16 +37,16 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         color: Colors.white,
                       ),
                     ),
-                  ), Text(
-                      'Explore',
-                      style: TextStyle(
-                          letterSpacing: 5.0,
-                          color: Colors.white,
-                          fontFamily: 'productSans',
-                          fontWeight: FontWeight.w700,
-                          fontSize: 35),
-                    ),
-                  
+                  ),
+                  Text(
+                    'Explore',
+                    style: TextStyle(
+                        letterSpacing: 5.0,
+                        color: Colors.white,
+                        fontFamily: 'productSans',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 35),
+                  ),
                 ],
               ),
             ),
@@ -52,11 +57,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navItem('Home', Icons.home),
-                  navItem('Events', FontAwesomeIcons.calendarCheck),
-                  navItem('Projects', FontAwesomeIcons.lightbulb),
-                  navItem('Our teams', Icons.people),
-                  navItem('About us', Icons.info)
+                  navItem('Home', Icons.home, context),
+                  
+                  navItem('Events', FontAwesomeIcons.calendarCheck, context),
+                  navItem('Projects', FontAwesomeIcons.lightbulb, context),
+                  navItem('Our teams', Icons.people, context),
+                  navItem('About us', Icons.info, context)
                 ],
               ),
             ),
@@ -92,18 +98,19 @@ Widget socialMedia(IconData icn) {
       ));
 }
 
-Widget navItem(String navTitle, IconData iconData) {
+Widget navItem(String navTitle, IconData iconData, BuildContext context) {
   return Padding(
     padding: EdgeInsets.only(bottom: 50.0),
     child: Row(
       children: <Widget>[
         Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: Icon(
-              iconData,
-              color: Colors.white,
-              size: 24.0,
-            )),
+          padding: EdgeInsets.only(right: 10.0),
+          child: Icon(
+            iconData,
+            color: Colors.white,
+            size: 24.0,
+          ),
+        ),
         Text(
           navTitle,
           style: TextStyle(

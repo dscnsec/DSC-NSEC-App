@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isdrawerOpen = false;
   @override
   Widget build(BuildContext context) {
+    double heiGht = MediaQuery.of(context).size.height;
     return AnimatedContainer(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
@@ -33,11 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              decoration:BoxDecoration(
-              borderRadius: BorderRadius.only(topLeft: isdrawerOpen? Radius.circular(35.0): Radius.circular(0.0)),
-              color: Colors.white,),
-              child:
-               Row(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: isdrawerOpen
+                        ? Radius.circular(35.0)
+                        : Radius.circular(0.0)),
+                color: Colors.white,
+              ),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   isdrawerOpen
@@ -91,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: EdgeInsets.only(left: 0.0, right: 0.0, top: 0),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.85,
+                height: heiGht>700 ?  MediaQuery.of(context).size.height*0.85 : MediaQuery.of(context).size.height,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     //         boxShadow: [
@@ -116,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                               image: AssetImage('assets/images/cover2.jpeg'),
                             ),
                             color: Colors.transparent),
@@ -246,7 +250,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Probability Theory and Statistics',
                         '30th August 2021',
                         'NSEC Campus'),
-                    
                   ],
                 ),
               ),
