@@ -1,3 +1,4 @@
+import 'package:dscnsec_app/screens/screen2_events.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../screens/screen5_projects.dart';
@@ -50,19 +51,61 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ],
               ),
             ),
-
 //Middle part
             Padding(
               padding: EdgeInsets.only(left: 22.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navItem('Home', Icons.home, context),
-                  
-                  navItem('Events', FontAwesomeIcons.calendarCheck, context),
-                  navItem('Projects', FontAwesomeIcons.lightbulb, context),
-                  navItem('Our teams', Icons.people, context),
-                  navItem('About us', Icons.info, context)
+                  //Home tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  GestureDetector(
+                      child: Card(
+                        color: Color(0xFF4285F4),
+                        elevation: 0,
+                        child: navItem('Home', Icons.home, context),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => HomeScreen()));
+                      }),
+
+                  //event tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  GestureDetector(
+                    child: Card(
+                        color: Color(0xFF4285F4),
+                        elevation: 0,
+                        child: navItem(
+                            'Events', FontAwesomeIcons.calendarCheck, context)),
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => screen2_events()));
+                    },
+                  ),
+
+                  //projects tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  GestureDetector(
+                      child: Card(
+                        color: Color(0xFF4285F4),
+                        elevation: 0,
+                        child: navItem(
+                            'Projects', FontAwesomeIcons.lightbulb, context),
+                      ),
+                      onTap: () {}),
+
+                  //team tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  GestureDetector(
+                      child: Card(
+                          color: Color(0xFF4285F4),
+                          elevation: 0,
+                          child: navItem('Our teams', Icons.people, context)),
+                      onTap: () {}),
+                  //about us tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  GestureDetector(
+                      child: Card(
+                          color: Color(0xFF4285F4),
+                          elevation: 0,
+                          child: navItem('About us', Icons.info, context)),
+                      onTap: () {}),
                 ],
               ),
             ),

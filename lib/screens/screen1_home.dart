@@ -1,3 +1,4 @@
+import 'package:dscnsec_app/Drawer/drawer.dart';
 import 'package:flutter/material.dart';
 import './introText.dart';
 
@@ -15,10 +16,34 @@ class _HomeScreenState extends State<HomeScreen> {
   double yOffset = 0.0;
   double scalefactor = 1;
   bool isdrawerOpen = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // Future.delayed(Duration(microseconds: 0),(){
+    //   setState(() {
+    //     xOffset =
+    //         MediaQuery.of(context).size.height * 0.3;
+    //     yOffset =
+    //         MediaQuery.of(context).size.width * 0.37;
+    //     scalefactor = 0.6;
+    //     isdrawerOpen = true;
+    //   });
+    // });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     double heiGht = MediaQuery.of(context).size.height;
-    return AnimatedContainer(
+    return Scaffold(
+        body: SafeArea(
+        child: Stack(
+        children: <Widget>[
+        DrawerScreen(),
+
+      AnimatedContainer(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: Colors.grey[200],
@@ -85,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: EdgeInsets.only(right: 12.0, top: 5.0),
                     child: CircleAvatar(
                       radius: 29.0,
+                      child: dsclogo(),
                     ),
                   ),
                 ],
@@ -278,9 +304,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+
           ],
         ),
       ),
+    )])));
+  }
+
+  // DSC NSEC LOGO
+  Widget dsclogo() {
+    var assetImage = AssetImage("assets/images/dsclogo.png");
+    var image = Image(
+      image: assetImage,
+      height: 100,
+      width: 100,
+    );
+    return Container(
+      child: image,
+      margin: EdgeInsets.all(0),
     );
   }
 }
@@ -402,4 +443,5 @@ Widget dateVenue(IconData icon, String value, double botPadd) {
       ],
     ),
   );
+
 }
