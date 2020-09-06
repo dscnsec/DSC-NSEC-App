@@ -1,4 +1,6 @@
 import 'package:dscnsec_app/screens/screen2_events.dart';
+import 'package:dscnsec_app/screens/screen3_teams.dart';
+import 'package:dscnsec_app/screens/screen4_about.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../screens/screen5_projects.dart';
@@ -90,7 +92,10 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: navItem(
                             'Projects', FontAwesomeIcons.lightbulb, context),
                       ),
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => ProjectPage()));
+                      }),
 
                   //team tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
@@ -98,14 +103,20 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           color: Color(0xFF4285F4),
                           elevation: 0,
                           child: navItem('Our teams', Icons.people, context)),
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => teams()));
+                      }),
                   //about us tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
                       child: Card(
                           color: Color(0xFF4285F4),
                           elevation: 0,
                           child: navItem('About us', Icons.info, context)),
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => about()));
+                      }),
                 ],
               ),
             ),

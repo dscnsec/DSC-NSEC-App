@@ -85,30 +85,30 @@ class screen2_eventsState extends State<screen2_events> {
                         children: <Widget>[
                           isdrawerOpen
                               ? IconButton(
-                                  icon: Icon(Icons.arrow_back_ios),
-                                  onPressed: () {
-                                    setState(() {
-                                      isdrawerOpen = false;
-                                      xOffset = 0.0;
-                                      yOffset = 0.0;
-                                      scalefactor = 1;
-                                    });
-                                  },
-                                )
+                            icon: Icon(Icons.arrow_back_ios),
+                            onPressed: () {
+                              setState(() {
+                                isdrawerOpen = false;
+                                xOffset = 0.0;
+                                yOffset = 0.0;
+                                scalefactor = 1;
+                              });
+                            },
+                          )
                               : IconButton(
-                                  icon: Icon(CustomIcons.menu),
-                                  onPressed: () {
-                                    setState(() {
-                                      xOffset =
-                                          MediaQuery.of(context).size.height *
-                                              0.3;
-                                      yOffset =
-                                          MediaQuery.of(context).size.width *
-                                              0.37;
-                                      scalefactor = 0.6;
-                                      isdrawerOpen = true;
-                                    });
-                                  }),
+                              icon: Icon(CustomIcons.menu),
+                              onPressed: () {
+                                setState(() {
+                                  xOffset =
+                                      MediaQuery.of(context).size.height *
+                                          0.3;
+                                  yOffset =
+                                      MediaQuery.of(context).size.width *
+                                          0.37;
+                                  scalefactor = 0.6;
+                                  isdrawerOpen = true;
+                                });
+                              }),
                           Padding(
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.06),
