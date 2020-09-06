@@ -74,6 +74,10 @@ flutter:
         - asset: fonts/GoogleSans-Bold.ttf
         - asset: fonts/GoogleSans-Regular.ttf
         - asset: fonts/GoogleSans-Medium.ttf
+
+    - family: CustomIcons
+      fonts:
+        - asset: fonts/custom_icons.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

@@ -1,7 +1,7 @@
 import 'package:dscnsec_app/Drawer/drawer.dart';
 import 'package:flutter/material.dart';
 import './introText.dart';
-
+import 'package:dscnsec_app/customIcons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 TextofIntro text = TextofIntro();
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                         )
                       : IconButton(
-                          icon: Icon(Icons.menu),
+                          icon: Icon(CustomIcons.menu),
                           onPressed: () {
                             setState(() {
                               xOffset =
