@@ -27,20 +27,20 @@ class screen2_eventsState extends State<screen2_events> {
     // TODO: implement initState
     super.initState();
 
-      Future.delayed(Duration(microseconds: 0), () {
-        setState(() {
-          xOffset = MediaQuery
-              .of(context)
-              .size
-              .height * 0.3;
-          yOffset = MediaQuery
-              .of(context)
-              .size
-              .width * 0.37;
-          scalefactor = 0.6;
-          isdrawerOpen = true;
-        });
-      });
+      // Future.delayed(Duration(microseconds: 0), () {
+      //   setState(() {
+      //     xOffset = MediaQuery
+      //         .of(context)
+      //         .size
+      //         .height * 0.3;
+      //     yOffset = MediaQuery
+      //         .of(context)
+      //         .size
+      //         .width * 0.37;
+      //     scalefactor = 0.6;
+      //     isdrawerOpen = true;
+      //   });
+      // });
 
   }
 
