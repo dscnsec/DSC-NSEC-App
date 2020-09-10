@@ -6,7 +6,7 @@ import 'package:dscnsec_app/customIcons.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
+import 'package:url_launcher/url_launcher.dart';
 import 'screen2_events.dart';
 
 TextofIntro text = TextofIntro();
@@ -76,6 +76,17 @@ class _HomeScreenState extends State<HomeScreen> {
   double scalefactor = 1;
   bool isdrawerOpen = false;
 
+  //Button function for Become A Member
+  _openURL() async {
+    const url = 'https://forms.gle/GYqhSS4TXEPz9c3M8';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch';
+    }
+  }
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -139,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                           )
                         : IconButton(
-                        icon: Icon(CustomIcons.menu),
+                            icon: Icon(CustomIcons.menu),
                             onPressed: () {
                               setState(() {
                                 xOffset =
@@ -266,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           child: FlatButton(
-                            onPressed: () {},
+                            onPressed: _openURL,
                             color: Colors.blue[500],
                             padding: EdgeInsets.all(15.0),
                             shape: RoundedRectangleBorder(
@@ -326,8 +337,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (snapshot.hasData) {
                       up_id = snapshot.data.up_id;
                       up_name = snapshot.data.up_name;
-                      up_date= snapshot.data.up_date;
-                      up_location=snapshot.data.up_location;
+                      up_date = snapshot.data.up_date;
+                      up_location = snapshot.data.up_location;
                       up_banner = snapshot.data.up_banner;
 
                       return Column(children: [
@@ -527,10 +538,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 if (snapshot.hasData) {
                                                   setState(() {
                                                     up_id = snapshot.data.up_id;
-                                                    up_name = snapshot.data.up_name;
-                                                    up_date= snapshot.data.up_date;
-                                                    up_location=snapshot.data.up_location;
-                                                    up_banner = snapshot.data.up_banner;
+                                                    up_name =
+                                                        snapshot.data.up_name;
+                                                    up_date =
+                                                        snapshot.data.up_date;
+                                                    up_location = snapshot
+                                                        .data.up_location;
+                                                    up_banner =
+                                                        snapshot.data.up_banner;
                                                   });
                                                 }
                                               });
