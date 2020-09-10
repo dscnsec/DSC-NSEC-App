@@ -7,6 +7,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'screen2_events.dart';
+
 TextofIntro text = TextofIntro();
 
 //Upcoming Events at Home REST api
@@ -585,7 +587,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => screen2_events()));
+                    },
                     color: Colors.blue[500],
                     textColor: Colors.white,
                     child: Text(
