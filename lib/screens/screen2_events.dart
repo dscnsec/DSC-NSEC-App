@@ -20,7 +20,8 @@ class screen2_eventsState extends State<screen2_events> {
   double yOffset = 0.0;
   double scalefactor = 1;
   bool isdrawerOpen = false;
-  var currentPage = images.length - 1.0;
+  var currentUpcomingPage = images.length - 1.0;
+  var currentPastPage = images.length - 1.0;
 
   @override
   void initState() {
@@ -45,10 +46,19 @@ class screen2_eventsState extends State<screen2_events> {
 
   @override
   Widget build(BuildContext context) {
-    PageController controller = PageController(initialPage: images.length - 1);
-    controller.addListener(() {
+    PageController controllerPast =
+        PageController(initialPage: images.length - 1);
+    controllerPast.addListener(() {
       setState(() {
-        currentPage = controller.page;
+        currentPastPage = controllerPast.page;
+      });
+    });
+
+    PageController controllerUpcoming =
+        PageController(initialPage: images.length - 1);
+    controllerUpcoming.addListener(() {
+      setState(() {
+        currentUpcomingPage = controllerUpcoming.page;
       });
     });
 
@@ -85,30 +95,30 @@ class screen2_eventsState extends State<screen2_events> {
                         children: <Widget>[
                           isdrawerOpen
                               ? IconButton(
-                            icon: Icon(Icons.arrow_back_ios),
-                            onPressed: () {
-                              setState(() {
-                                isdrawerOpen = false;
-                                xOffset = 0.0;
-                                yOffset = 0.0;
-                                scalefactor = 1;
-                              });
-                            },
-                          )
+                                  icon: Icon(Icons.arrow_back_ios),
+                                  onPressed: () {
+                                    setState(() {
+                                      isdrawerOpen = false;
+                                      xOffset = 0.0;
+                                      yOffset = 0.0;
+                                      scalefactor = 1;
+                                    });
+                                  },
+                                )
                               : IconButton(
-                              icon: Icon(CustomIcons.menu),
-                              onPressed: () {
-                                setState(() {
-                                  xOffset =
-                                      MediaQuery.of(context).size.height *
-                                          0.3;
-                                  yOffset =
-                                      MediaQuery.of(context).size.width *
-                                          0.37;
-                                  scalefactor = 0.6;
-                                  isdrawerOpen = true;
-                                });
-                              }),
+                                  icon: Icon(CustomIcons.menu),
+                                  onPressed: () {
+                                    setState(() {
+                                      xOffset =
+                                          MediaQuery.of(context).size.height *
+                                              0.3;
+                                      yOffset =
+                                          MediaQuery.of(context).size.width *
+                                              0.37;
+                                      scalefactor = 0.6;
+                                      isdrawerOpen = true;
+                                    });
+                                  }),
                           Padding(
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.06),
@@ -135,6 +145,45 @@ class screen2_eventsState extends State<screen2_events> {
 
                     //YOUR CODE GOES HERE ->> DSC NSEC EVENTS SECTION
 
+                    // Upcoming Events here
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            "Upcoming Events",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 35.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'productSans',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Stack(
+                      children: <Widget>[
+                        CardScrollWidget(currentUpcomingPage),
+                        Positioned.fill(
+                          child: PageView.builder(
+                            itemCount: images.length,
+                            controller: controllerUpcoming,
+                            reverse: true,
+                            itemBuilder: (context, index) {
+                              return Container();
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                    ),
+
+                    //Past Events Here
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 20.0),
@@ -146,6 +195,7 @@ class screen2_eventsState extends State<screen2_events> {
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 35.0,
+                              fontWeight: FontWeight.bold,
                               fontFamily: 'productSans',
                             ),
                           ),
@@ -154,11 +204,11 @@ class screen2_eventsState extends State<screen2_events> {
                     ),
                     Stack(
                       children: <Widget>[
-                        CardScrollWidget(currentPage),
+                        CardScrollWidget(currentPastPage),
                         Positioned.fill(
                           child: PageView.builder(
                             itemCount: images.length,
-                            controller: controller,
+                            controller: controllerPast,
                             reverse: true,
                             itemBuilder: (context, index) {
                               return Container();
@@ -256,7 +306,7 @@ class CardScrollWidget extends StatelessWidget {
                           children: <Widget>[
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 16.0, vertical: 8.0),
+                                  horizontal: 20.0, vertical: 8.0),
                               child: Text(title[i],
                                   style: TextStyle(
                                       color: Colors.black,
