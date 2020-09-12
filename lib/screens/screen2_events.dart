@@ -20,8 +20,8 @@ class screen2_eventsState extends State<screen2_events> {
   double yOffset = 0.0;
   double scalefactor = 1;
   bool isdrawerOpen = false;
-  var currentUpcomingPage = images.length - 1.0;
-  var currentPastPage = images.length - 1.0;
+  var currentUpcomingPage = upBanner.length - 1.0;
+  var currentPastPage = pastBanner.length - 1.0;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class screen2_eventsState extends State<screen2_events> {
   @override
   Widget build(BuildContext context) {
     PageController controllerPast =
-        PageController(initialPage: images.length - 1);
+        PageController(initialPage: pastBanner.length - 1);
     controllerPast.addListener(() {
       setState(() {
         currentPastPage = controllerPast.page;
@@ -55,7 +55,7 @@ class screen2_eventsState extends State<screen2_events> {
     });
 
     PageController controllerUpcoming =
-        PageController(initialPage: images.length - 1);
+        PageController(initialPage: upBanner.length - 1);
     controllerUpcoming.addListener(() {
       setState(() {
         currentUpcomingPage = controllerUpcoming.page;
@@ -166,10 +166,10 @@ class screen2_eventsState extends State<screen2_events> {
                     ),
                     Stack(
                       children: <Widget>[
-                        CardScrollWidget(currentUpcomingPage),
+                        CardScrollUpWidget(currentUpcomingPage),
                         Positioned.fill(
                           child: PageView.builder(
-                            itemCount: images.length,
+                            itemCount: upBanner.length,
                             controller: controllerUpcoming,
                             reverse: true,
                             itemBuilder: (context, index) {
@@ -204,10 +204,10 @@ class screen2_eventsState extends State<screen2_events> {
                     ),
                     Stack(
                       children: <Widget>[
-                        CardScrollWidget(currentPastPage),
+                        CardScrollPastWidget(currentPastPage),
                         Positioned.fill(
                           child: PageView.builder(
-                            itemCount: images.length,
+                            itemCount: pastBanner.length,
                             controller: controllerPast,
                             reverse: true,
                             itemBuilder: (context, index) {
@@ -242,12 +242,12 @@ class screen2_eventsState extends State<screen2_events> {
   }
 }
 
-class CardScrollWidget extends StatelessWidget {
+class CardScrollUpWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
   var verticalInset = 20.0;
 
-  CardScrollWidget(this.currentPage);
+  CardScrollUpWidget(this.currentPage);
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +268,7 @@ class CardScrollWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-        for (var i = 0; i < images.length; i++) {
+        for (var i = 0; i < upBanner.length; i++) {
           var delta = i - currentPage;
           bool isOnRight = delta > 0;
 
@@ -297,7 +297,7 @@ class CardScrollWidget extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      Image.network(images[i], fit: BoxFit.cover),
+                      Image.network(upBanner[i], fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
@@ -307,7 +307,115 @@ class CardScrollWidget extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 20.0, vertical: 8.0),
-                              child: Text(title[i],
+                              child: Text(upTitle[i],
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 25.0,
+                                      fontFamily: "productSans",
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 12.0, bottom: 12.0),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 22.0, vertical: 6.0),
+                                decoration: BoxDecoration(
+                                    color: Colors.blueAccent,
+                                    borderRadius: BorderRadius.circular(20.0)),
+                                child: Text("Know More",
+                                    style: TextStyle(color: Colors.white)),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+          cardList.add(cardItem);
+        }
+        return Stack(
+          children: cardList,
+        );
+      }),
+    );
+  }
+}
+
+
+class CardScrollPastWidget extends StatelessWidget {
+  var currentPage;
+  var padding = 20.0;
+  var verticalInset = 20.0;
+
+  CardScrollPastWidget(this.currentPage);
+
+  @override
+  Widget build(BuildContext context) {
+    return new AspectRatio(
+      aspectRatio: widgetAspectRatio,
+      child: LayoutBuilder(builder: (context, contraints) {
+        var width = contraints.maxWidth;
+        var height = contraints.maxHeight;
+
+        var safeWidth = width - 2 * padding;
+        var safeHeight = height - 2 * padding;
+
+        var heightOfPrimaryCard = safeHeight;
+        var widthOfPrimaryCard = heightOfPrimaryCard * cardAspectRatio;
+
+        var primaryCardLeft = safeWidth - widthOfPrimaryCard;
+        var horizontalInset = primaryCardLeft / 2;
+
+        List<Widget> cardList = new List();
+
+        for (var i = 0; i < pastBanner.length; i++) {
+          var delta = i - currentPage;
+          bool isOnRight = delta > 0;
+
+          var start = padding +
+              max(
+                  primaryCardLeft -
+                      horizontalInset * -delta * (isOnRight ? 15 : 1),
+                  0.0);
+
+          var cardItem = Positioned.directional(
+            top: padding + verticalInset * max(-delta, 0.0),
+            bottom: padding + verticalInset * max(-delta, 0.0),
+            start: start,
+            textDirection: TextDirection.rtl,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(3.0, 6.0),
+                      blurRadius: 10.0)
+                ]),
+                child: AspectRatio(
+                  aspectRatio: cardAspectRatio,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      Image.network(pastBanner[i], fit: BoxFit.cover),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 8.0),
+                              child: Text(pastTitle[i],
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 25.0,
