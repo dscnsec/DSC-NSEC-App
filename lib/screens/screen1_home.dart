@@ -335,6 +335,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   future: futureAlbum,
                   builder: (BuildContext context, snapshot) {
                     if (snapshot.hasData) {
+
                       up_id = snapshot.data.up_id;
                       up_name = snapshot.data.up_name;
                       up_date = snapshot.data.up_date;
