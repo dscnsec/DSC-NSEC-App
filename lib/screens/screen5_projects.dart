@@ -20,7 +20,9 @@ class _ProjectPageState extends State<ProjectPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: _onBackPressed,
+        child: Scaffold(
         body: SafeArea(
             child: Stack(children: <Widget>[
               DrawerScreen(),
@@ -107,7 +109,26 @@ class _ProjectPageState extends State<ProjectPage> {
                 ),
               ),
 
-            ])));
+            ]))));
+  }
+
+  //App Exit Alert Function
+  Future<bool> _onBackPressed() {
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Do you really want to exit app?",style: TextStyle(fontFamily: "productSans"),),
+          actions: [
+            FlatButton.icon(
+                onPressed: () => Navigator.pop(context, true),
+                icon: Icon(Icons.done,color: Colors.green,),
+                label: Text("Yes",style: TextStyle(fontFamily: "productSans"),)),
+            FlatButton.icon(
+                onPressed: () => Navigator.pop(context, false),
+                icon: Icon(Icons.clear,color: Colors.red,),
+                label: Text("No",style: TextStyle(fontFamily: "productSans"),))
+          ],
+        ));
   }
   // DSC NSEC LOGO
   Widget dsclogo() {
