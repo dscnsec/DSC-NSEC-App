@@ -65,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
   //
   Future<Album> futureAlbum;
 
-
   //
 
   double xOffset = 0.0;
@@ -356,7 +355,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           '${up_banner[i]}',
                                           '${up_name[i]}',
                                           '${up_date[i]}',
-                                          '${up_location[i]}'),
+                                          '${up_location[i]}',
+                                        i
+                                      ),
                                   ],
                                 ),
                               ),
@@ -556,7 +557,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             '${up_banner[i]}',
                                             '${up_name[i]}',
                                             '${up_date[i]}',
-                                            '${up_location[i]}'),
+                                            '${up_location[i]}',
+                                        i),
                                     ],
                                   ),
                                 ),
@@ -574,8 +576,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Row(
                                   children: <Widget>[
                                     for (int i = 0; i < 2; i++)
-                                      EventCard(
-                                          'assets/images/loading.gif',
+                                      TransitionEventCard(
+                                          'assets/images/loading2.gif',
                                           'Please Wait...',
                                           'Event Loading...',
                                           'Getting location...'),
@@ -680,8 +682,9 @@ class EventCard extends StatelessWidget {
   final String title;
   final String date;
   final String venue;
+  final int card_index;
 
-  EventCard(this.img, this.title, this.date, this.venue);
+  EventCard(this.img, this.title, this.date, this.venue, this.card_index);
 
   @override
   Widget build(BuildContext context) {
@@ -749,7 +752,12 @@ class EventCard extends StatelessWidget {
                         dateVenue(FontAwesomeIcons.mapMarker, venue, 0.0),
                       ],
                     ),
-                    Container(
+                    GestureDetector(
+                      onTap: (){
+                        debugPrint("PRESSED Card No.-${card_index}");
+
+                      },
+                        child: Container(
                       color: Colors.blue,
                       height: MediaQuery.of(context).size.height * 0.06,
                       alignment: Alignment.center,
@@ -761,7 +769,7 @@ class EventCard extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: Colors.white),
                       ),
-                    ),
+                    )),
                   ],
                 ),
               ),
@@ -793,4 +801,103 @@ Widget dateVenue(IconData icon, String value, double botPadd) {
       ],
     ),
   );
+}
+
+//Transition Event Card ->>
+class TransitionEventCard extends StatelessWidget {
+  final String img;
+  final String title;
+  final String date;
+  final String venue;
+
+  TransitionEventCard(this.img, this.title, this.date, this.venue);
+
+  @override
+  Widget build(BuildContext context) {
+    //the card....
+    return Padding(
+      padding: EdgeInsets.only(left: 10.0, right: 20.0, top: 20.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.white,
+          boxShadow: [
+            new BoxShadow(
+              color: Colors.grey,
+              offset: new Offset(15.0, 5.0),
+              blurRadius: 20.0,
+            )
+          ],
+        ),
+        height: MediaQuery.of(context).size.height * 0.5,
+        width: MediaQuery.of(context).size.width * 0.7,
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(bottom: 10.0),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * (0.5 / 2.55),
+                  width: MediaQuery.of(context).size.width * 0.65,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4.0),
+                    image: DecorationImage(
+                        image: AssetImage(img), fit: BoxFit.cover),
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.0),
+                  color: Colors.grey[200],
+                ),
+                height: MediaQuery.of(context).size.height * (0.5 / 1.9),
+                width: MediaQuery.of(context).size.width * 0.65,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 12.0,
+                        right: 10.0,
+                        top: 10.0,
+                      ),
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontFamily: 'productSans',
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        dateVenue(FontAwesomeIcons.calendarAlt, date, 10.0),
+                        dateVenue(FontAwesomeIcons.mapMarker, venue, 0.0),
+                      ],
+                    ),
+                    Container(
+                      color: Colors.blue,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Know More',
+                        style: TextStyle(
+                            fontFamily: 'productSans',
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

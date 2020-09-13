@@ -692,7 +692,9 @@ class CardScrollUpWidget extends StatelessWidget {
                             ),
                             if (up_id[0] != 0)
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  debugPrint("Number ${i} tile tapped...!");
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 12.0, bottom: 12.0),
@@ -811,7 +813,9 @@ class CardScrollPastWidget extends StatelessWidget {
                             ),
                             if (past_id[0] != 0)
                               GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    debugPrint("Number ${i} tile tapped...!");
+                                  },
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         left: 12.0, bottom: 12.0),
