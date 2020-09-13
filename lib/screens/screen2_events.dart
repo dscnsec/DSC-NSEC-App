@@ -186,18 +186,18 @@ class screen2_eventsState extends State<screen2_events> {
   @override
   Widget build(BuildContext context) {
     PageController controllerPast =
-        PageController(initialPage: past_banner.length - 1);
+        PageController(initialPage: past_banner.length);
     controllerPast.addListener(() {
       setState(() {
-        currentPastPage = controllerPast.page;
+        currentPastPage = 1 - controllerPast.page;
       });
     });
 
     PageController controllerUpcoming =
-        PageController(initialPage: up_banner.length - 1);
+        PageController(initialPage: up_banner.length);
     controllerUpcoming.addListener(() {
       setState(() {
-        currentUpcomingPage = controllerUpcoming.page;
+        currentUpcomingPage = 1 - controllerUpcoming.page;
       });
     });
 
@@ -310,24 +310,7 @@ class screen2_eventsState extends State<screen2_events> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 0.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                " Swipe Right to view more -->",
-                                style: TextStyle(
-                                  color: Colors.amber,
-                                  fontSize: 13.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'productSans',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+
                         //Future builder from Restful api starts from here /////-->>
                         FutureBuilder<Album>(
                           future: futureAlbum,
@@ -443,24 +426,6 @@ class screen2_eventsState extends State<screen2_events> {
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 35.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'productSans',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 0.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                " Swipe Right to view more -->",
-                                style: TextStyle(
-                                  color: Colors.amber,
-                                  fontSize: 13.0,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'productSans',
                                 ),
@@ -655,8 +620,8 @@ class CardScrollUpWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-        for (var i = 0; i < up_banner.length; i++) {
-          var delta = i - currentPage;
+        for (var i = up_banner.length-1; i >= 0 ; i--) {
+          var delta = currentPage - i;
           bool isOnRight = delta > 0;
 
           var start = padding +
@@ -775,8 +740,8 @@ class CardScrollPastWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-        for (var i = 0; i < past_banner.length; i++) {
-          var delta = i - currentPage;
+        for (var i = past_banner.length-1; i >= 0 ; i--) {
+          var delta = currentPage - i;
           bool isOnRight = delta > 0;
 
           var start = padding +
