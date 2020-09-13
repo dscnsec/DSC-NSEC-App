@@ -347,27 +347,34 @@ class screen2_eventsState extends State<screen2_events> {
                                 ],
                               );
                             } else if (snapshot.hasError) {
-                              return Stack(
-                                children: <Widget>[
-                                  CardScrollUpWidget(currentUpcomingPage),
-                                  Positioned.fill(
-                                    child: PageView.builder(
-                                      itemCount: up_banner.length,
-                                      controller: controllerUpcoming,
-                                      reverse: true,
-                                      itemBuilder: (context, index) {
-                                        return Container();
-                                      },
-                                    ),
-                                  )
-                                ],
-                              );
+                              if (up_id[0] == 0)
+                                return Image(
+                                  image:
+                                      AssetImage('assets/images/no_image.jpeg'),
+                                );
+                              else
+                                return Stack(
+                                  children: <Widget>[
+                                    CardScrollUpWidget(currentUpcomingPage),
+                                    Positioned.fill(
+                                      child: PageView.builder(
+                                        itemCount: up_banner.length,
+                                        controller: controllerUpcoming,
+                                        reverse: true,
+                                        itemBuilder: (context, index) {
+                                          return Container();
+                                        },
+                                      ),
+                                    )
+                                  ],
+                                );
                             }
                             return Container(
-                              padding: EdgeInsets.fromLTRB(20, 10, 30, 20),
+                              padding: EdgeInsets.fromLTRB(30, 10, 30, 20),
                               child: Card(
                                   elevation: 0.0,
-                                  child: SizedBox(
+                                  child: Container(
+                                    color: Colors.grey[200],
                                     height: 360,
                                     width: 270,
                                     child: Row(
@@ -386,7 +393,7 @@ class screen2_eventsState extends State<screen2_events> {
                         ),
                         //////////////////////////////////////////////////////////// ends -->>
 
-                        if (up_id[0] == 0)
+                        if (up_id[0] == 0 || up_id == [])
                           GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -470,27 +477,34 @@ class screen2_eventsState extends State<screen2_events> {
                                 ],
                               );
                             } else if (snapshot.hasError) {
-                              return Stack(
-                                children: <Widget>[
-                                  CardScrollPastWidget(currentPastPage),
-                                  Positioned.fill(
-                                    child: PageView.builder(
-                                      itemCount: past_banner.length,
-                                      controller: controllerPast,
-                                      reverse: true,
-                                      itemBuilder: (context, index) {
-                                        return Container();
-                                      },
-                                    ),
-                                  )
-                                ],
-                              );
+                              if (past_id[0] == 0)
+                                return Image(
+                                  image:
+                                      AssetImage('assets/images/no_image.jpeg'),
+                                );
+                              else
+                                return Stack(
+                                  children: <Widget>[
+                                    CardScrollPastWidget(currentPastPage),
+                                    Positioned.fill(
+                                      child: PageView.builder(
+                                        itemCount: past_banner.length,
+                                        controller: controllerPast,
+                                        reverse: true,
+                                        itemBuilder: (context, index) {
+                                          return Container();
+                                        },
+                                      ),
+                                    )
+                                  ],
+                                );
                             }
                             return Container(
-                              padding: EdgeInsets.fromLTRB(20, 10, 30, 20),
+                              padding: EdgeInsets.fromLTRB(30, 10, 30, 20),
                               child: Card(
                                   elevation: 0.0,
-                                  child: SizedBox(
+                                  child: Container(
+                                    color: Colors.grey[200],
                                     height: 360,
                                     width: 270,
                                     child: Row(
@@ -508,7 +522,7 @@ class screen2_eventsState extends State<screen2_events> {
                           },
                         ),
                         //////////////////////////////////////////////////////////// ends -->>
-                        if (past_id[0] == 0)
+                        if (past_id[0] == 0 || past_id == [])
                           GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -620,7 +634,7 @@ class CardScrollUpWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-        for (var i = up_banner.length-1; i >= 0 ; i--) {
+        for (var i = up_banner.length - 1; i >= 0; i--) {
           var delta = currentPage - i;
           bool isOnRight = delta > 0;
 
@@ -649,13 +663,12 @@ class CardScrollUpWidget extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      if (up_id[0] == 0)
-                        Image(
-                          image: AssetImage('assets/images/no_image.jpeg'),
-                        ),
                       if (up_id[0] != 0)
-                        Image.network(
-                          up_banner[i],
+                        FadeInImage.assetNetwork(
+                          fadeInCurve: Curves.bounceIn,
+                          fadeInDuration: const Duration(seconds: 1),
+                          placeholder: 'assets/images/loading.gif',
+                          image: up_banner[i],
                           fit: BoxFit.cover,
                         ),
                       Align(
@@ -740,7 +753,7 @@ class CardScrollPastWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-        for (var i = past_banner.length-1; i >= 0 ; i--) {
+        for (var i = past_banner.length - 1; i >= 0; i--) {
           var delta = currentPage - i;
           bool isOnRight = delta > 0;
 
@@ -769,12 +782,14 @@ class CardScrollPastWidget extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      if (past_id[0] == 0)
-                        Image(
-                          image: AssetImage('assets/images/no_image.jpeg'),
-                        ),
                       if (past_id[0] != 0)
-                        Image.network(past_banner[i], fit: BoxFit.cover),
+                        FadeInImage.assetNetwork(
+                          fadeInCurve: Curves.bounceIn,
+                          fadeInDuration: const Duration(seconds: 1),
+                          placeholder: 'assets/images/loading.gif',
+                          image: past_banner[i],
+                          fit: BoxFit.cover,
+                        ),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
