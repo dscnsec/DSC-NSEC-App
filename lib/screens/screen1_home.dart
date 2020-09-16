@@ -7,6 +7,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
+import 'event_details/eventFullDetails.dart';
 import 'featuredEventsDataForHome.dart';
 import 'screen2_events.dart';
 
@@ -755,7 +756,8 @@ class EventCard extends StatelessWidget {
                     GestureDetector(
                       onTap: (){
                         debugPrint("PRESSED Card No.-${card_index}");
-
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => eventFullDetails(card_index)));
                       },
                         child: Container(
                       color: Colors.blue,

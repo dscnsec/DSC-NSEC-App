@@ -1,4 +1,8 @@
 import 'package:dscnsec_app/Drawer/drawer.dart';
+import 'package:dscnsec_app/screens/screen1_home.dart';
+import 'package:dscnsec_app/screens/screen2_events.dart';
+import 'package:dscnsec_app/screens/screen3_teams.dart';
+import 'package:dscnsec_app/screens/screen5_projects.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -121,16 +125,112 @@ return WillPopScope(
     return showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Do you really want to exit app?",style: TextStyle(fontFamily: "productSans"),),
+          title: Center(
+            child: Text(
+              "Where to Go!",
+              style: TextStyle(fontFamily: "productSans"),
+            ),
+          ),
           actions: [
-            FlatButton.icon(
-                onPressed: () => Navigator.pop(context, true),
-                icon: Icon(Icons.done,color: Colors.green,),
-                label: Text("Yes",style: TextStyle(fontFamily: "productSans"),)),
-            FlatButton.icon(
-                onPressed: () => Navigator.pop(context, false),
-                icon: Icon(Icons.clear,color: Colors.red,),
-                label: Text("No",style: TextStyle(fontFamily: "productSans"),))
+            Center(
+              child: FlatButton.icon(
+                  onPressed: () => Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (context) => HomeScreen())),
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
+                  label: Text(
+                    "Home",
+                    style: TextStyle(fontFamily: "productSans"),
+                  )),
+            ),
+            Center(
+              child: FlatButton.icon(
+                  onPressed: () => Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (context) => screen2_events())),
+                  icon: Icon(
+                    Icons.event_available,
+                    color: Colors.blue,
+                  ),
+                  label: Text(
+                    "Events",
+                    style: TextStyle(fontFamily: "productSans"),
+                  )),
+            ),
+            Center(
+              child: FlatButton.icon(
+                  onPressed: () => Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (context) => ProjectPage())),
+                  icon: Icon(
+                    Icons.lightbulb_outline,
+                    color: Colors.blue,
+                    size: 28,
+                  ),
+                  label: Text(
+                    "Projects",
+                    style: TextStyle(fontFamily: "productSans"),
+                  )),
+            ),
+            Center(
+              child: FlatButton.icon(
+                  onPressed: () => Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (context) => teams())),
+                  icon: Icon(
+                    Icons.people,
+                    color: Colors.blue,
+                  ),
+                  label: Text(
+                    "Our Teams",
+                    style: TextStyle(fontFamily: "productSans"),
+                  )),
+            ),
+            Center(
+              child: FlatButton.icon(
+                  onPressed: () => Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                          builder: (context) => about())),
+                  icon: Icon(
+                    Icons.info_outline,
+                    color: Colors.blue,
+                  ),
+                  label: Text(
+                    "About Us",
+                    style: TextStyle(fontFamily: "productSans"),
+                  )),
+            ),
+            Container(padding: EdgeInsets.only(bottom: 15),),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                    child: FlatButton.icon(
+                        onPressed: () => Navigator.pop(context, true),
+                        icon: Icon(
+                          Icons.exit_to_app,
+                          color: Colors.green,
+                        ),
+                        label: Text(
+                          "Exit App",
+                          style: TextStyle(fontFamily: "productSans"),
+                        ))),
+                Center(
+                    child: FlatButton.icon(
+                        onPressed: () => Navigator.pop(context, false),
+                        icon: Icon(
+                          Icons.clear,
+                          color: Colors.red,
+                        ),
+                        label: Text(
+                          "Close",
+                          style: TextStyle(fontFamily: "productSans"),
+                        )))
+              ],)
           ],
         ));
   }
