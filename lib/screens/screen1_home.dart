@@ -771,13 +771,15 @@ class EventCard extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: 10.0),
                 child: Container(
+                  child: FadeInImage.assetNetwork(
+                    fadeInCurve: Curves.bounceIn,
+                    fadeInDuration: const Duration(seconds: 1),
+                    placeholder: 'assets/images/loading2.gif',
+                    image: img,
+                    fit: BoxFit.cover,
+                  ),
                   height: MediaQuery.of(context).size.height * (0.5 / 2.55),
                   width: MediaQuery.of(context).size.width * 0.65,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    image: DecorationImage(
-                        image: NetworkImage(img), fit: BoxFit.cover),
-                  ),
                 ),
               ),
               Container(
