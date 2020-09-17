@@ -8,10 +8,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'event_details/eventFullDetails.dart';
+import 'eventsData.dart';
+
 import 'featuredEventsDataForHome.dart';
 import 'screen2_events.dart';
 
 TextofIntro text = TextofIntro();
+var eventType = "up";
 
 //Upcoming Events at Home REST api
 Future<Album> fetchAlbum() async {
@@ -33,15 +36,33 @@ Future<Album> fetchAlbum() async {
 class Album {
   final List<dynamic> up_id;
   final List<dynamic> up_name;
+  final List<dynamic> up_desc;
   final List<dynamic> up_date;
+  final List<dynamic> up_time;
+  final List<dynamic> up_mode;
   final List<dynamic> up_location;
+  final List<dynamic> up_speakers;
+  final List<dynamic> up_prerequire;
+  final List<dynamic> up_note;
+  final List<dynamic> up_reglink;
+  final List<dynamic> up_lastreg;
+  final List<dynamic> up_regstatus;
   final List<dynamic> up_banner;
 
   Album({
     this.up_id,
     this.up_name,
+    this.up_desc,
     this.up_date,
+    this.up_time,
+    this.up_mode,
     this.up_location,
+    this.up_speakers,
+    this.up_prerequire,
+    this.up_note,
+    this.up_reglink,
+    this.up_lastreg,
+    this.up_regstatus,
     this.up_banner,
   });
 
@@ -49,8 +70,17 @@ class Album {
     return Album(
         up_id: json['up_id'],
         up_name: json['up_name'],
+        up_desc: json['up_desc'],
         up_date: json['up_date'],
+        up_time: json['up_time'],
+        up_mode: json['up_mode'],
         up_location: json['up_location'],
+        up_speakers: json['up_speakers'],
+        up_prerequire: json['up_prerequire'],
+        up_note: json['up_note'],
+        up_reglink: json['up_reglink'],
+        up_lastreg: json['up_lastreg'],
+        up_regstatus: json['up_regstatus'],
         up_banner: json['up_banner']);
   }
 }
@@ -339,8 +369,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           contains_data = true;
                           up_id = snapshot.data.up_id;
                           up_name = snapshot.data.up_name;
+                          up_desc = snapshot.data.up_desc;
                           up_date = snapshot.data.up_date;
+                          up_time = snapshot.data.up_time;
+                          up_mode = snapshot.data.up_mode;
                           up_location = snapshot.data.up_location;
+                          up_speakers = snapshot.data.up_speakers;
+                          up_prerequire = snapshot.data.up_prerequire;
+                          up_note = snapshot.data.up_note;
+                          up_reglink = snapshot.data.up_reglink;
+                          up_lastreg = snapshot.data.up_lastreg;
+                          up_regstatus = snapshot.data.up_regstatus;
                           up_banner = snapshot.data.up_banner;
 
                           return Column(children: [
@@ -357,8 +396,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           '${up_name[i]}',
                                           '${up_date[i]}',
                                           '${up_location[i]}',
-                                        i
-                                      ),
+                                          i),
                                   ],
                                 ),
                               ),
@@ -520,10 +558,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               .data.up_id;
                                                           up_name = snapshot
                                                               .data.up_name;
+                                                          up_desc = snapshot
+                                                              .data.up_desc;
                                                           up_date = snapshot
                                                               .data.up_date;
+                                                          up_time = snapshot
+                                                              .data.up_time;
+                                                          up_mode = snapshot
+                                                              .data.up_mode;
                                                           up_location = snapshot
                                                               .data.up_location;
+                                                          up_speakers = snapshot
+                                                              .data.up_speakers;
+                                                          up_prerequire =
+                                                              snapshot.data
+                                                                  .up_prerequire;
+                                                          up_note = snapshot
+                                                              .data.up_note;
+                                                          up_reglink = snapshot
+                                                              .data.up_reglink;
+                                                          up_lastreg = snapshot
+                                                              .data.up_lastreg;
+                                                          up_regstatus =
+                                                              snapshot.data
+                                                                  .up_regstatus;
                                                           up_banner = snapshot
                                                               .data.up_banner;
                                                         });
@@ -559,7 +617,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             '${up_name[i]}',
                                             '${up_date[i]}',
                                             '${up_location[i]}',
-                                        i),
+                                            i),
                                     ],
                                   ),
                                 ),
@@ -754,24 +812,26 @@ class EventCard extends StatelessWidget {
                       ],
                     ),
                     GestureDetector(
-                      onTap: (){
-                        debugPrint("PRESSED Card No.-${card_index}");
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => eventFullDetails(card_index)));
-                      },
+                        onTap: () {
+                          debugPrint("PRESSED Card No.-${card_index}");
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      eventFullDetails(card_index, eventType)));
+                        },
                         child: Container(
-                      color: Colors.blue,
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Know More',
-                        style: TextStyle(
-                            fontFamily: 'productSans',
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
-                      ),
-                    )),
+                          color: Colors.blue,
+                          height: MediaQuery.of(context).size.height * 0.06,
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Know More',
+                            style: TextStyle(
+                                fontFamily: 'productSans',
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
+                          ),
+                        )),
                   ],
                 ),
               ),

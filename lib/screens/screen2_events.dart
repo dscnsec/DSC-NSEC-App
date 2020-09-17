@@ -81,7 +81,6 @@ class Album {
         up_banner: json['up_banner']);
   }
 }
-
 //Ends upcoming events Rest API -->>
 
 //Past Events at Events Page REST api --starts here--->>
@@ -622,8 +621,7 @@ class screen2_eventsState extends State<screen2_events> {
                 Center(
                   child: FlatButton.icon(
                       onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => teams())),
+                          MaterialPageRoute(builder: (context) => teams())),
                       icon: Icon(
                         Icons.people,
                         color: Colors.blue,
@@ -636,8 +634,7 @@ class screen2_eventsState extends State<screen2_events> {
                 Center(
                   child: FlatButton.icon(
                       onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => about())),
+                          MaterialPageRoute(builder: (context) => about())),
                       icon: Icon(
                         Icons.info_outline,
                         color: Colors.blue,
@@ -647,33 +644,36 @@ class screen2_eventsState extends State<screen2_events> {
                         style: TextStyle(fontFamily: "productSans"),
                       )),
                 ),
-                Container(padding: EdgeInsets.only(bottom: 15),),
+                Container(
+                  padding: EdgeInsets.only(bottom: 15),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                Center(
-                    child: FlatButton.icon(
-                        onPressed: () => Navigator.pop(context, true),
-                        icon: Icon(
-                          Icons.exit_to_app,
-                          color: Colors.green,
-                        ),
-                        label: Text(
-                          "Exit App",
-                          style: TextStyle(fontFamily: "productSans"),
-                        ))),
-                Center(
-                    child: FlatButton.icon(
-                        onPressed: () => Navigator.pop(context, false),
-                        icon: Icon(
-                          Icons.clear,
-                          color: Colors.red,
-                        ),
-                        label: Text(
-                          "Close",
-                          style: TextStyle(fontFamily: "productSans"),
-                        )))
-                ],)
+                    Center(
+                        child: FlatButton.icon(
+                            onPressed: () => Navigator.pop(context, true),
+                            icon: Icon(
+                              Icons.exit_to_app,
+                              color: Colors.green,
+                            ),
+                            label: Text(
+                              "Exit App",
+                              style: TextStyle(fontFamily: "productSans"),
+                            ))),
+                    Center(
+                        child: FlatButton.icon(
+                            onPressed: () => Navigator.pop(context, false),
+                            icon: Icon(
+                              Icons.clear,
+                              color: Colors.red,
+                            ),
+                            label: Text(
+                              "Close",
+                              style: TextStyle(fontFamily: "productSans"),
+                            )))
+                  ],
+                )
               ],
             ));
   }
