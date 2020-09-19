@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dscnsec_app/Drawer/drawer.dart';
 import 'package:flutter/material.dart';
 import './introText.dart';
@@ -698,7 +700,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               actions: [
                 FlatButton.icon(
-                    onPressed: () => Navigator.pop(context, true),
+                    onPressed: () => exit(0),
                     icon: Icon(
                       Icons.done,
                       color: Colors.green,

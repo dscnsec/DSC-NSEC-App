@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dscnsec_app/Drawer/drawer.dart';
 import 'package:dscnsec_app/screens/screen1_home.dart';
@@ -652,7 +653,7 @@ class screen2_eventsState extends State<screen2_events> {
                   children: [
                     Center(
                         child: FlatButton.icon(
-                            onPressed: () => Navigator.pop(context, true),
+                            onPressed: () => exit(0),
                             icon: Icon(
                               Icons.exit_to_app,
                               color: Colors.green,

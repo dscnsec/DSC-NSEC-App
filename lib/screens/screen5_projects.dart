@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dscnsec_app/screens/screen1_home.dart';
 import 'package:dscnsec_app/screens/screen2_events.dart';
 import 'package:dscnsec_app/screens/screen3_teams.dart';
@@ -206,7 +208,7 @@ class _ProjectPageState extends State<ProjectPage> {
               children: [
                 Center(
                     child: FlatButton.icon(
-                        onPressed: () => Navigator.pop(context, true),
+                        onPressed: () => exit(0),
                         icon: Icon(
                           Icons.exit_to_app,
                           color: Colors.green,
