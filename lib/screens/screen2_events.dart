@@ -777,6 +777,7 @@ class CardScrollUpWidget extends StatelessWidget {
                             ),
                             if (up_id[0] != 0)
                               GestureDetector(
+
                                 onTap: () {
                                   debugPrint("Number ${i} tile tapped...!");
                                 },
