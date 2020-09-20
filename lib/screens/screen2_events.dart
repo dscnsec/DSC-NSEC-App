@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:dscnsec_app/customIcons.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:math';
+import 'event_details/eventFullDetails.dart';
 import 'eventsData.dart';
 import 'package:http/http.dart' as http;
 
@@ -344,7 +345,18 @@ class screen2_eventsState extends State<screen2_events> {
                                       controller: controllerUpcoming,
                                       reverse: true,
                                       itemBuilder: (context, index) {
-                                        return Container();
+                                        return GestureDetector(
+                                          onTap: () => Navigator.of(context)
+                                              .pushReplacement(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  eventFullDetails(
+                                                index,
+                                                'up',
+                                              ),
+                                            ),
+                                          ),
+                                        );
                                       },
                                     ),
                                   )
@@ -366,7 +378,18 @@ class screen2_eventsState extends State<screen2_events> {
                                         controller: controllerUpcoming,
                                         reverse: true,
                                         itemBuilder: (context, index) {
-                                          return Container();
+                                          return GestureDetector(
+                                            onTap: () => Navigator.of(context)
+                                                .pushReplacement(
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    eventFullDetails(
+                                                  index,
+                                                  'up',
+                                                ),
+                                              ),
+                                            ),
+                                          );
                                         },
                                       ),
                                     )
@@ -474,7 +497,18 @@ class screen2_eventsState extends State<screen2_events> {
                                       controller: controllerPast,
                                       reverse: true,
                                       itemBuilder: (context, index) {
-                                        return Container();
+                                        return GestureDetector(
+                                          onTap: () => Navigator.of(context)
+                                              .pushReplacement(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  eventFullDetails(
+                                                index,
+                                                'past',
+                                              ),
+                                            ),
+                                          ),
+                                        );
                                       },
                                     ),
                                   )
@@ -496,7 +530,18 @@ class screen2_eventsState extends State<screen2_events> {
                                         controller: controllerPast,
                                         reverse: true,
                                         itemBuilder: (context, index) {
-                                          return Container();
+                                          return GestureDetector(
+                                            onTap: () => Navigator.of(context)
+                                                .pushReplacement(
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    eventFullDetails(
+                                                  index,
+                                                  'past',
+                                                ),
+                                              ),
+                                            ),
+                                          );
                                         },
                                       ),
                                     )
@@ -751,12 +796,11 @@ class CardScrollUpWidget extends StatelessWidget {
                     children: <Widget>[
                       if (up_id[0] != 0)
                         FadeInImage.assetNetwork(
-                          fadeInCurve: Curves.bounceIn,
-                          fadeInDuration: const Duration(seconds: 1),
-                          placeholder: 'assets/images/loading.gif',
-                          image: up_banner[i],
-                          fit: BoxFit.cover,
-                        ),
+                            fadeInCurve: Curves.bounceIn,
+                            fadeInDuration: const Duration(seconds: 1),
+                            placeholder: 'assets/images/loading.gif',
+                            image: up_banner[i],
+                            fit: BoxFit.fitWidth),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
@@ -777,24 +821,18 @@ class CardScrollUpWidget extends StatelessWidget {
                               height: 10.0,
                             ),
                             if (up_id[0] != 0)
-                              GestureDetector(
-
-                                onTap: () {
-                                  debugPrint("Number ${i} tile tapped...!");
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 12.0, bottom: 12.0),
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 22.0, vertical: 6.0),
-                                    decoration: BoxDecoration(
-                                        color: Colors.blueAccent,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0)),
-                                    child: Text("Know More",
-                                        style: TextStyle(color: Colors.white)),
-                                  ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12.0, bottom: 12.0),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 22.0, vertical: 6.0),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blueAccent,
+                                      borderRadius:
+                                          BorderRadius.circular(20.0)),
+                                  child: Text("Know More",
+                                      style: TextStyle(color: Colors.white)),
                                 ),
                               )
                           ],
@@ -808,8 +846,13 @@ class CardScrollUpWidget extends StatelessWidget {
           );
           cardList.add(cardItem);
         }
-        return Stack(
-          children: cardList,
+        return GestureDetector(
+          onTap: () {
+            print('Hello');
+          },
+          child: Stack(
+            children: cardList,
+          ),
         );
       }),
     );
@@ -877,7 +920,7 @@ class CardScrollPastWidget extends StatelessWidget {
                           fadeInDuration: const Duration(seconds: 1),
                           placeholder: 'assets/images/loading.gif',
                           image: past_banner[i],
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitWidth,
                         ),
                       Align(
                         alignment: Alignment.bottomLeft,
