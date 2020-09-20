@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dscnsec_app/Drawer/drawer.dart';
+import 'package:dscnsec_app/screens/event_details/eventFullDetailsForHome.dart';
 import 'package:flutter/material.dart';
 import './introText.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -821,7 +822,7 @@ class EventCard extends StatelessWidget {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      eventFullDetails(card_index, eventType)));
+                                      eventFullDetailsForHome(card_index, eventType)));
                         },
                         child: Container(
                           color: Colors.blue,
