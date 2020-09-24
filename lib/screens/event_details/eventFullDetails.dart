@@ -639,11 +639,331 @@ class eventFullDetailsState extends State<eventFullDetails> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "$eventType\n\nEvent Number-$j",
-                          style: TextStyle(
-                              fontSize: 25, fontFamily: 'Google-Sans'),
+                        //alert note (if any)
+                        if (rev_past_note[j] != "")
+                          Padding(
+                            padding: EdgeInsets.all(2.5),
+                          ),
+                        if (rev_past_note[j] != "")
+                          Container(
+                            padding: EdgeInsets.fromLTRB(7, 2, 1, 2),
+                            color: Colors.redAccent,
+                            child: Center(
+                              child: Text(
+                                "This event had already been conducted on ${rev_past_date[j]}",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'productSans',
+                                    color: Colors.white,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                            ),
+                          ),
+
+                        //event name
+                        if (rev_past_name[j] != "")
+                          Center(
+                              child: Container(
+                                  padding: EdgeInsets.fromLTRB(5, 15, 5, 15),
+                                  child: Text("${rev_past_name[j]}",
+                                      style: TextStyle(
+                                        fontFamily: 'productSans',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 25.0,
+                                      )))),
+                        //event banner
+
+                        Center(
+                            child: Padding(
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 15),
+                                child: Container(
+                                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    height: 200,
+                                    width: 350,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        new BoxShadow(
+                                          color: Colors.white,
+                                          offset: new Offset(15.0, 5.0),
+                                          blurRadius: 20.0,
+                                        )
+                                      ],
+                                    ),
+                                    child: Card(
+                                      child: FadeInImage.assetNetwork(
+                                        fadeInCurve: Curves.easeInOutCubic,
+                                        fadeInDuration:
+                                            const Duration(seconds: 1),
+                                        placeholder:
+                                            'assets/images/loading2.gif',
+                                        image: rev_past_banner[j],
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )))),
+
+                        //date time venue mode
+                        if (rev_past_date[j] != "")
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                  width: 30,
+                                  child: Icon(
+                                    Icons.event,
+                                    color: Colors.blueAccent,
+                                  )),
+                              Container(
+                                width: 115,
+                                padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
+                                child: Text(
+                                  " Event Date  :",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'productSans',
+                                      color: Colors.grey[600]),
+                                ),
+                              ),
+                              Container(
+                                width: 160,
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                child: Text(
+                                  "${rev_past_date[j]}",
+                                  style: TextStyle(
+                                      fontSize: 18, fontFamily: 'productSans'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        if (rev_past_time[j] != "")
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                  width: 30,
+                                  child: Icon(
+                                    Icons.timelapse,
+                                    color: Colors.blueAccent,
+                                  )),
+                              Container(
+                                width: 115,
+                                padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
+                                child: Text(
+                                  " Event Time  :",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'productSans',
+                                      color: Colors.grey[600]),
+                                ),
+                              ),
+                              Container(
+                                width: 160,
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                child: Text(
+                                  "${rev_past_time[j]}",
+                                  style: TextStyle(
+                                      fontSize: 18, fontFamily: 'productSans'),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                        if (rev_past_mode[j] != "")
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                  width: 30,
+                                  child: Icon(
+                                    Icons.graphic_eq,
+                                    color: Colors.blueAccent,
+                                  )),
+                              Container(
+                                width: 115,
+                                padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
+                                child: Text(
+                                  "Event Mode :",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'productSans',
+                                      color: Colors.grey[600]),
+                                ),
+                              ),
+                              Container(
+                                width: 160,
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                child: Text(
+                                  "${rev_past_mode[j]}",
+                                  style: TextStyle(
+                                      fontSize: 18, fontFamily: 'productSans'),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                        if (rev_past_location[j] != "")
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                  width: 30,
+                                  child: Icon(
+                                    Icons.location_on,
+                                    color: Colors.blueAccent,
+                                  )),
+                              Container(
+                                width: 115,
+                                padding: EdgeInsets.fromLTRB(3, 0, 0, 5),
+                                child: Text(
+                                  "Event Venue :",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'productSans',
+                                      color: Colors.grey[600]),
+                                ),
+                              ),
+                              Container(
+                                width: 160,
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                child: Text(
+                                  "${rev_past_location[j]}",
+                                  style: TextStyle(
+                                      fontSize: 18, fontFamily: 'productSans'),
+                                ),
+                              ),
+                            ],
+                          ),
+
+//description
+                        if (rev_past_desc[j] != "")
+                          Container(
+                            padding: EdgeInsets.fromLTRB(5, 15, 5, 2),
+                            child: Text(
+                              "About Event",
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontFamily: 'productSans',
+                                  color: Colors.grey[600]),
+                            ),
+                          ),
+                        if (rev_past_desc[j] != "")
+                          Container(
+                            padding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+                            child: Text(
+                              "${rev_past_desc[j]}",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'productSans',
+                                  color: Colors.blue),
+                            ),
+                          ),
+
+                        //prior knowledge
+                        Container(
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                          child: Text(
+                            "Prerequisites",
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontFamily: 'productSans',
+                                color: Colors.grey[600]),
+                          ),
                         ),
+                        if (rev_past_prerequire[j] != "")
+                          for (int i = 0; i < pre.length; i++)
+                            Container(
+                              padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                              child: Chip(
+                                label: Text(
+                                  "${pre[i]}",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'productSans',
+                                      color: Colors.grey[600]),
+                                ),
+                              ),
+                            ),
+                        if (rev_past_prerequire[j] == "")
+                          Container(
+                            padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                            child: Chip(
+                              label: Text(
+                                "No prior knowledge is required.",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'productSans',
+                                    color: Colors.grey[600]),
+                              ),
+                            ),
+                          ),
+                        //speakers
+                        if (rev_past_speakers[j] != "")
+                          Container(
+                            padding: EdgeInsets.fromLTRB(5, 15, 5, 0),
+                            child: Text(
+                              "Our Speakers",
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontFamily: 'productSans',
+                                  color: Colors.grey[600]),
+                            ),
+                          ),
+                        if (rev_past_speakers[j] != "")
+                          for (int i = 0; i < speakers.length; i++)
+                            Container(
+                              padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                              child: Chip(
+                                label: Text(
+                                  "${speakers[i]}",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'productSans',
+                                      color: Colors.grey[600]),
+                                ),
+                              ),
+                            ),
+                        //registration details
+                        Container(
+                          padding: EdgeInsets.fromLTRB(5, 15, 5, 0),
+                          child: Text(
+                            "Event Registration",
+                            style: TextStyle(
+                                fontSize: 23,
+                                fontFamily: 'productSans',
+                                color: Colors.grey[600]),
+                          ),
+                        ),
+
+                        Column(
+                          children: [
+                            Column(
+                              children: [
+                                Container(
+                                    padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+                                    child: Icon(
+                                      Icons.sentiment_dissatisfied,
+                                      color: Colors.redAccent,
+                                      size: 45,
+                                    )),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 25),
+                                  child: Text(
+                                    "Registration for this event has been Closed.",
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontFamily: 'productSans',
+                                        color: Colors.redAccent),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
                       ],
                     ),
                 ],
@@ -660,81 +980,12 @@ class eventFullDetailsState extends State<eventFullDetails> {
         builder: (context) => AlertDialog(
               title: Center(
                 child: Text(
-                  "Where to Go!",
+                  "Return to All Events Section ?",
                   style: TextStyle(fontFamily: "productSans"),
                 ),
               ),
               actions: [
-                Center(
-                  child: FlatButton.icon(
-                      onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen())),
-                      icon: Icon(
-                        Icons.home,
-                        color: Colors.blue,
-                        size: 30,
-                      ),
-                      label: Text(
-                        "Home",
-                        style: TextStyle(fontFamily: "productSans"),
-                      )),
-                ),
-                Center(
-                  child: FlatButton.icon(
-                      onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => screen2_events())),
-                      icon: Icon(
-                        Icons.event_available,
-                        color: Colors.blue,
-                      ),
-                      label: Text(
-                        "Events",
-                        style: TextStyle(fontFamily: "productSans"),
-                      )),
-                ),
-                Center(
-                  child: FlatButton.icon(
-                      onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => ProjectPage())),
-                      icon: Icon(
-                        Icons.lightbulb_outline,
-                        color: Colors.blue,
-                        size: 28,
-                      ),
-                      label: Text(
-                        "Projects",
-                        style: TextStyle(fontFamily: "productSans"),
-                      )),
-                ),
-                Center(
-                  child: FlatButton.icon(
-                      onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => teams())),
-                      icon: Icon(
-                        Icons.people,
-                        color: Colors.blue,
-                      ),
-                      label: Text(
-                        "Our Teams",
-                        style: TextStyle(fontFamily: "productSans"),
-                      )),
-                ),
-                Center(
-                  child: FlatButton.icon(
-                      onPressed: () => Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => about())),
-                      icon: Icon(
-                        Icons.info_outline,
-                        color: Colors.blue,
-                      ),
-                      label: Text(
-                        "About Us",
-                        style: TextStyle(fontFamily: "productSans"),
-                      )),
-                ),
+
                 Container(
                   padding: EdgeInsets.only(bottom: 15),
                 ),
@@ -743,13 +994,15 @@ class eventFullDetailsState extends State<eventFullDetails> {
                   children: [
                     Center(
                         child: FlatButton.icon(
-                            onPressed: () => exit(0),
+                            onPressed: () => Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) => screen2_events())),
                             icon: Icon(
-                              Icons.exit_to_app,
+                              Icons.check,
                               color: Colors.green,
                             ),
                             label: Text(
-                              "Exit App",
+                              "Return",
                               style: TextStyle(fontFamily: "productSans"),
                             ))),
                     Center(
