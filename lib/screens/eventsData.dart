@@ -1,4 +1,4 @@
-//Upcoming Events Data Start ->
+//Upcoming Events Data Starts here ->
 
 List<dynamic> up_id = [0];
 List<dynamic> up_name = ["..."];
@@ -15,9 +15,9 @@ List<dynamic> up_lastreg = ["..."];
 List<dynamic> up_regstatus = ["..."];
 List<dynamic> up_banner = ["..."];
 
-//Upcoming Events Data End ->
+//Upcoming Events Data Ends here ->
 
-//Past Events Data Start ->
+//Past Events Data Starts here ->
 
 List<dynamic> past_id = [0];
 List<dynamic> past_name = ["..."];
@@ -34,4 +34,4 @@ List<dynamic> past_lastreg = ["..."];
 List<dynamic> past_regstatus = ["..."];
 List<dynamic> past_banner = ["..."];
 
-//Past Events Data End ->
+//Past Events Data Ends here ->

@@ -296,7 +296,6 @@ class screen2_eventsState extends State<screen2_events> {
                         //YOUR CODE GOES HERE ->> DSC NSEC EVENTS SECTION
 
                         // Upcoming Events here
-
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 20.0),

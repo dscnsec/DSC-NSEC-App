@@ -121,16 +121,6 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     futureAlbum = fetchAlbum();
-    // Future.delayed(Duration(microseconds: 0),(){
-    //   setState(() {
-    //     xOffset =
-    //         MediaQuery.of(context).size.height * 0.3;
-    //     yOffset =
-    //         MediaQuery.of(context).size.width * 0.37;
-    //     scalefactor = 0.6;
-    //     isdrawerOpen = true;
-    //   });
-    // });
   }
 
   @override
@@ -362,7 +352,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  //All the FEATURED cards will be here
+
+                  //All the FEATURED cards will be here ->>
 
                   Container(
                     child: FutureBuilder<Album>(
