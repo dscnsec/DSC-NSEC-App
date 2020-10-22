@@ -29,6 +29,7 @@ dependencies:
   http: ^0.12.2
   url_launcher: ^5.5.3
   flutter_spinkit: "^4.1.2"
+  animated_text_kit: ^2.4.1
 
 
 flutter_icons:

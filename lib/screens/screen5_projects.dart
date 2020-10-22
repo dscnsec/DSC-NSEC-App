@@ -14,6 +14,8 @@ import './introText.dart';
 import 'package:http/http.dart' as http;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'project_details/projectsData.dart';
+
 TextofIntro text = TextofIntro();
 
 //Projects Data REST api -- Starts here -->
@@ -239,6 +241,7 @@ class _ProjectPageState extends State<ProjectPage> {
                             pro_id = snapshot.data.pro_id;
                             pro_name = snapshot.data.pro_name;
                             pro_desc = snapshot.data.pro_desc;
+                            pro_individual=snapshot.data.pro_individual;
                             pro_dev_name = snapshot.data.pro_dev_name;
                             pro_dev_dp = snapshot.data.pro_dev_dp;
                             pro_tools = snapshot.data.pro_tools;
@@ -429,6 +432,7 @@ class _ProjectPageState extends State<ProjectPage> {
                                                                 .data.pro_name;
                                                             pro_desc = snapshot
                                                                 .data.pro_desc;
+                                                            pro_individual=snapshot.data.pro_individual;
                                                             pro_dev_name =
                                                                 snapshot.data
                                                                     .pro_dev_name;
