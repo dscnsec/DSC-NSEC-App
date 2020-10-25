@@ -231,7 +231,7 @@ class _ProjectPageState extends State<ProjectPage> {
                   Container(padding: EdgeInsets.only(top:10),),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 2, 0, 2),
-                    color: Colors.amberAccent[100],
+                    color: Colors.white,
                     child: Container(
                       child: FutureBuilder<Album>(
                         future: futureAlbum,
