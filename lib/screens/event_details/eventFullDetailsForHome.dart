@@ -5,6 +5,7 @@ import 'package:dscnsec_app/screens/eventsData.dart';
 import 'package:dscnsec_app/screens/featuredEventsDataForHome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../customIcons.dart';
 import '../introText.dart';
@@ -576,23 +577,25 @@ if (eventType == "past") {
                                                     color: Colors.pinkAccent),
                                               ),
                                             ),
-                                            Container(
-                                                padding:
-                                                EdgeInsets.fromLTRB(
-                                                    5, 5, 5, 25),
-                                                child: RaisedButton.icon(
-                                                    color: Colors.blueAccent,
-                                                    elevation: 3,
-                                                    onPressed: () {},
-                                                    icon: Icon(
-                                                      Icons.done_outline,
-                                                      color: Colors.white,),
-                                                    label: Text("Register Now!",
-                                                      style: TextStyle(
-                                                          fontSize: 15,
-                                                          fontFamily: 'productSans',
-                                                          color: Colors
-                                                              .white),))),
+
+                                             Container(
+                                                  padding:
+                                                  EdgeInsets.fromLTRB(
+                                                      5, 5, 5, 25),
+                                                  child: RaisedButton.icon(
+
+                                                      color: Colors.blueAccent,
+                                                      elevation: 3,
+                                                      onPressed: _registerURL,
+                                                      icon: Icon(
+                                                        Icons.done_outline,
+                                                        color: Colors.white,),
+                                                      label: Text("Register Now!",
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            fontFamily: 'productSans',
+                                                            color: Colors
+                                                                .white),))),
                                           ],
                                         ),
                                     ],
@@ -639,4 +642,15 @@ if (eventType == "past") {
       margin: EdgeInsets.all(0),
     );
   }
+
+  //Register URL launcher for Home Screen
+  _registerURL() async {
+    var url = "${up_reglink[j]}";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
 }

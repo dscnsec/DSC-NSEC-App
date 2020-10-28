@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:dscnsec_app/Drawer/drawer.dart';
 import 'package:dscnsec_app/screens/screen1_home.dart';
 import 'package:dscnsec_app/screens/screen3_teams.dart';
@@ -216,7 +217,7 @@ class screen2_eventsState extends State<screen2_events> {
                 AnimatedContainer(
                   height: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.white,
                     borderRadius:
                         BorderRadius.circular(isdrawerOpen ? 35.0 : 0.0),
                   ),
@@ -298,19 +299,28 @@ class screen2_eventsState extends State<screen2_events> {
                         // Upcoming Events here
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 20.0),
+                              horizontal: 20.0, vertical: 0.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                "Upcoming Events",
+                                "Upcoming ",
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 35.0,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30.0,
+                                  fontWeight: FontWeight.w500,
                                   fontFamily: 'productSans',
                                 ),
                               ),
+
+                              RotateAnimatedTextKit(
+                                repeatForever: true,
+                                  transitionHeight: 80,
+                                  text: ["Events", "Meetups", "Webinars"],
+                                  textStyle: TextStyle(color:Colors.blueAccent,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
+                                  textAlign: TextAlign.start
+                              ),
+
                             ],
                           ),
                         ),
@@ -396,24 +406,13 @@ class screen2_eventsState extends State<screen2_events> {
                                 );
                             }
                             return Container(
-                              padding: EdgeInsets.fromLTRB(30, 10, 30, 20),
-                              child: Card(
-                                  elevation: 0.0,
-                                  child: Container(
-                                    color: Colors.grey[200],
-                                    height: 360,
-                                    width: 270,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        const SpinKitThreeBounce(
-                                            color: Colors.blueAccent),
-                                        const SpinKitThreeBounce(
-                                            color: Colors.amber),
-                                      ],
-                                    ),
-                                  )),
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: Container(
+
+                                    color: Colors.white,
+                                    child:
+                                        loadingAnimation()
+                                      ),
                             );
                           },
                         ),
@@ -444,24 +443,32 @@ class screen2_eventsState extends State<screen2_events> {
                                 ),
                               )),
                         SizedBox(
-                          height: 20.0,
+                          height: 15.0,
                         ),
 
                         //Past Events Here
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 20.0),
+                              horizontal: 20.0, vertical: 0.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                "Past Events",
+                                "Past  ",
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 35.0,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30.0,
+                                  fontWeight: FontWeight.w500,
                                   fontFamily: 'productSans',
                                 ),
+                              ),
+
+                              RotateAnimatedTextKit(
+                                  repeatForever: true,
+                                  transitionHeight: 80,
+                                  text: ["Events", "Meetups", "Webinars"],
+                                  textStyle: TextStyle(color:Colors.purple,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
+                                  textAlign: TextAlign.start
                               ),
                             ],
                           ),
@@ -548,24 +555,12 @@ class screen2_eventsState extends State<screen2_events> {
                                 );
                             }
                             return Container(
-                              padding: EdgeInsets.fromLTRB(30, 10, 30, 20),
-                              child: Card(
-                                  elevation: 0.0,
-                                  child: Container(
-                                    color: Colors.grey[200],
-                                    height: 360,
-                                    width: 270,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        const SpinKitThreeBounce(
-                                            color: Colors.blueAccent),
-                                        const SpinKitThreeBounce(
-                                            color: Colors.amber),
-                                      ],
-                                    ),
-                                  )),
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
+                              child:
+                                   Container(
+                                    child:
+                                        loadingAnimation()
+                                  ),
                             );
                           },
                         ),
@@ -736,6 +731,21 @@ class screen2_eventsState extends State<screen2_events> {
       margin: EdgeInsets.all(0),
     );
   }
+
+  // Events Page loading Animation
+  Widget loadingAnimation() {
+    var assetImage = AssetImage("assets/images/eventLoading.gif");
+    var image = Image(
+      fit: BoxFit.cover,
+      image: assetImage,
+      height: 400,
+      width: 600,
+    );
+    return Container(
+      child: image,
+      margin: EdgeInsets.all(0),
+    );
+  }
 }
 
 class CardScrollUpWidget extends StatelessWidget {
@@ -782,7 +792,7 @@ class CardScrollUpWidget extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
               child: Container(
-                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                decoration: BoxDecoration(color: Colors.grey[100], boxShadow: [
                   BoxShadow(
                       color: Colors.black12,
                       offset: Offset(3.0, 6.0),
@@ -902,7 +912,7 @@ class CardScrollPastWidget extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
               child: Container(
-                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                decoration: BoxDecoration(color: Colors.grey[100], boxShadow: [
                   BoxShadow(
                       color: Colors.black12,
                       offset: Offset(3.0, 6.0),
