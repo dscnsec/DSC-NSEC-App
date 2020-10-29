@@ -299,27 +299,31 @@ class screen2_eventsState extends State<screen2_events> {
                         // Upcoming Events here
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 0.0),
+                              horizontal: 0.0, vertical: 0.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                "Upcoming ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'productSans',
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: 20.0, top: 10),
+                                child: Text(
+                                  "Upcoming Events",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'productSans',
+                                  ),
                                 ),
                               ),
 
-                              RotateAnimatedTextKit(
-                                repeatForever: true,
-                                  transitionHeight: 80,
-                                  text: ["Events", "Meetups", "Webinars"],
-                                  textStyle: TextStyle(color:Colors.blueAccent,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
-                                  textAlign: TextAlign.start
-                              ),
+                              // RotateAnimatedTextKit(
+                              //   repeatForever: true,
+                              //     transitionHeight: 80,
+                              //     text: ["Events", "Meetups", "Webinars"],
+                              //     textStyle: TextStyle(color:Colors.blueAccent,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
+                              //     textAlign: TextAlign.start
+                              // ),
 
                             ],
                           ),
@@ -373,9 +377,15 @@ class screen2_eventsState extends State<screen2_events> {
                               );
                             } else if (snapshot.hasError) {
                               if (up_id[0] == 0)
-                                return Image(
-                                  image:
-                                      AssetImage('assets/images/no_image.jpeg'),
+                                return Container(
+                                  padding: EdgeInsets.only(
+                                      left: 0.0),
+                                  child: Image(
+                                    fit: BoxFit.fill,
+
+                                    image:
+                                        AssetImage('assets/images/no_image.gif'),
+                                  ),
                                 );
                               else
                                 return Stack(
@@ -407,11 +417,13 @@ class screen2_eventsState extends State<screen2_events> {
                             }
                             return Container(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: Container(
+                              height: 395,
 
-                                    color: Colors.white,
+                              child: Center(
+
                                     child:
-                                        loadingAnimation()
+                                        // loadingAnimation()
+                                CircularProgressIndicator()
                                       ),
                             );
                           },
@@ -443,33 +455,37 @@ class screen2_eventsState extends State<screen2_events> {
                                 ),
                               )),
                         SizedBox(
-                          height: 15.0,
+                          height: 20.0,
                         ),
 
                         //Past Events Here
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 0.0),
+                              horizontal: 0.0, vertical: 0.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                "Past  ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'productSans',
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: 20.0, top: 10),
+                                child: Text(
+                                  "Past Events",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'productSans',
+                                  ),
                                 ),
                               ),
 
-                              RotateAnimatedTextKit(
-                                  repeatForever: true,
-                                  transitionHeight: 80,
-                                  text: ["Events", "Meetups", "Webinars"],
-                                  textStyle: TextStyle(color:Colors.purple,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
-                                  textAlign: TextAlign.start
-                              ),
+                              // RotateAnimatedTextKit(
+                              //     repeatForever: true,
+                              //     transitionHeight: 80,
+                              //     text: ["Events", "Meetups", "Webinars"],
+                              //     textStyle: TextStyle(color:Colors.purple,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
+                              //     textAlign: TextAlign.start
+                              // ),
                             ],
                           ),
                         ),
@@ -524,7 +540,7 @@ class screen2_eventsState extends State<screen2_events> {
                               if (past_id[0] == 0)
                                 return Image(
                                   image:
-                                      AssetImage('assets/images/no_image.jpeg'),
+                                      AssetImage('assets/images/no_image.gif'),
                                 );
                               else
                                 return Stack(
@@ -556,10 +572,12 @@ class screen2_eventsState extends State<screen2_events> {
                             }
                             return Container(
                               padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
+                              height: 395,
                               child:
-                                   Container(
+                                   Center(
                                     child:
-                                        loadingAnimation()
+                                        // loadingAnimation()
+                                    CircularProgressIndicator()
                                   ),
                             );
                           },
