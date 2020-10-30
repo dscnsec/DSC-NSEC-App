@@ -54,7 +54,6 @@ To Run the code on the local device, one must get the following requirements :
   ```
 
 * Note:- After running the above command, press 'y' each time when asked to accept all Android licenses.
-<br>
 
 3. **Verify the installation**
 
@@ -63,7 +62,6 @@ To Run the code on the local device, one must get the following requirements :
    ```
    flutter doctor -v
    ```
-<br>
 
 4. **Run the code**
     
