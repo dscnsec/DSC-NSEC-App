@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.dscnsec.com">
-    <img alt="DSC NSEC" src="logo.png" height="auto" width="auto" />
+    <img alt="DSC NSEC" src="https://github.com/dscnsec/DSC-NSEC-App/blob/master/assets/images/logo_doc.png" height="auto" width="auto" />
   </a>
 </p>
 <h3 align="center">
@@ -40,26 +40,29 @@ To Run the code on the local device, one must get the following requirements :
 * Android Virtual Emulator (Android Mobile devices can aslo be used as an Emulator)
 
 1. **Installation Guide**
-To get started with necessary software installations, follow the step-wise detailed instructions by visiting the link below : 
+
+    To get started with necessary software installations, follow the step-wise detailed instructions by visiting the link below : 
 
     https://flutter.dev/docs/get-started/install
-<br>
-2. **Accept the Android Licenses**
-After the installation of the above mentioned softwares, open the Terminal/Command Prompt & run the following command to accept the Android License Agreements.
 
-    ```
-    flutter doctor --android-licenses
-    ```
+2. **Accept the Android Licenses**
+
+  After the installation of the above mentioned softwares, open the Terminal/Command Prompt & run the following command to accept the Android License Agreements.
+
+  ```
+  flutter doctor --android-licenses
+  ```
 
 * Note:- After running the above command, press 'y' each time when asked to accept all Android licenses.
 <br>
 
 3. **Verify the installation**
-Verify the software installation by running the following command in the Terminal/Command Prompt:
 
-    ```
-    flutter doctor -v
-    ```
+   Verify the software installation by running the following command in the Terminal/Command Prompt:
+
+   ```
+   flutter doctor -v
+   ```
 <br>
 
 4. **Run the code**
@@ -90,7 +93,7 @@ Full documentation for Flutter lives [on the website](https://flutter.dev/docs).
 We welcome suggestions for improving our docs. See the “[how to contribute](https://github.com/dscnsec/DSC-NSEC-App/blob/master/CODE_OF_CONDUCT.md)” documentation for more details.
 
 ## ❗ Code of Conduct
-
+  
 DSC NSEC is dedicated to building a welcoming, diverse, safe community. We expect everyone participating in the community to abide by our [**Code of Conduct**](https://github.com/dscnsec/DSC-NSEC-App/blob/master/CODE_OF_CONDUCT.md). Please read it. Please follow it. In the DSC NSEC community, we work hard to build each other up and make good things together. 💪💜
 
 ## 🤝 How to Contribute
@@ -101,7 +104,7 @@ Check out our [**Contributing Guide**](https://github.com/dscnsec/DSC-NSEC-App/b
 
 ## :memo: License
 
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [GNU General Public License v3.0](https://github.com/dscnsec/DSC-NSEC-App/blob/master/LICENSE).
 
 ## 💜 Thanks
 
