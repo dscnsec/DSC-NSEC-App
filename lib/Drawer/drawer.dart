@@ -7,6 +7,12 @@ import '../screens/screen5_projects.dart';
 import '../screens/screen1_home.dart';
 
 final obJECT = HomeScreen();
+var fontWeight_home = FontWeight.w400;
+var fontWeight_events = FontWeight.w400;
+var fontWeight_projects = FontWeight.w400;
+var fontWeight_teams = FontWeight.w400;
+var fontWeight_about = FontWeight.w400;
+var fontWeight_devCredits = FontWeight.w400;
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -47,7 +53,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         letterSpacing: 5.0,
                         color: Colors.white,
                         fontFamily: 'productSans',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w900,
                         fontSize: 35),
                   ),
                 ],
@@ -55,30 +61,30 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ),
 //Middle part
             Padding(
-              padding: EdgeInsets.only(left: 22.0),
+              padding: EdgeInsets.only(top: 11, left: 22.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   //Home tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
-                      child: Card(
-                        color: Color(0xFF4285F4),
-                        elevation: 0,
-                        child: navItem('Home', Icons.home, context),
-                      ),
+                      child:
+                          navItem('Home', Icons.home, context, fontWeight_home),
                       onTap: () {
+                        resetFontWeights();
+                        fontWeight_home = FontWeight.w900;
+
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => HomeScreen()));
                       }),
 
                   //event tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
-                    child: Card(
-                        color: Color(0xFF4285F4),
-                        elevation: 0,
-                        child: navItem(
-                            'Events', FontAwesomeIcons.calendarCheck, context)),
+                    child: navItem('Events', FontAwesomeIcons.calendarCheck,
+                        context, fontWeight_events),
                     onTap: () {
+                      resetFontWeights();
+                      fontWeight_events = FontWeight.w900;
+
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => screen2_events()));
                     },
@@ -86,36 +92,48 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
                   //projects tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
-                      child: Card(
-                        color: Color(0xFF4285F4),
-                        elevation: 0,
-                        child: navItem(
-                            'Projects', FontAwesomeIcons.lightbulb, context),
-                      ),
+                      child: navItem('Projects', FontAwesomeIcons.lightbulb,
+                          context, fontWeight_projects),
                       onTap: () {
+                        resetFontWeights();
+                        fontWeight_projects = FontWeight.w900;
+
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => ProjectPage()));
                       }),
 
                   //team tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
-                      child: Card(
-                          color: Color(0xFF4285F4),
-                          elevation: 0,
-                          child: navItem('Our teams', Icons.people, context)),
+                      child: navItem(
+                          'Our teams', Icons.people, context, fontWeight_teams),
                       onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => teams()));
+                        resetFontWeights();
+                        fontWeight_teams = FontWeight.w900;
+
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => teams()));
                       }),
                   //about us tab ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                   GestureDetector(
-                      child: Card(
-                          color: Color(0xFF4285F4),
-                          elevation: 0,
-                          child: navItem('About us', Icons.info, context)),
+                      child: navItem(
+                          'About us', Icons.info, context, fontWeight_about),
                       onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => about()));
+                        resetFontWeights();
+                        fontWeight_about = FontWeight.w900;
+
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => about()));
+                      }),
+                  //Developer Credits ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  GestureDetector(
+                      child: navItem('Developer\nCredits', Icons.developer_mode,
+                          context, fontWeight_devCredits),
+                      onTap: () {
+                        resetFontWeights();
+                        fontWeight_devCredits = FontWeight.w900;
+
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => about()));
                       }),
                 ],
               ),
@@ -152,9 +170,10 @@ Widget socialMedia(IconData icn) {
       ));
 }
 
-Widget navItem(String navTitle, IconData iconData, BuildContext context) {
+Widget navItem(
+    String navTitle, IconData iconData, BuildContext context, FontWeight fw) {
   return Padding(
-    padding: EdgeInsets.only(bottom: 50.0),
+    padding: EdgeInsets.only(bottom: 40.0),
     child: Row(
       children: <Widget>[
         Padding(
@@ -169,7 +188,7 @@ Widget navItem(String navTitle, IconData iconData, BuildContext context) {
           navTitle,
           style: TextStyle(
             fontFamily: 'productSans',
-            fontWeight: FontWeight.w400,
+            fontWeight: fw,
             color: Colors.white,
             fontSize: 19.0,
           ),
@@ -177,4 +196,13 @@ Widget navItem(String navTitle, IconData iconData, BuildContext context) {
       ],
     ),
   );
+}
+
+void resetFontWeights() {
+  fontWeight_home = FontWeight.w400;
+  fontWeight_events = FontWeight.w400;
+  fontWeight_projects = FontWeight.w400;
+  fontWeight_teams = FontWeight.w400;
+  fontWeight_about = FontWeight.w400;
+  fontWeight_devCredits = FontWeight.w400;
 }
