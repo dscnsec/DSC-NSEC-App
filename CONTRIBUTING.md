@@ -1,5 +1,5 @@
 <h1 align="center">
-Contribution Guidlines:
+Contribution Guidlines
 </h1>
 
 We want contributing to DSC NSEC to be fun, enjoyable, and educational for anyone and everyone. All contributions are welcome, including issues, new docs as well as updates, and more.
@@ -22,7 +22,7 @@ When someone wants to contribute to any repo, they open a request to pull their 
 
 For any kind of change to files in our repo, you can follow the below steps. Be sure to check out additional tips for contributing to various parts of the repo later in this doc, such as docs changes, starters, or code improvements and tests.
 
-* [Fork and clone the repo]().
+* [Fork and clone the repo](#fork-clone-and-branch-the-repository).
 * Run `pub get` to pull in all the dependencies.
 * Make your changes to the project.
 * [Create a branch in Git](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) to isolate your changes:
