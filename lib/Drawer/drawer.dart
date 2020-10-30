@@ -1,13 +1,14 @@
 import 'package:dscnsec_app/screens/screen2_events.dart';
 import 'package:dscnsec_app/screens/screen3_teams.dart';
 import 'package:dscnsec_app/screens/screen4_about.dart';
+import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../screens/screen5_projects.dart';
 import '../screens/screen1_home.dart';
 
 final obJECT = HomeScreen();
-var fontWeight_home = FontWeight.w400;
+var fontWeight_home = FontWeight.w800;
 var fontWeight_events = FontWeight.w400;
 var fontWeight_projects = FontWeight.w400;
 var fontWeight_teams = FontWeight.w400;
@@ -53,7 +54,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         letterSpacing: 5.0,
                         color: Colors.white,
                         fontFamily: 'productSans',
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w800,
                         fontSize: 35),
                   ),
                 ],
@@ -71,7 +72,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           navItem('Home', Icons.home, context, fontWeight_home),
                       onTap: () {
                         resetFontWeights();
-                        fontWeight_home = FontWeight.w900;
+                        fontWeight_home = FontWeight.w800;
 
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => HomeScreen()));
@@ -83,7 +84,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         context, fontWeight_events),
                     onTap: () {
                       resetFontWeights();
-                      fontWeight_events = FontWeight.w900;
+                      fontWeight_events = FontWeight.w800;
 
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => screen2_events()));
@@ -96,7 +97,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           context, fontWeight_projects),
                       onTap: () {
                         resetFontWeights();
-                        fontWeight_projects = FontWeight.w900;
+                        fontWeight_projects = FontWeight.w800;
 
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => ProjectPage()));
@@ -108,7 +109,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           'Our teams', Icons.people, context, fontWeight_teams),
                       onTap: () {
                         resetFontWeights();
-                        fontWeight_teams = FontWeight.w900;
+                        fontWeight_teams = FontWeight.w800;
 
                         Navigator.of(context).pushReplacement(
                             MaterialPageRoute(builder: (context) => teams()));
@@ -119,7 +120,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           'About us', Icons.info, context, fontWeight_about),
                       onTap: () {
                         resetFontWeights();
-                        fontWeight_about = FontWeight.w900;
+                        fontWeight_about = FontWeight.w800;
 
                         Navigator.of(context).pushReplacement(
                             MaterialPageRoute(builder: (context) => about()));
@@ -130,22 +131,24 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           context, fontWeight_devCredits),
                       onTap: () {
                         resetFontWeights();
-                        fontWeight_devCredits = FontWeight.w900;
+                        fontWeight_devCredits = FontWeight.w800;
 
                         Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => about()));
+                            MaterialPageRoute(builder: (context) => developerCredits()));
                       }),
                 ],
               ),
             ),
 
-            //lower part
+            //footer part
             Padding(
-              padding: EdgeInsets.only(left: 14.0),
+              padding: EdgeInsets.only(left: 10.0),
               child: Row(
                 children: <Widget>[
                   socialMedia(FontAwesomeIcons.whatsapp),
                   socialMedia(FontAwesomeIcons.twitter),
+                  socialMedia(FontAwesomeIcons.facebook),
+                  socialMedia(FontAwesomeIcons.instagram),
                   socialMedia(FontAwesomeIcons.telegram),
                   socialMedia(FontAwesomeIcons.globe),
                   //This icon is for App info> Licenses/App version. etc.
@@ -162,9 +165,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
 Widget socialMedia(IconData icn) {
   return Padding(
-      padding: EdgeInsets.only(right: 10.0),
+      padding: EdgeInsets.only(right: 0,bottom: 5),
       child: IconButton(
-        icon: Icon(icn),
+        icon: Icon(icn,size: 25,),
         color: Colors.white,
         onPressed: () {},
       ));

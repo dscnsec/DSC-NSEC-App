@@ -7,6 +7,7 @@ import 'package:dscnsec_app/screens/screen1_home.dart';
 import 'package:dscnsec_app/screens/screen2_events.dart';
 import 'package:dscnsec_app/screens/screen3_teams.dart';
 import 'package:dscnsec_app/screens/screen4_about.dart';
+import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:flutter/material.dart';
 import '../Drawer/drawer.dart';
 import '../customIcons.dart';
@@ -607,6 +608,21 @@ class _ProjectPageState extends State<ProjectPage> {
                         style: TextStyle(fontFamily: "productSans"),
                       )),
                 ),
+
+                Center(
+                  child: FlatButton.icon(
+                      onPressed: () => Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) => developerCredits())),
+                      icon: Icon(
+                        Icons.developer_mode,
+                        color: Colors.blue,
+                      ),
+                      label: Text(
+                        "Developer\nCredits",
+                        style: TextStyle(fontFamily: "productSans"),
+                      )),
+                ),
+
                 Container(
                   padding: EdgeInsets.only(bottom: 15),
                 ),
