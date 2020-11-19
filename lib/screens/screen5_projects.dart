@@ -872,7 +872,7 @@ class TransitionProjectCard extends StatelessWidget {
                     ),
                     Column(
                       children: <Widget>[
-                        dateVenue(Icons.assistant_outlined, name, 10.0),
+                        dateVenue(Icons.location_on, name, 10.0),
                       ],
                     ),
                     Container(
