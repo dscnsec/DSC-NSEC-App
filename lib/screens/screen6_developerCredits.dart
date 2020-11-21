@@ -32,7 +32,7 @@ class developerCreditsState extends State<developerCredits>{
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: _onBackPressed,
+        onWillPop: _onBackButtonPressed,
         child: Scaffold(
             body: SafeArea(
                 child: Stack(children: <Widget>[
@@ -124,133 +124,50 @@ class developerCreditsState extends State<developerCredits>{
                 ]))));
   }
   //App Exit Alert Function
-  Future<bool> _onBackPressed() {
-    return showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Center(
-            child: Text(
-              "Where to Go!",
+  Future<bool> _onBackButtonPressed() {
+
+    if(isdrawerOpen==true)
+      return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(
+              "Do you really want to exit app?",
               style: TextStyle(fontFamily: "productSans"),
             ),
-          ),
-          actions: [
-            Center(
-              child: FlatButton.icon(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                          builder: (context) => HomeScreen())),
+            actions: [
+              FlatButton.icon(
+                  onPressed: () => exit(0),
                   icon: Icon(
-                    Icons.home,
-                    color: Colors.blue,
-                    size: 30,
+                    Icons.done,
+                    color: Colors.green,
                   ),
                   label: Text(
-                    "Home",
+                    "Yes",
                     style: TextStyle(fontFamily: "productSans"),
                   )),
-            ),
-            Center(
-              child: FlatButton.icon(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                          builder: (context) => screen2_events())),
+              FlatButton.icon(
+                  onPressed: () => Navigator.pop(context, false),
                   icon: Icon(
-                    Icons.event_available,
-                    color: Colors.blue,
+                    Icons.clear,
+                    color: Colors.red,
                   ),
                   label: Text(
-                    "Events",
+                    "No",
                     style: TextStyle(fontFamily: "productSans"),
-                  )),
-            ),
-            Center(
-              child: FlatButton.icon(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                          builder: (context) => ProjectPage())),
-                  icon: Icon(
-                    Icons.lightbulb_outline,
-                    color: Colors.blue,
-                    size: 28,
-                  ),
-                  label: Text(
-                    "Projects",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-            ),
-            Center(
-              child: FlatButton.icon(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                          builder: (context) => teams())),
-                  icon: Icon(
-                    Icons.people,
-                    color: Colors.blue,
-                  ),
-                  label: Text(
-                    "Our Teams",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-            ),
-            Center(
-              child: FlatButton.icon(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                          builder: (context) => about())),
-                  icon: Icon(
-                    Icons.info_outline,
-                    color: Colors.blue,
-                  ),
-                  label: Text(
-                    "About Us",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-            ),
+                  ))
+            ],
+          ));
+    else
+    if(isdrawerOpen==false)
+      setState(() {
+        xOffset =
+            MediaQuery.of(context).size.height * 0.3;
+        yOffset =
+            MediaQuery.of(context).size.width * 0.37;
+        scalefactor = 0.6;
+        isdrawerOpen = true;
+      });
 
-            Center(
-              child: FlatButton.icon(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => developerCredits())),
-                  icon: Icon(
-                    Icons.developer_mode,
-                    color: Colors.blue,
-                  ),
-                  label: Text(
-                    "Developer\nCredits",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-            ),
-
-            Container(padding: EdgeInsets.only(bottom: 15),),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                    child: FlatButton.icon(
-                        onPressed: () => exit(0),
-                        icon: Icon(
-                          Icons.exit_to_app,
-                          color: Colors.green,
-                        ),
-                        label: Text(
-                          "Exit App",
-                          style: TextStyle(fontFamily: "productSans"),
-                        ))),
-                Center(
-                    child: FlatButton.icon(
-                        onPressed: () => Navigator.pop(context, false),
-                        icon: Icon(
-                          Icons.clear,
-                          color: Colors.red,
-                        ),
-                        label: Text(
-                          "Close",
-                          style: TextStyle(fontFamily: "productSans"),
-                        )))
-              ],)
-          ],
-        ));
   }
   // DSC NSEC LOGO
   Widget dsclogo() {

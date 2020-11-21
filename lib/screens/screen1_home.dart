@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double heiGht = MediaQuery.of(context).size.height;
     return WillPopScope(
-        onWillPop: _onBackPressed,
+        onWillPop: _onBackButtonPressed,
         child: Scaffold(
             body: SafeArea(
                 child: Stack(children: <Widget>[
@@ -656,6 +656,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         onPressed: () {
+                          setFontWeightBoldForEventsTabCalledFromHome();
+
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => screen2_events()));
@@ -682,7 +684,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   //App Exit Alert Function
-  Future<bool> _onBackPressed() {
+  Future<bool> _onBackButtonPressed() {
+
+    if(isdrawerOpen==true)
     return showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -713,6 +717,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ))
               ],
             ));
+    else
+      if(isdrawerOpen==false)
+        setState(() {
+          xOffset =
+              MediaQuery.of(context).size.height * 0.3;
+          yOffset =
+              MediaQuery.of(context).size.width * 0.37;
+          scalefactor = 0.6;
+          isdrawerOpen = true;
+        });
+
   }
 
   // DSC NSEC LOGO

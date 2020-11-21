@@ -9,11 +9,11 @@ import '../screens/screen1_home.dart';
 
 final obJECT = HomeScreen();
 var fontWeight_home = FontWeight.w800;
-var fontWeight_events = FontWeight.w400;
-var fontWeight_projects = FontWeight.w400;
-var fontWeight_teams = FontWeight.w400;
-var fontWeight_about = FontWeight.w400;
-var fontWeight_devCredits = FontWeight.w400;
+var fontWeight_events = FontWeight.w300;
+var fontWeight_projects = FontWeight.w300;
+var fontWeight_teams = FontWeight.w300;
+var fontWeight_about = FontWeight.w300;
+var fontWeight_devCredits = FontWeight.w300;
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       'More to',
                       style: TextStyle(
                         fontFamily: 'productSans',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w300,
                         fontSize: 31,
                         color: Colors.white,
                       ),
@@ -202,10 +202,15 @@ Widget navItem(
 }
 
 void resetFontWeights() {
-  fontWeight_home = FontWeight.w400;
-  fontWeight_events = FontWeight.w400;
-  fontWeight_projects = FontWeight.w400;
-  fontWeight_teams = FontWeight.w400;
-  fontWeight_about = FontWeight.w400;
-  fontWeight_devCredits = FontWeight.w400;
+  fontWeight_home = FontWeight.w300;
+  fontWeight_events = FontWeight.w300;
+  fontWeight_projects = FontWeight.w300;
+  fontWeight_teams = FontWeight.w300;
+  fontWeight_about = FontWeight.w300;
+  fontWeight_devCredits = FontWeight.w300;
+}
+
+void setFontWeightBoldForEventsTabCalledFromHome(){
+  resetFontWeights();
+  fontWeight_events=FontWeight.w800;
 }
