@@ -133,8 +133,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         resetFontWeights();
                         fontWeight_devCredits = FontWeight.w800;
 
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => developerCredits()));
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => developerCredits()));
                       }),
                 ],
               ),
@@ -165,9 +165,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
 Widget socialMedia(IconData icn) {
   return Padding(
-      padding: EdgeInsets.only(right: 0,bottom: 5),
+      padding: EdgeInsets.only(right: 0, bottom: 5),
       child: IconButton(
-        icon: Icon(icn,size: 25,),
+        icon: Icon(
+          icn,
+          size: 25,
+        ),
         color: Colors.white,
         onPressed: () {},
       ));
@@ -210,7 +213,7 @@ void resetFontWeights() {
   fontWeight_devCredits = FontWeight.w300;
 }
 
-void setFontWeightBoldForEventsTabCalledFromHome(){
+void setFontWeightBoldForEventsTabCalledFromHome() {
   resetFontWeights();
-  fontWeight_events=FontWeight.w800;
+  fontWeight_events = FontWeight.w800;
 }

@@ -31,6 +31,7 @@ dependencies:
   flutter_spinkit: "^4.1.2"
   animated_text_kit: ^2.4.1
   expandable: ^4.1.4
+  slimy_card: ^1.0.4
 
 
 flutter_icons:
@@ -61,6 +62,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/coreDev/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

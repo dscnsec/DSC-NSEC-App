@@ -1,15 +1,11 @@
 import 'dart:io';
 
 import 'package:dscnsec_app/Drawer/drawer.dart';
-import 'package:dscnsec_app/screens/screen1_home.dart';
-import 'package:dscnsec_app/screens/screen2_events.dart';
-import 'package:dscnsec_app/screens/screen3_teams.dart';
-import 'package:dscnsec_app/screens/screen5_projects.dart';
-import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 
 import '../customIcons.dart';
 import 'introText.dart';
