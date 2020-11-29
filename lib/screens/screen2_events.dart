@@ -1,17 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:dscnsec_app/Drawer/drawer.dart';
-import 'package:dscnsec_app/screens/screen1_home.dart';
-import 'package:dscnsec_app/screens/screen3_teams.dart';
-import 'package:dscnsec_app/screens/screen4_about.dart';
-import 'package:dscnsec_app/screens/screen5_projects.dart';
-import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dscnsec_app/customIcons.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:math';
 import 'event_details/eventFullDetails.dart';
 import 'eventsData.dart';

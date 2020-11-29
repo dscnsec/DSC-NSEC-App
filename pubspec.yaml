@@ -32,6 +32,8 @@ dependencies:
   animated_text_kit: ^2.4.1
   expandable: ^4.1.4
   slimy_card: ^1.0.4
+  circle_list: ^1.0.2
+  animated_background: ^1.0.5
 
 
 flutter_icons:

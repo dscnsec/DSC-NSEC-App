@@ -626,7 +626,7 @@ class ProjectCard extends StatelessWidget {
                   child: FadeInImage.assetNetwork(
                     fadeInCurve: Curves.easeInOutCubic,
                     fadeInDuration: const Duration(seconds: 2),
-                    placeholder: 'assets/images/loading2.gif',
+                    placeholder: 'assets/images/loading.gif',
                     image: img,
                     fit: BoxFit.fill,
                   ),
