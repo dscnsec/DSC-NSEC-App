@@ -1,3 +1,4 @@
+import 'package:dscnsec_app/screens/app_info/appInfoPage.dart';
 import 'package:dscnsec_app/screens/screen2_events.dart';
 import 'package:dscnsec_app/screens/screen3_teams.dart';
 import 'package:dscnsec_app/screens/screen4_about.dart';
@@ -173,6 +174,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       child: socialMedia(FontAwesomeIcons.globe)),
                   //This icon is for App info> Licenses/App version. etc.
                   GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>appInfoPage()));
+                    },
                       child: Padding(
                         padding: EdgeInsets.only(left:25,right: 0, bottom: 14),
                         child: Row(
