@@ -4,6 +4,7 @@ import 'package:dscnsec_app/screens/screen4_about.dart';
 import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../screens/screen5_projects.dart';
 import '../screens/screen1_home.dart';
 
@@ -142,17 +143,45 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
             //footer part
             Padding(
-              padding: EdgeInsets.only(left: 10.0),
+              padding: EdgeInsets.only(left: 20.0),
               child: Row(
                 children: <Widget>[
-                  socialMedia(FontAwesomeIcons.whatsapp),
-                  socialMedia(FontAwesomeIcons.twitter),
-                  socialMedia(FontAwesomeIcons.facebook),
-                  socialMedia(FontAwesomeIcons.instagram),
-                  socialMedia(FontAwesomeIcons.telegram),
-                  socialMedia(FontAwesomeIcons.globe),
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://twitter.com/dscnsec");
+                      },
+                      child: socialMedia(FontAwesomeIcons.twitter)),
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://fb.com/dscnsec");
+                      },
+                      child: socialMedia(FontAwesomeIcons.facebook)),
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://www.instagram.com/dscnsec/");
+                      },
+                      child: socialMedia(FontAwesomeIcons.instagram)),
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://github.com/dscnsec");
+                      },
+                      child: socialMedia(FontAwesomeIcons.github)),
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://dscnsec.com/");
+                      },
+                      child: socialMedia(FontAwesomeIcons.globe)),
                   //This icon is for App info> Licenses/App version. etc.
-                  socialMedia(Icons.perm_device_information),
+                  GestureDetector(
+                      child: Padding(
+                        padding: EdgeInsets.only(left:25,right: 0, bottom: 14),
+                        child: Row(
+                          children: [
+                            Icon(Icons.perm_device_information, size: 26,color:Colors.white),
+                            Text("App Info",style: TextStyle(fontFamily: "productSans",color: Colors.white),)
+                          ],
+                        ),
+                      )),
                 ],
               ),
             )
@@ -165,14 +194,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
 Widget socialMedia(IconData icn) {
   return Padding(
-      padding: EdgeInsets.only(right: 0, bottom: 5),
-      child: IconButton(
-        icon: Icon(
-          icn,
-          size: 25,
-        ),
+      padding: EdgeInsets.only(right: 18, bottom: 15),
+      child: Icon(
+        icn,
+        size: 25,
         color: Colors.white,
-        onPressed: () {},
       ));
 }
 
@@ -216,4 +242,14 @@ void resetFontWeights() {
 void setFontWeightBoldForEventsTabCalledFromHome() {
   resetFontWeights();
   fontWeight_events = FontWeight.w800;
+}
+
+//Any URL Launcher
+_launchAnyURL(var getUrl) async {
+  var url = getUrl;
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }

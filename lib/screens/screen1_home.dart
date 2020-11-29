@@ -676,58 +676,178 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
+                  //////////////////////////////////////////////////////////--Contact dsc-->
+
+                  Padding(
+                    padding: EdgeInsets.only(left: 0.0, right: 0.0, top: 0),
+                    child: Container(
+                      height: heiGht > 600
+                          ? MediaQuery.of(context).size.height * 0.85
+                          : MediaQuery.of(context).size.height,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 20.0, right: 20.0, top: 35.0),
+                            child: Text(
+                              "Contact",
+                              style: TextStyle(
+                                  fontFamily: 'productSans',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 28.0,
+                                  color: Colors.blue[600]),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 20.0, right: 20.0, top: 0.0),
+                            child: Text(
+                              "Developer Student Clubs (DSC)",
+                              style: TextStyle(
+                                  fontFamily: 'productSans',
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 22.0,
+                                  color: Colors.grey[700]),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 20.0, right: 10.0, top: 0.0),
+                            child: Text(
+                              "Netaji Subhash Engineering College",
+                              style: TextStyle(
+                                  fontFamily: 'productSans',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18.0,
+                                  color: Colors.blue[600]),
+                            ),
+                          ),
+                          dsclogo(),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 20.0, right: 20.0, top: 0.0),
+                            child: Text(
+                              "Our events are open to newbies, developers, managers, and organizations who are interested in Google's technologies or use them as part of their projects.\n\nQuestions? Please contact us at :",
+                              style: TextStyle(
+                                  fontFamily: 'productSans',
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 20.0,
+                                  color: Colors.grey[600]),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 20.0, right: 20.0, top: 10.0),
+                            child: Text(
+                              "lead@dscnsec.com",
+                              style: TextStyle(
+                                  fontFamily: 'productSans',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 22.0,
+                                  color: Colors.blue[600]),
+                            ),
+                          ),
+                          //////////////////////////////////////////////////////--DSC--hashtags-->
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: 20.0, right: 5.0, top: 20.0),
+                                child: Chip(label: Text(
+                                  "#dscnsec",
+                                  style: TextStyle(
+                                      fontFamily: 'productSans',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18.0,
+                                      color: Colors.blue[600]),
+                                ),)
+                              ),
+
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 5.0, right: 5.0, top: 20.0),
+                                  child: Chip(label: Text(
+                                    "#dsc",
+                                    style: TextStyle(
+                                        fontFamily: 'productSans',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18.0,
+                                        color: Colors.blue[600]),
+                                  ),)
+                              ),
+
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 5.0, right: 20.0, top: 20.0),
+                                  child: Chip(label: Text(
+                                    "#dscindia",
+                                    style: TextStyle(
+                                        fontFamily: 'productSans',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18.0,
+                                        color: Colors.blue[600]),
+                                  ),)
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  //////////////////////////////////////////////////////////////////
                 ],
               ),
             ),
-          )
+          ),
         ]))));
   }
 
   //App Exit Alert Function
   Future<bool> _onBackButtonPressed() {
-
-    if(isdrawerOpen==true)
-    return showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              title: Text(
-                "Do you really want to exit app?",
-                style: TextStyle(fontFamily: "productSans"),
-              ),
-              actions: [
-                FlatButton.icon(
-                    onPressed: () => exit(0),
-                    icon: Icon(
-                      Icons.done,
-                      color: Colors.green,
-                    ),
-                    label: Text(
-                      "Yes",
-                      style: TextStyle(fontFamily: "productSans"),
-                    )),
-                FlatButton.icon(
-                    onPressed: () => Navigator.pop(context, false),
-                    icon: Icon(
-                      Icons.clear,
-                      color: Colors.red,
-                    ),
-                    label: Text(
-                      "No",
-                      style: TextStyle(fontFamily: "productSans"),
-                    ))
-              ],
-            ));
-    else
-      if(isdrawerOpen==false)
-        setState(() {
-          xOffset =
-              MediaQuery.of(context).size.height * 0.3;
-          yOffset =
-              MediaQuery.of(context).size.width * 0.37;
-          scalefactor = 0.6;
-          isdrawerOpen = true;
-        });
-
+    if (isdrawerOpen == true)
+      return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(
+                  "Do you really want to exit app?",
+                  style: TextStyle(fontFamily: "productSans"),
+                ),
+                actions: [
+                  FlatButton.icon(
+                      onPressed: () => exit(0),
+                      icon: Icon(
+                        Icons.done,
+                        color: Colors.green,
+                      ),
+                      label: Text(
+                        "Yes",
+                        style: TextStyle(fontFamily: "productSans"),
+                      )),
+                  FlatButton.icon(
+                      onPressed: () => Navigator.pop(context, false),
+                      icon: Icon(
+                        Icons.clear,
+                        color: Colors.red,
+                      ),
+                      label: Text(
+                        "No",
+                        style: TextStyle(fontFamily: "productSans"),
+                      ))
+                ],
+              ));
+    else if (isdrawerOpen == false)
+      setState(() {
+        xOffset = MediaQuery.of(context).size.height * 0.3;
+        yOffset = MediaQuery.of(context).size.width * 0.37;
+        scalefactor = 0.6;
+        isdrawerOpen = true;
+      });
   }
 
   // DSC NSEC LOGO
@@ -827,8 +947,8 @@ class EventCard extends StatelessWidget {
                           debugPrint("PRESSED Card No.-${card_index}");
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      eventFullDetailsForHome(card_index, eventType)));
+                                  builder: (context) => eventFullDetailsForHome(
+                                      card_index, eventType)));
                         },
                         child: Container(
                           color: Colors.blue,

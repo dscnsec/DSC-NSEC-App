@@ -204,7 +204,58 @@ class developerCreditsState extends State<developerCredits> {
 
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 35, 0, 15),
+                      padding: const EdgeInsets.fromLTRB(10.0, 30, 0, 10),
+                      child: Text(
+                        'Want to contribute?',
+                        style: TextStyle(
+                          fontFamily: 'productSans',
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10.0, 0, 0, 5),
+                      child: Text(
+                        'Contribute to us at :',
+                        style: TextStyle(
+                          fontFamily: 'productSans',
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0.0, 0, 0, 10),
+                      child: GestureDetector(
+                        onTap: (){_launchAnyURL("https://github.com/dscnsec/DSC-NSEC-App");},
+                        child: Chip(
+                          backgroundColor: Colors.blue[50],
+                          label: Text(
+                            'https://github.com/dscnsec/DSC-NSEC-App',
+                            style: TextStyle(
+                              fontFamily: 'productSans',
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 15),
                       child: Text(
                         'Our Contributors',
                         style: TextStyle(
@@ -219,7 +270,7 @@ class developerCreditsState extends State<developerCredits> {
 
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                       child: Text(
                         'No folks here yet.',
                         style: TextStyle(
