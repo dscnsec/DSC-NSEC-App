@@ -77,12 +77,12 @@ class appInfoPageState extends State<appInfoPage> {
                       left: 0, right: 12.0, top: 0.0, bottom: 20),
                   child: Center(
                     child: Text(
-                      "Copyright © 2020 DSC NSEC",
+                      "Copyright © 2020 App Team, DSC NSEC",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'productSans',
                         fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontSize: 16,
                         color: Colors.blue[600],
                       ),
                     ),
