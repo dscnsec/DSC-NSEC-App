@@ -10,7 +10,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
-import 'event_details/eventFullDetails.dart';
 import 'eventsData.dart';
 
 import 'featuredEventsDataForHome.dart';
@@ -123,6 +122,9 @@ class _HomeScreenState extends State<HomeScreen> {
     futureAlbum = fetchAlbum();
   }
 
+double defaultHeight = 800;
+double defaultWidth = 484; 
+  
   @override
   Widget build(BuildContext context) {
     double heiGht = MediaQuery.of(context).size.height;
@@ -212,9 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: EdgeInsets.only(left: 0.0, right: 0.0, top: 0),
                     child: Container(
-                      height: heiGht > 700
-                          ? MediaQuery.of(context).size.height * 0.85
-                          : MediaQuery.of(context).size.height,
+                 
                       width: double.infinity,
                       decoration: BoxDecoration(
                           //         boxShadow: [
@@ -681,9 +681,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: EdgeInsets.only(left: 0.0, right: 0.0, top: 0),
                     child: Container(
-                      height: heiGht > 600
-                          ? MediaQuery.of(context).size.height * 0.85
-                          : MediaQuery.of(context).size.height,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -740,6 +737,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Colors.grey[600]),
                             ),
                           ),
+
                           Padding(
                             padding: EdgeInsets.only(
                                 left: 20.0, right: 20.0, top: 10.0),
@@ -752,49 +750,55 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Colors.blue[600]),
                             ),
                           ),
+
                           //////////////////////////////////////////////////////--DSC--hashtags-->
-                          Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: 20.0, right: 5.0, top: 20.0),
-                                child: Chip(label: Text(
-                                  "#dscnsec",
-                                  style: TextStyle(
-                                      fontFamily: 'productSans',
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 18.0,
-                                      color: Colors.blue[600]),
-                                ),)
-                              ),
-
-                              Padding(
+                          
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: Row(
+                              children: [
+                                Padding(
                                   padding: EdgeInsets.only(
-                                      left: 5.0, right: 5.0, top: 20.0),
+                                      left: 20.0, right: 5.0, top: 20.0),
                                   child: Chip(label: Text(
-                                    "#dsc",
+                                    "#dscnsec",
                                     style: TextStyle(
                                         fontFamily: 'productSans',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18.0,
                                         color: Colors.blue[600]),
                                   ),)
-                              ),
+                                ),
 
-                              Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 5.0, right: 20.0, top: 20.0),
-                                  child: Chip(label: Text(
-                                    "#dscindia",
-                                    style: TextStyle(
-                                        fontFamily: 'productSans',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18.0,
-                                        color: Colors.blue[600]),
-                                  ),)
-                              ),
-                            ],
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 5.0, right: 5.0, top: 20.0),
+                                    child: Chip(label: Text(
+                                      "#dsc",
+                                      style: TextStyle(
+                                          fontFamily: 'productSans',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 18.0,
+                                          color: Colors.blue[600]),
+                                    ),)
+                                ),
+
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 5.0, right: 20.0, top: 20.0),
+                                    child: Chip(label: Text(
+                                      "#dscindia",
+                                      style: TextStyle(
+                                          fontFamily: 'productSans',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 18.0,
+                                          color: Colors.blue[600]),
+                                    ),)
+                                ),
+                              ],
+                            ),
                           ),
+
                         ],
                       ),
                     ),
@@ -849,6 +853,7 @@ class _HomeScreenState extends State<HomeScreen> {
         isdrawerOpen = true;
       });
   }
+
 
   // DSC NSEC LOGO
   Widget dsclogo() {
