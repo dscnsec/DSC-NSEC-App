@@ -122,12 +122,10 @@ class _HomeScreenState extends State<HomeScreen> {
     futureAlbum = fetchAlbum();
   }
 
-double defaultHeight = 800;
-double defaultWidth = 484; 
   
   @override
   Widget build(BuildContext context) {
-    double heiGht = MediaQuery.of(context).size.height;
+
     return WillPopScope(
         onWillPop: _onBackButtonPressed,
         child: Scaffold(
