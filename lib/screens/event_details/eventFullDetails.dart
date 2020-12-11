@@ -570,140 +570,15 @@ class eventFullDetailsState extends State<eventFullDetails> {
                                     )))),
 
                         //date time venue mode
-                        if (rev_past_date[j] != "")
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                  width: 30,
-                                  child: Icon(
-                                    Icons.event,
-                                    color: Colors.blueAccent,
-                                  )),
-                              Container(
-                                width: 115,
-                                padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
-                                child: Text(
-                                  " Event Date  :",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'productSans',
-                                      color: Colors.grey[600]),
-                                ),
-                              ),
-                              Container(
-                                width: 160,
-                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                                child: Text(
-                                  "${rev_past_date[j]}",
-                                  style: TextStyle(
-                                      fontSize: 18, fontFamily: 'productSans'),
-                                ),
-                              ),
-                            ],
-                          ),
-                        if (rev_past_time[j] != "")
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                  width: 30,
-                                  child: Icon(
-                                    Icons.timelapse,
-                                    color: Colors.blueAccent,
-                                  )),
-                              Container(
-                                width: 115,
-                                padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
-                                child: Text(
-                                  " Event Time  :",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'productSans',
-                                      color: Colors.grey[600]),
-                                ),
-                              ),
-                              Container(
-                                width: 160,
-                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                                child: Text(
-                                  "${rev_past_time[j]}",
-                                  style: TextStyle(
-                                      fontSize: 18, fontFamily: 'productSans'),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                        if (rev_past_mode[j] != "")
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                  width: 30,
-                                  child: Icon(
-                                    Icons.graphic_eq,
-                                    color: Colors.blueAccent,
-                                  )),
-                              Container(
-                                width: 115,
-                                padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
-                                child: Text(
-                                  "Event Mode :",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'productSans',
-                                      color: Colors.grey[600]),
-                                ),
-                              ),
-                              Container(
-                                width: 160,
-                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                                child: Text(
-                                  "${rev_past_mode[j]}",
-                                  style: TextStyle(
-                                      fontSize: 18, fontFamily: 'productSans'),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                        if (rev_past_location[j] != "")
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                  width: 30,
-                                  child: Icon(
-                                    Icons.location_on,
-                                    color: Colors.blueAccent,
-                                  )),
-                              Container(
-                                width: 115,
-                                padding: EdgeInsets.fromLTRB(3, 0, 0, 5),
-                                child: Text(
-                                  "Event Venue :",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'productSans',
-                                      color: Colors.grey[600]),
-                                ),
-                              ),
-                              Container(
-                                width: 160,
-                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                                child: Text(
-                                  "${rev_past_location[j]}",
-                                  style: TextStyle(
-                                      fontSize: 18, fontFamily: 'productSans'),
-                                ),
-                              ),
-                            ],
-                          ),
+                    
+                              if (rev_past_date[j] != "")                              
+                                  CustomEvent(icon :  Icons.event, eventInfoText: ' Event Date :', event: "${rev_past_date[j]}" ),
+                                if (rev_past_time[j] != "")
+                                  CustomEvent(icon :  Icons.timelapse, eventInfoText: ' Event Time :', event: "${rev_past_time[j]}" ),
+                                if (rev_past_mode[j] != "")
+                                  CustomEvent(icon :  Icons.graphic_eq, eventInfoText: ' Event Mode :', event: "${rev_past_mode[j]}" ),
+                                if (rev_past_location[j] != "")
+                                   CustomEvent(icon :  Icons.location_on, eventInfoText: ' Event Venue :', event: "${rev_past_location[j]}" ),
 
 //description
                         if (rev_past_desc[j] != "")
