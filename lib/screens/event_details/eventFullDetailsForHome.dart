@@ -1,8 +1,6 @@
-import 'dart:io';
-
 import 'package:dscnsec_app/Drawer/drawer.dart';
+import 'package:dscnsec_app/screens/event_details/customeventcard.dart';
 import 'package:dscnsec_app/screens/eventsData.dart';
-import 'package:dscnsec_app/screens/featuredEventsDataForHome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,10 +8,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../customIcons.dart';
 import '../introText.dart';
 import '../screen1_home.dart';
-import '../screen2_events.dart';
-import '../screen3_teams.dart';
-import '../screen4_about.dart';
-import '../screen5_projects.dart';
 
 TextofIntro text = TextofIntro();
 
@@ -168,6 +162,7 @@ if (eventType == "past") {
                                   Padding(
                                     padding: EdgeInsets.all(2.5),
                                   ),
+
                                 if (up_note[j] != "")
                                   Container(
                                     padding: EdgeInsets.fromLTRB(7, 2, 1, 2),
@@ -234,155 +229,14 @@ if (eventType == "past") {
 
                                 //date time venue mode
                                 if (up_date[j] != "")
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          padding: EdgeInsets.fromLTRB(
-                                              0, 0, 0, 5),
-                                          width: 30,
-                                          child: Icon(
-                                            Icons.event,
-                                            color: Colors.blueAccent,
-                                          )),
-                                      Container(
-                                        width: 115,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 0, 5),
-                                        child: Text(
-                                          " Event Date  :",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans',
-                                              color: Colors.grey[600]),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 160,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 5, 5),
-                                        child: Text(
-                                          "${up_date[j]}",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans'),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  CustomEvent(icon :  Icons.event, eventInfoText: ' Event Date :', event: "${up_date[j]}" ),
                                 if (up_time[j] != "")
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          padding: EdgeInsets.fromLTRB(
-                                              0, 0, 0, 5),
-                                          width: 30,
-                                          child: Icon(
-                                            Icons.timelapse,
-                                            color: Colors.blueAccent,
-                                          )),
-                                      Container(
-                                        width: 115,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 0, 5),
-                                        child: Text(
-                                          " Event Time  :",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans',
-                                              color: Colors.grey[600]),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 160,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 5, 5),
-                                        child: Text(
-                                          "${up_time[j]}",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans'),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-
+                                  CustomEvent(icon :  Icons.timelapse, eventInfoText: ' Event Time :', event: "${up_time[j]}" ),
                                 if (up_mode[j] != "")
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          padding: EdgeInsets.fromLTRB(
-                                              0, 0, 0, 5),
-                                          width: 30,
-                                          child: Icon(
-                                            Icons.graphic_eq,
-                                            color: Colors.blueAccent,
-                                          )),
-                                      Container(
-                                        width: 115,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 0, 5),
-                                        child: Text(
-                                          "Event Mode :",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans',
-                                              color: Colors.grey[600]),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 160,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 5, 5),
-                                        child: Text(
-                                          "${up_mode[j]}",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans'),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-
+                                  CustomEvent(icon :  Icons.graphic_eq, eventInfoText: ' Event Mode :', event: "${up_mode[j]}" ),
                                 if (up_location[j] != "")
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          padding: EdgeInsets.fromLTRB(
-                                              0, 0, 0, 5),
-                                          width: 30,
-                                          child: Icon(
-                                            Icons.location_on,
-                                            color: Colors.blueAccent,
-                                          )),
-                                      Container(
-                                        width: 115,
-                                        padding: EdgeInsets.fromLTRB(
-                                            3, 0, 0, 5),
-                                        child: Text(
-                                          "Event Venue :",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans',
-                                              color: Colors.grey[600]),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 160,
-                                        padding: EdgeInsets.fromLTRB(
-                                            5, 0, 5, 5),
-                                        child: Text(
-                                          "${up_location[j]}",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'productSans'),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                   CustomEvent(icon :  Icons.location_on, eventInfoText: ' Event Venue :', event: "${up_location[j]}" ),
+
 
 //description
                                 if (up_desc[j] != "")
