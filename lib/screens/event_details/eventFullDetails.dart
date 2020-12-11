@@ -1,31 +1,14 @@
-import 'dart:io';
-
 import 'package:dscnsec_app/Drawer/drawer.dart';
 import 'package:dscnsec_app/screens/eventsData.dart';
-import 'package:dscnsec_app/screens/featuredEventsDataForHome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../customIcons.dart';
 import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
-import '../eventsData.dart';
+
 import '../introText.dart';
-import '../screen1_home.dart';
 import '../screen2_events.dart';
-import '../screen3_teams.dart';
-import '../screen4_about.dart';
-import '../screen5_projects.dart';
 import 'eventsDataReversed.dart';
 
 TextofIntro text = TextofIntro();
