@@ -272,21 +272,27 @@ class eventFullDetailsState extends State<eventFullDetails> {
                                       ),
                                     )))),
 
-
-
-   //date time venue mode
-                              if (rev_up_date[j] != "")
-                                  CustomEvent(icon :  Icons.event, eventInfoText: ' Event Date :', event: "${rev_up_date[j]}" ),
-                                if (rev_up_time[j] != "")
-                                  CustomEvent(icon :  Icons.timelapse, eventInfoText: ' Event Time :', event: "${rev_up_time[j]}" ),
-                                if (rev_up_mode[j] != "")
-                                  CustomEvent(icon :  Icons.graphic_eq, eventInfoText: ' Event Mode :', event: "${rev_up_mode[j]}" ),
-                                if (rev_up_location[j] != "")
-                                   CustomEvent(icon :  Icons.location_on, eventInfoText: ' Event Venue :', event: "${rev_up_location[j]}" ),
-
-        
-
-                     
+                        //date time venue mode
+                        if (rev_up_date[j] != "")
+                          CustomEvent(
+                              icon: Icons.event,
+                              eventInfoText: ' Event Date :',
+                              event: "${rev_up_date[j]}"),
+                        if (rev_up_time[j] != "")
+                          CustomEvent(
+                              icon: Icons.timelapse,
+                              eventInfoText: ' Event Time :',
+                              event: "${rev_up_time[j]}"),
+                        if (rev_up_mode[j] != "")
+                          CustomEvent(
+                              icon: Icons.graphic_eq,
+                              eventInfoText: ' Event Mode :',
+                              event: "${rev_up_mode[j]}"),
+                        if (rev_up_location[j] != "")
+                          CustomEvent(
+                              icon: Icons.location_on,
+                              eventInfoText: ' Event Venue :',
+                              event: "${rev_up_location[j]}"),
 
 //description
                         if (rev_up_desc[j] != "")
@@ -302,9 +308,10 @@ class eventFullDetailsState extends State<eventFullDetails> {
                           ),
                         if (rev_up_desc[j] != "")
                           Container(
-                            padding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
                             child: Text(
                               "${rev_up_desc[j]}",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: 'productSans',
@@ -475,24 +482,23 @@ class eventFullDetailsState extends State<eventFullDetails> {
                                       ),
                                     ),
                                     Container(
-                                          padding:
-                                              EdgeInsets.fromLTRB(5, 5, 5, 25),
-                                          child: RaisedButton.icon(
-                                              color: Colors.blueAccent,
-                                              elevation: 3,
-                                              onPressed: _registerURL,
-                                              icon: Icon(
-                                                Icons.done_outline,
-                                                color: Colors.white,
-                                              ),
-                                              label: Text(
-                                                "Register Now!",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontFamily: 'productSans',
-                                                    color: Colors.white),
-                                              ))),
-
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 5, 5, 25),
+                                        child: RaisedButton.icon(
+                                            color: Colors.blueAccent,
+                                            elevation: 3,
+                                            onPressed: _registerURL,
+                                            icon: Icon(
+                                              Icons.done_outline,
+                                              color: Colors.white,
+                                            ),
+                                            label: Text(
+                                              "Register Now!",
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontFamily: 'productSans',
+                                                  color: Colors.white),
+                                            ))),
                                   ],
                                 ),
                             ],
@@ -570,20 +576,32 @@ class eventFullDetailsState extends State<eventFullDetails> {
                                     )))),
 
                         //date time venue mode
-                    
-                              if (rev_past_date[j] != "")                              
-                                  CustomEvent(icon :  Icons.event, eventInfoText: ' Event Date :', event: "${rev_past_date[j]}" ),
-                                if (rev_past_time[j] != "")
-                                  CustomEvent(icon :  Icons.timelapse, eventInfoText: ' Event Time :', event: "${rev_past_time[j]}" ),
-                                if (rev_past_mode[j] != "")
-                                  CustomEvent(icon :  Icons.graphic_eq, eventInfoText: ' Event Mode :', event: "${rev_past_mode[j]}" ),
-                                if (rev_past_location[j] != "")
-                                   CustomEvent(icon :  Icons.location_on, eventInfoText: ' Event Venue :', event: "${rev_past_location[j]}" ),
+
+                        if (rev_past_date[j] != "")
+                          CustomEvent(
+                              icon: Icons.event,
+                              eventInfoText: ' Event Date :',
+                              event: "${rev_past_date[j]}"),
+                        if (rev_past_time[j] != "")
+                          CustomEvent(
+                              icon: Icons.timelapse,
+                              eventInfoText: ' Event Time :',
+                              event: "${rev_past_time[j]}"),
+                        if (rev_past_mode[j] != "")
+                          CustomEvent(
+                              icon: Icons.graphic_eq,
+                              eventInfoText: ' Event Mode :',
+                              event: "${rev_past_mode[j]}"),
+                        if (rev_past_location[j] != "")
+                          CustomEvent(
+                              icon: Icons.location_on,
+                              eventInfoText: ' Event Venue :',
+                              event: "${rev_past_location[j]}"),
 
 //description
                         if (rev_past_desc[j] != "")
                           Container(
-                            padding: EdgeInsets.fromLTRB(5, 15, 5, 2),
+                            padding: EdgeInsets.fromLTRB(10, 15, 10, 2),
                             child: Text(
                               "About Event",
                               style: TextStyle(
@@ -594,9 +612,10 @@ class eventFullDetailsState extends State<eventFullDetails> {
                           ),
                         if (rev_past_desc[j] != "")
                           Container(
-                            padding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
                             child: Text(
                               "${rev_past_desc[j]}",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: 'productSans',
@@ -726,7 +745,6 @@ class eventFullDetailsState extends State<eventFullDetails> {
                 ),
               ),
               actions: [
-
                 Container(
                   padding: EdgeInsets.only(bottom: 15),
                 ),
@@ -735,8 +753,8 @@ class eventFullDetailsState extends State<eventFullDetails> {
                   children: [
                     Center(
                         child: FlatButton.icon(
-                            onPressed: () => Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
+                            onPressed: () => Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
                                     builder: (context) => screen2_events())),
                             icon: Icon(
                               Icons.check,
@@ -786,5 +804,4 @@ class eventFullDetailsState extends State<eventFullDetails> {
       throw 'Could not launch $url';
     }
   }
-
 }

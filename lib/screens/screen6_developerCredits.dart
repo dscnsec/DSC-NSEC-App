@@ -24,6 +24,7 @@ class developerCreditsState extends State<developerCredits> {
   double yOffset = 0.0;
   double scalefactor = 1;
   bool isdrawerOpen = false;
+
 /////////////////////////////////////-CoreDevData->>---Do not delete or remove items--->
   var coreDevelopers = [
     "Ashutosh \n  Krishna",
@@ -38,9 +39,9 @@ class developerCreditsState extends State<developerCredits> {
   ];
 
   var coreDevLinkedinLink = [
-  "https://www.linkedin.com/in/ashutoshkrris/",
-  "https://www.linkedin.com/in/saurav0001kumar/",
-  "https://www.linkedin.com/in/ayush-singh-5823a5180/"
+    "https://www.linkedin.com/in/ashutoshkrris/",
+    "https://www.linkedin.com/in/saurav0001kumar/",
+    "https://www.linkedin.com/in/ayush-singh-5823a5180/"
   ];
 
   var coreDevGithubLink = [
@@ -134,7 +135,8 @@ class developerCreditsState extends State<developerCredits> {
                     ),
                   ),
 
-                  //YOUR CODE GOES HERE ->> DSC NSEC EVENTS SECTION ->
+                  //YOUR CODE GOES HERE ->> DSC NSEC Developer Credits SECTION ->
+
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 15, 0, 0),
                     child: Text(
@@ -183,7 +185,7 @@ class developerCreditsState extends State<developerCredits> {
                           children: [
                             SlimyCard(
                               color: Colors.blueAccent,
-                              width: 100,
+                              width: 110,
                               topCardHeight: 180,
                               bottomCardHeight: 100,
                               borderRadius: 15,
@@ -195,7 +197,7 @@ class developerCreditsState extends State<developerCredits> {
                             ),
                             if (i != 2)
                               SizedBox(
-                                width: 7,
+                                width: 2,
                               )
                           ],
                         ),
@@ -236,7 +238,10 @@ class developerCreditsState extends State<developerCredits> {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0.0, 0, 0, 10),
                       child: GestureDetector(
-                        onTap: (){_launchAnyURL("https://github.com/dscnsec/DSC-NSEC-App");},
+                        onTap: () {
+                          _launchAnyURL(
+                              "https://github.com/dscnsec/DSC-NSEC-App");
+                        },
                         child: Chip(
                           backgroundColor: Colors.blue[50],
                           label: Text(
@@ -391,26 +396,30 @@ class developerCreditsState extends State<developerCredits> {
       children: [
         GestureDetector(
           child: CircleAvatar(
-            radius: 18,
+              radius: 18,
               backgroundColor: Colors.white,
               child: Icon(
                 FontAwesomeIcons.linkedinIn,
                 color: Colors.blue,
               )),
-          onTap: (){_launchAnyURL(coreDevLinkedinLink[index]);},
+          onTap: () {
+            _launchAnyURL(coreDevLinkedinLink[index]);
+          },
         ),
         SizedBox(
           width: 1,
         ),
         GestureDetector(
           child: CircleAvatar(
-            radius: 18,
+              radius: 18,
               backgroundColor: Colors.white,
               child: Icon(
                 FontAwesomeIcons.github,
                 color: Colors.black87,
               )),
-          onTap: (){_launchAnyURL(coreDevGithubLink[index]);},
+          onTap: () {
+            _launchAnyURL(coreDevGithubLink[index]);
+          },
         ),
       ],
     );

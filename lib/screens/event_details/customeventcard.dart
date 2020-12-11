@@ -15,16 +15,16 @@ class CustomEvent extends StatelessWidget {
         children: [
           Container(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-             width: MediaQuery.of(context).size.width * .07,
+              width: MediaQuery.of(context).size.width * .07,
               child: Icon(
-                  icon,
+                icon,
                 color: Colors.blueAccent,
               )),
           Container(
             width: MediaQuery.of(context).size.width * .32,
             padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
             child: Text(
-                eventInfoText,
+              eventInfoText,
               style: TextStyle(
                   fontSize: 18,
                   fontFamily: 'productSans',
@@ -35,7 +35,7 @@ class CustomEvent extends StatelessWidget {
             width: MediaQuery.of(context).size.width * .4,
             padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
             child: Text(
-                event,
+              event,
               style: TextStyle(fontSize: 18, fontFamily: 'productSans'),
             ),
           ),
