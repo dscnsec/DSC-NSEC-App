@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 var teamCategoryFinal;
 
-//Upcoming Events at Events Page REST api --starts here--->>
+//Team Page REST api --starts here--->>
 Future<Album> fetchAlbum() async {
   final response = await http.get(
       'https://www.attendanceapp.ml/dsc_testing/${teamCategoryFinal}.json');
@@ -95,7 +95,7 @@ class Album {
         instagram: json['instagram']);
   }
 }
-//Ends upcoming events Rest API -->>
+//Ends teams Rest API -->>
 
 class teamDetails extends StatefulWidget {
   var teamCategory;
