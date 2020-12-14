@@ -1,3 +1,5 @@
+import 'package:dscnsec_app/screens/teams/teamDetailMember.dart';
+
 /***CORE Team Data Holder***/
 //Core team Data Starts here ->
 
@@ -19,3 +21,36 @@ List<dynamic> twitter = ["..."];
 List<dynamic> instagram = ["..."];
 
 //Ends here ->
+
+class TeamMemberDetail {
+  String name;
+  String designation;
+  String desc;
+  String skills;
+  String dp;
+  String email;
+  String stream;
+  String linkedin;
+  String github;
+  String website;
+  String blog;
+  String facebook;
+  String twitter;
+  String instagram;
+
+  TeamMemberDetail({
+  this.name="" ,
+   this.designation="",
+   this.desc="",
+   this.skills="" ,
+   this.dp="",
+   this.email="",
+   this.stream="",
+   this.linkedin="",
+   this.github="",
+   this.website="",
+   this.blog="",
+   this.facebook="",
+   this.twitter="",
+   this.instagram=""});
+}

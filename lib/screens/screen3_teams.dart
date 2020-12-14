@@ -2,11 +2,6 @@ import 'dart:io';
 
 import 'package:circle_list/circle_list.dart';
 import 'package:dscnsec_app/Drawer/drawer.dart';
-import 'package:dscnsec_app/screens/screen1_home.dart';
-import 'package:dscnsec_app/screens/screen2_events.dart';
-import 'package:dscnsec_app/screens/screen4_about.dart';
-import 'package:dscnsec_app/screens/screen5_projects.dart';
-import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:dscnsec_app/screens/teams/teamDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
