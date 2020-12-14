@@ -185,22 +185,23 @@ class teamDetailsState extends State<teamDetails>
                               scrollDirection: Axis.vertical,
                               itemCount: name.length,
                               itemBuilder: (context, i) {
-                                              TeamMemberDetail teamMemberDetail =
-                                                  TeamMemberDetail(
-                                name :name[i],
-                                designation: designation[i],
-                                desc: desc[i],
-                                skills :skills[i],
-                                dp :dp[i],
-                                email :email[i],
-                                stream: stream[i],
-                                linkedin: linkedin[i],
-                                github: github[i],
-                                website: website[i],
-                                blog: blog[i],
-                                facebook: facebook[i],
-                                twitter: twitter[i],
-                                instagram: instagram[i]);
+                                TeamMemberDetail teamMemberDetail =
+                                    TeamMemberDetail(
+                                        name: name[i],
+                                        designation: designation[i],
+                                        desc: desc[i],
+                                        skills: skills[i],
+                                        dp: dp[i],
+                                        email: email[i],
+                                        stream: stream[i],
+                                        linkedin: linkedin[i],
+                                        github: github[i],
+                                        website: website[i],
+                                        blog: blog[i],
+                                        facebook: facebook[i],
+                                        twitter: twitter[i],
+                                        instagram: instagram[i],
+                                        color: teamColor);
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 30.0, vertical: 20),
@@ -210,7 +211,7 @@ class teamDetailsState extends State<teamDetails>
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  TeamMember()));
+                                                  TeamMember(detail: teamMemberDetail,)));
                                     },
                                     child: Card(
                                         elevation: 2,

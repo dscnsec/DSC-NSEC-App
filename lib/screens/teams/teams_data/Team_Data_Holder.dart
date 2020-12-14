@@ -1,4 +1,5 @@
 import 'package:dscnsec_app/screens/teams/teamDetailMember.dart';
+import 'package:flutter/cupertino.dart';
 
 /***CORE Team Data Holder***/
 //Core team Data Starts here ->
@@ -37,20 +38,22 @@ class TeamMemberDetail {
   String facebook;
   String twitter;
   String instagram;
+  Color color;
 
-  TeamMemberDetail({
-  this.name="" ,
-   this.designation="",
-   this.desc="",
-   this.skills="" ,
-   this.dp="",
-   this.email="",
-   this.stream="",
-   this.linkedin="",
-   this.github="",
-   this.website="",
-   this.blog="",
-   this.facebook="",
-   this.twitter="",
-   this.instagram=""});
+  TeamMemberDetail(
+      {this.name = "",
+      this.designation = "",
+      this.desc = "",
+      this.skills = "",
+      this.dp = "",
+      this.email = "",
+      this.stream = "",
+      this.linkedin = "",
+      this.github = "",
+      this.website = "",
+      this.blog = "",
+      this.facebook = "",
+      this.twitter = "",
+      this.instagram = "",
+      this.color});
 }
