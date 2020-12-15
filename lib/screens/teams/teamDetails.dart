@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dscnsec_app/screens/teams/teamDetailMember.dart';
 import 'package:dscnsec_app/screens/teams/teams_data/Team_Data_Holder.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 var teamCategoryFinal;
 
-//Upcoming Events at Events Page REST api --starts here--->>
+//Team Page REST api --starts here--->>
 Future<Album> fetchAlbum() async {
   final response = await http.get(
       'https://www.attendanceapp.ml/dsc_testing/${teamCategoryFinal}.json');
@@ -28,20 +27,35 @@ Future<Album> fetchAlbum() async {
 //Data Holder
 class Album {
   final List<dynamic> id;
+
   final List<dynamic> name;
+
   final List<dynamic> designation;
+
   final List<dynamic> desc;
+
   final List<dynamic> skills;
+
   final List<dynamic> dp;
+
   final List<dynamic> email;
+
   final List<dynamic> alt_email;
+
   final List<dynamic> stream;
+
   final List<dynamic> linkedin;
+
   final List<dynamic> github;
+
   final List<dynamic> website;
+
   final List<dynamic> blog;
+
   final List<dynamic> facebook;
+
   final List<dynamic> twitter;
+
   final List<dynamic> instagram;
 
   Album(
@@ -82,7 +96,7 @@ class Album {
         instagram: json['instagram']);
   }
 }
-//Ends upcoming events Rest API -->>
+//Ends teams Rest API -->>
 
 class teamDetails extends StatefulWidget {
   var teamCategory;
@@ -121,6 +135,7 @@ class teamDetailsState extends State<teamDetails>
     futureAlbum = fetchAlbum();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,217 +169,169 @@ class teamDetailsState extends State<teamDetails>
                   facebook = snapshot.data.facebook;
                   twitter = snapshot.data.twitter;
                   instagram = snapshot.data.instagram;
-
-                  // print((snapshot.data.id[0]).runtimeType);
-                  // print(snapshot.data.name[0].runtimeType);
-                  // print(snapshot.data.designation[0].runtimeType);
-                  // print(snapshot.data.desc[0].runtimeType);
-                  // print(snapshot.data.skills[0].runtimeType);
-                  // print(snapshot.data.dp[0].runtimeType);
-                  // print(snapshot.data.email[0].runtimeType);
-                  // print(snapshot.data.alt_email[0].runtimeType);
-                  // print(snapshot.data.stream[0].runtimeType);
-                  // print(snapshot.data.linkedin[0].runtimeType);
-                  // print(snapshot.data.github[0].runtimeType);
-                  // print(snapshot.data.website[0].runtimeType);
-                  // print(snapshot.data.blog[0].runtimeType);
-                  // print(snapshot.data.facebook[0].runtimeType);
-                  // print(snapshot.data.twitter[0].runtimeType);
-                  // print(snapshot.data.instagram[0].runtimeType);
-
-                  return Container(
+                  return SingleChildScrollView(
                     child: Column(
                       children: [
                         SizedBox(
                           height: 140,
                         ),
                         //Cards-->>
-                        Container(
-                          height: 550,
-                          child: ListView.builder(
-                              scrollDirection: Axis.vertical,
-                              itemCount: name.length,
-                              itemBuilder: (context, i) {
-                                TeamMemberDetail teamMemberDetail =
-                                    TeamMemberDetail(
-                                        name: name[i],
-                                        designation: designation[i],
-                                        desc: desc[i],
-                                        skills: skills[i],
-                                        dp: dp[i],
-                                        email: email[i],
-                                        stream: stream[i],
-                                        linkedin: linkedin[i],
-                                        github: github[i],
-                                        website: website[i],
-                                        blog: blog[i],
-                                        facebook: facebook[i],
-                                        twitter: twitter[i],
-                                        instagram: instagram[i],
-                                        color: teamColor);
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0, vertical: 20),
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  TeamMember(detail: teamMemberDetail,)));
-                                    },
-                                    child: Card(
-                                        elevation: 2,
-                                        child: Column(children: [
-                                          Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  20, 10, 20, 10),
-                                              decoration: BoxDecoration(
-                                                  shape: BoxShape.circle),
-                                              child: CircleAvatar(
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                radius: 55,
-                                                child: ClipOval(
-                                                    child: FadeInImage
-                                                        .assetNetwork(
-                                                  fadeInCurve: Curves.bounceIn,
-                                                  fadeInDuration:
-                                                      const Duration(
-                                                          seconds: 1),
-                                                  placeholder:
-                                                      'assets/images/loading.gif',
-                                                  image: dp[i],
-                                                  fit: BoxFit.fill,
-                                                )),
-                                              )),
-                                          Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  20, 2, 20, 10),
-                                              decoration: BoxDecoration(
-                                                  shape: BoxShape.circle),
-                                              child: Text(
-                                                name[i],
-                                                style: TextStyle(
-                                                  fontFamily: 'productSans',
-                                                  fontSize: 20.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.black87,
-                                                ),
-                                              )),
-                                          Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  20, 0, 20, 15),
-                                              decoration: BoxDecoration(
-                                                  shape: BoxShape.circle),
-                                              child: Text(designation[i],
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    fontFamily: 'productSans',
-                                                    fontSize: 18.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Colors.black87,
-                                                  ))),
-                                          Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                SizedBox(
-                                                  height: 1,
-                                                ),
-                                                if (linkedin[i] != "")
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      _launchAnyURL(
-                                                          linkedin[i]);
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              3, 0, 3, 10),
-                                                      child: Icon(
-                                                          FontAwesomeIcons
-                                                              .linkedin),
-                                                    ),
-                                                  ),
-                                                if (github[i] != "")
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      _launchAnyURL(github[i]);
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              3, 0, 3, 10),
-                                                      child: Icon(
-                                                          FontAwesomeIcons
-                                                              .github),
-                                                    ),
-                                                  ),
-                                                if (twitter[i] != "")
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      _launchAnyURL(twitter[i]);
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              3, 0, 3, 10),
-                                                      child: Icon(
-                                                          FontAwesomeIcons
-                                                              .twitter),
-                                                    ),
-                                                  ),
-                                                if (facebook[i] != "")
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      _launchAnyURL(
-                                                          facebook[i]);
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              3, 0, 3, 10),
-                                                      child: Icon(
-                                                          FontAwesomeIcons
-                                                              .facebook),
-                                                    ),
-                                                  ),
-                                                if (instagram[i] != "")
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      _launchAnyURL(
-                                                          instagram[i]);
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              3, 0, 3, 10),
-                                                      child: Icon(
-                                                          FontAwesomeIcons
-                                                              .instagram),
-                                                    ),
-                                                  ),
-                                                if (website[i] != "")
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      _launchAnyURL(website[i]);
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              3, 0, 3, 10),
-                                                      child:
-                                                          Icon(Icons.language),
-                                                    ),
-                                                  ),
-                                              ]),
-                                        ])),
-                                  ),
-                                );
-                              }),
-                        ),
-                        //  for (int i = 0; i < name.length; i++)
+                        for (int i = 0; i < name.length; i++)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30.0, vertical: 20),
+                            child: InkWell(
+                              onTap: () {                         
+  TeamMemberDetail teamMemberDetail = TeamMemberDetail(
+      name: name[i],
+      designation: designation[i],
+      desc: desc[i],
+      skills: skills[i],
+      dp: dp[i],
+      email: email[i],
+      stream: stream[i],
+      linkedin: linkedin[i],
+      github: github[i],
+      website: website[i],
+      blog: blog[i],
+      facebook: facebook[i],
+      twitter: twitter[i],
+      instagram: instagram[i],
+      color: teamColor
+        );
+          Navigator.push(context,MaterialPageRoute(builder: (context)=> TeamMember(detail:teamMemberDetail)));
+                              },
+                              child: Card(
+                                  elevation: 2,
+                                  child: Column(children: [
+                                    Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle),
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.transparent,
+                                          radius: 55,
+                                          child: ClipOval(
+                                              child: FadeInImage.assetNetwork(
+                                            fadeInCurve: Curves.bounceIn,
+                                            fadeInDuration:
+                                                const Duration(seconds: 1),
+                                            placeholder:
+                                                'assets/images/loading.gif',
+                                            image: dp[i],
+                                            fit: BoxFit.fill,
+                                          )),
+                                        )),
+                                    Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(20, 2, 20, 10),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle),
+                                        child: Text(
+                                          name[i],
+                                          style: TextStyle(
+                                            fontFamily: 'productSans',
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black87,
+                                          ),
+                                        )),
+                                    Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(20, 0, 20, 15),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle),
+                                        child: Text(designation[i],
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontFamily: 'productSans',
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black87,
+                                            ))),
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            height: 1,
+                                          ),
+                                          if (linkedin[i] != "")
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchAnyURL(linkedin[i]);
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    3, 0, 3, 10),
+                                                child: Icon(
+                                                    FontAwesomeIcons.linkedin),
+                                              ),
+                                            ),
+                                          if (github[i] != "")
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchAnyURL(github[i]);
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    3, 0, 3, 10),
+                                                child: Icon(
+                                                    FontAwesomeIcons.github),
+                                              ),
+                                            ),
+                                          if (twitter[i] != "")
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchAnyURL(twitter[i]);
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    3, 0, 3, 10),
+                                                child: Icon(
+                                                    FontAwesomeIcons.twitter),
+                                              ),
+                                            ),
+                                          if (facebook[i] != "")
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchAnyURL(facebook[i]);
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    3, 0, 3, 10),
+                                                child: Icon(
+                                                    FontAwesomeIcons.facebook),
+                                              ),
+                                            ),
+                                          if (instagram[i] != "")
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchAnyURL(instagram[i]);
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    3, 0, 3, 10),
+                                                child: Icon(
+                                                    FontAwesomeIcons.instagram),
+                                              ),
+                                            ),
+                                          if (website[i] != "")
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchAnyURL(website[i]);
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    3, 0, 3, 10),
+                                                child: Icon(Icons.language),
+                                              ),
+                                            ),
+                                        ]),
+                                  ])),
+                            ),
+                          ),
                       ],
                     ),
                   );
@@ -506,7 +473,6 @@ class teamDetailsState extends State<teamDetails>
       height: 100,
       width: 100,
     );
-
     return Container(
       child: image,
       margin: EdgeInsets.all(0),
