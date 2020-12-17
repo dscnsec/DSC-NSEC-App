@@ -163,7 +163,7 @@ class _TeamMemberState extends State<TeamMember> {
   _skillset(String skill) {
     return Center(
       child: Container(
-        margin: EdgeInsets.only(bottom: ScreenUtil.instance.setHeight(8),
+        margin: EdgeInsets.only(bottom: ScreenUtil.instance.setHeight(12),
             right: ScreenUtil.instance.setWidth(8)),
             width: ScreenUtil.instance.setWidth(100),
           decoration: BoxDecoration(
@@ -203,128 +203,151 @@ class _TeamMemberState extends State<TeamMember> {
     return Container(
              color: detail.color,
       child: Stack(children: [
-        Container(
-            child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .1,
-              ),  
-              Container(
-          width: ScreenUtil.instance.setWidth(ScreenUtil.instance.width),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topRight:
-                Radius.circular(ScreenUtil.instance.setHeight(40)),
-                topLeft:
-                Radius.circular(ScreenUtil.instance.setHeight(40))),
-            boxShadow: [
-              BoxShadow(
-              color: detail.color.withOpacity(.1),
-              blurRadius: 2,
-              offset: Offset(0, 0))
-            ],
-          ),
-          child: Container(
-              height: MediaQuery.of(context).size.height * .76,
-            child: SingleChildScrollView(
-                          child: Column(children: [
-                   SizedBox(
-              height: ScreenUtil.instance.setHeight(90),
-              ),
-                textBox(detail.name, 26, FontWeight.w600),
-                textBox(detail.designation, 22, FontWeight.w500),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  SizedBox(
-                    height: 1,
-                  ),
-                  if (detail.linkedin != "")
-                    GestureDetector(
-        onTap: () {
-              _launchAnyURL(detail.linkedin);
-        },
-        child: Container(
-              padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
-              child: Icon(FontAwesomeIcons.linkedin , size: 30,),
-        ),
-                    ),
-                  if (detail.github != "")
-                    GestureDetector(
-        onTap: () {
-              _launchAnyURL(detail.github);
-        },
-        child: Container(
-              padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
-              child: Icon(FontAwesomeIcons.github  , size: 30,),
-        ),
-                    ),
-                  if (detail.twitter != "")
-                    GestureDetector(
-        onTap: () {
-              _launchAnyURL(detail.twitter );
-        },
-        child: Container(
-              padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
-              child: Icon(FontAwesomeIcons.twitter  , size: 30,),
-        ),
-                    ),
-                  if (detail.facebook != "")
-                    GestureDetector(
-        onTap: () {
-              _launchAnyURL(detail.facebook);
-        },
-        child: Container(
-              padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
-              child: Icon(FontAwesomeIcons.facebook  , size: 30,),
-        ),
-                    ),
-                  if (detail.instagram != "")
-                    GestureDetector(
-        onTap: () {
-              _launchAnyURL(detail.instagram);
-        },
-        child: Container(
-              padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
-              child: Icon(FontAwesomeIcons.instagram  , size: 30,),
-        ),
-                    ),
-                  if (detail.website != "")
-                    GestureDetector(
-        onTap: () {
-              _launchAnyURL(detail.website);
-        },
-        child: Container(
-              padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
-              child: Icon(Icons.language  , size: 30,),
-        ),
-                    ),
-                    ]),
-              
-                Padding(
-                  padding: const EdgeInsets.only(left: 32, right: 32),
-                  child: Center(
-                    child: textBox(detail.desc, 18, FontWeight.w400),
-                  ),
+        Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .1,
+          ),  
+          Container(
+            width: ScreenUtil.instance.setWidth(ScreenUtil.instance.width),
+            height: MediaQuery.of(context).size.height * .76,
+            decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+              topRight:
+              Radius.circular(ScreenUtil.instance.setHeight(40)),
+              topLeft:
+              Radius.circular(ScreenUtil.instance.setHeight(40))),
+        boxShadow: [
+            BoxShadow(
+            color: detail.color.withOpacity(.1),
+            blurRadius: 2,
+            offset: Offset(0, 0))
+        ],
+            ),
+            child: Container(
+        child: SingleChildScrollView(
+            child: Column(children: [
+                 SizedBox(
+            height: ScreenUtil.instance.setHeight(100),
+            ),
+              textBox(detail.name, 26, FontWeight.w600),
+              textBox(detail.designation, 22, FontWeight.w500),
+                           SizedBox(
+            height: ScreenUtil.instance.setHeight(8),
+            ),
+
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                SizedBox(
+                  height: 1,
                 ),
-           
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:16),
-                  child: Center(
-                  child: (detail.skills != "")
+                if (detail.linkedin != "")
+                  GestureDetector(
+        onTap: () {
+            _launchAnyURL(detail.linkedin);
+        },
+        child: Container(
+            padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
+            child: Icon(FontAwesomeIcons.linkedin , size: 30,),
+        ),
+                  ),
+                if (detail.github != "")
+                  GestureDetector(
+        onTap: () {
+            _launchAnyURL(detail.github);
+        },
+        child: Container(
+            padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
+            child: Icon(FontAwesomeIcons.github  , size: 30,),
+        ),
+                  ),
+                if (detail.twitter != "")
+                  GestureDetector(
+        onTap: () {
+            _launchAnyURL(detail.twitter );
+        },
+        child: Container(
+            padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
+            child: Icon(FontAwesomeIcons.twitter  , size: 30,),
+        ),
+                  ),
+                if (detail.facebook != "")
+                  GestureDetector(
+        onTap: () {
+            _launchAnyURL(detail.facebook);
+        },
+        child: Container(
+            padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
+            child: Icon(FontAwesomeIcons.facebook  , size: 30,),
+        ),
+                  ),
+                if (detail.instagram != "")
+                  GestureDetector(
+        onTap: () {
+            _launchAnyURL(detail.instagram);
+        },
+        child: Container(
+            padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
+            child: Icon(FontAwesomeIcons.instagram  , size: 30,),
+        ),
+                  ),
+                if (detail.website != "")
+                  GestureDetector(
+        onTap: () {
+            _launchAnyURL(detail.website);
+        },
+        child: Container(
+            padding: EdgeInsets.fromLTRB(3, 0, 3, 10),
+            child: Icon(Icons.language  , size: 30,),
+        ),
+                  ),
+                  ]),
+            
+                    SizedBox(
+            height: ScreenUtil.instance.setHeight(16),
+            ),
+              Padding(
+                padding: const EdgeInsets.only(left: 32, right: 32),
+                child: Center(
+                  child: Container(
+      margin: EdgeInsets.only(bottom: ScreenUtil.instance.setHeight(12)),
+      child: Text(
+        detail.desc,
+        textAlign: TextAlign.justify,
+        style: TextStyle(
+            fontFamily: 'productSans',
+            fontWeight: FontWeight.w400,
+            fontSize: 18,
+            color: Colors.black,
+        ),
+      ),
+    )
+                ),
+              ),
+                                SizedBox(
+            height: ScreenUtil.instance.setHeight(8),
+            ),
+
+             
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:16),
+                child: Center(
+                child: (detail.skills != "")
         ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: 
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: 
         [_skills()])
         : Container()),
-                ),
-              ]),
-            ),
-          ),
-        ),
-            ],
+
+
               ),
+            ]),
+        ),
+            ),
+        ),
+        ],
           ),
 
         Positioned(
