@@ -19,6 +19,20 @@ class developerCredits extends StatefulWidget {
   }
 }
 
+
+class Contributors {
+  String name;
+  int contribution;
+  String image;
+  String github;
+  String url;
+}
+
+
+
+
+
+
 class developerCreditsState extends State<developerCredits> {
   double xOffset = 0.0;
   double yOffset = 0.0;
@@ -50,6 +64,145 @@ class developerCreditsState extends State<developerCredits> {
   ];
 
 ////////////////////////////////////-->>---Do not delete or remove items--->-Ends here->
+///
+///
+
+
+
+
+  bool isContributorLoading = true;
+  List<Contributors> contri = List<Contributors>();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getContributionData();
+  }
+
+  void getContributionData() async{
+
+
+
+    setState(() {
+      isContributorLoading = false;
+    });
+  }
+
+
+
+  
+  Widget contributorContainer() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Container(
+          margin: EdgeInsets.only(bottom: 5),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color:Colors.grey[400],
+                      blurRadius:  2,
+                      offset: Offset(0, 0))
+                ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                             margin: EdgeInsets.only(bottom: 5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                                                                    Container(
+                                                                                                   
+                                              decoration:
+                                                  BoxDecoration(shape: BoxShape.circle),
+                                              child: CircleAvatar(
+                                                backgroundColor: Colors.transparent,
+                                                radius: 50,
+                                                child: ClipOval(
+                                                  child: FadeInImage.assetNetwork(fadeInCurve: Curves.bounceIn,
+                                                    fadeInDuration: const Duration(seconds: 1),
+                                                    placeholder: 'assets/images/loading.gif',
+                                                    image: 'https://avatars3.githubusercontent.com/u/56194329?v=4',
+                                                    fit: BoxFit.fill,)
+                                                ),
+                                              )),
+
+
+
+                                           Container(
+                                              padding: EdgeInsets.fromLTRB(20, 10, 5, 10),
+                                              child: Column(
+                                                children: [
+
+                                                    Text("Contribution : ",style: TextStyle(
+                                              fontFamily: 'productSans',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 16,
+                                            )),
+
+
+                              Text("lol",style: TextStyle(
+                                              fontFamily: 'productSans',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 16,
+                                            ))
+                                                  
+                                                ],
+                                              ),
+                                              ),
+                              ],
+                            ),
+
+                          ),
+                          Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text("Contribution : ",style: TextStyle(
+                                                fontFamily: 'productSans',
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16,
+                                              )),
+                                Text("dsf",style: TextStyle(
+                                                fontFamily: 'productSans',
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16,
+                                              ))
+                              ],
+                            ),
+                          ),
+                        ],
+
+                      ),
+                                 Center(
+                                   child:  GestureDetector(
+                                        onTap: (){
+                                          _launchAnyURL('https://github.com/savagecarol');
+                                        },
+                                        child: Container(
+                                        
+                                          child: Icon(Icons.arrow_forward_ios),
+                                        ),
+                                      ),
+                                 ) 
+                    ],
+                  ),
+                ),
+
+      ),
+    );
+  }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -268,10 +421,11 @@ class developerCreditsState extends State<developerCredits> {
                     ),
                   ),
 
-                  Center(
-                    child: Padding(
+
+                  Center( 
+                    child:(isContributorLoading) ?CircularProgressIndicator():Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                      child: Text(
+                      child:(contri.length == 0)?Text(
                         'No folks here yet.',
                         style: TextStyle(
                           fontFamily: 'productSans',
@@ -279,9 +433,17 @@ class developerCreditsState extends State<developerCredits> {
                           fontWeight: FontWeight.w400,
                           color: Colors.blueGrey,
                         ),
-                      ),
-                    ),
+                      ):Column(children: [
+                          for (int i = 0; i < 10; i++) contributorContainer()
+                        ])
+                    )
                   ),
+
+
+
+
+
+
                 ],
               ),
             ),

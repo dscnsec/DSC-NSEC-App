@@ -16,12 +16,6 @@ class appInfoPage extends StatefulWidget {
 
 class appInfoPageState extends State<appInfoPage> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -126,8 +120,7 @@ class appInfoPageState extends State<appInfoPage> {
                       ),
                     ),
                   ),
-                ),
-              ],
+                ),],            
             ),
           ),
 ////////////////////////////////////////////////////////////////////////////////--sticky header-->
@@ -225,7 +218,7 @@ class appInfoPageState extends State<appInfoPage> {
         forceWebView: true,
         enableJavaScript: true,
         enableDomStorage: true,
-          forceSafariVC: true,
+        forceSafariVC: true,
         universalLinksOnly: true,
       );
     } else {
@@ -233,3 +226,5 @@ class appInfoPageState extends State<appInfoPage> {
     }
   }
 }
+
+// url = https://api.github.com/repos/dscnsec/DSC-NSEC-App/contributors
