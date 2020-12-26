@@ -227,4 +227,4 @@ class appInfoPageState extends State<appInfoPage> {
   }
 }
 
-// url = https://api.github.com/repos/dscnsec/DSC-NSEC-App/contributors
+
