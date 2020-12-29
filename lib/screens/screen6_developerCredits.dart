@@ -98,7 +98,7 @@ class developerCreditsState extends State<developerCredits> {
 
   Widget contributorContainer(Contributors user) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16 , vertical: 8),
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
