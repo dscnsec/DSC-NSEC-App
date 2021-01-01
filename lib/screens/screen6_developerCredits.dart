@@ -287,7 +287,7 @@ class developerCreditsState extends State<developerCredits> {
                     ),
                   ),
 
-                  //YOUR CODE GOES HERE ->> DSC NSEC EVENTS SECTION ->
+                  //YOUR CODE GOES HERE ->> DSC NSEC Developers' Credits SECTION ->
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 15, 0, 0),
                     child: Text(
@@ -426,7 +426,10 @@ class developerCreditsState extends State<developerCredits> {
 
                   Center(
                       child: (isContributorLoading)
-                          ? CircularProgressIndicator()
+                          ? Padding(
+                            padding: const EdgeInsets.only(top:10,bottom:25.0),
+                            child: CircularProgressIndicator(),
+                          )
                           : Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                               child: (contri.length == 0)
@@ -443,6 +446,7 @@ class developerCreditsState extends State<developerCredits> {
                                       for (int i = 0; i < contri.length; i++)
                                         contributorContainer(contri[i])
                                     ]))),
+                  Center(child: dsclogo())
                 ],
               ),
             ),
