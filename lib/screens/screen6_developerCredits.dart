@@ -36,6 +36,7 @@ class developerCreditsState extends State<developerCredits> {
   double yOffset = 0.0;
   double scalefactor = 1;
   bool isdrawerOpen = false;
+
 /////////////////////////////////////-CoreDevData->>---Do not delete or remove items--->
   var coreDevelopers = [
     "Ashutosh \n  Krishna",
@@ -287,7 +288,8 @@ class developerCreditsState extends State<developerCredits> {
                     ),
                   ),
 
-                  //YOUR CODE GOES HERE ->> DSC NSEC Developers' Credits SECTION ->
+                  //YOUR CODE GOES HERE ->> DSC NSEC Developer Credits SECTION ->
+
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 15, 0, 0),
                     child: Text(
@@ -336,7 +338,7 @@ class developerCreditsState extends State<developerCredits> {
                           children: [
                             SlimyCard(
                               color: Colors.blueAccent,
-                              width: 100,
+                              width: 110,
                               topCardHeight: 180,
                               bottomCardHeight: 100,
                               borderRadius: 15,
@@ -348,7 +350,7 @@ class developerCreditsState extends State<developerCredits> {
                             ),
                             if (i != 2)
                               SizedBox(
-                                width: 7,
+                                width: 2,
                               )
                           ],
                         ),

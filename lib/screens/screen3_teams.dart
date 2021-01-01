@@ -2,11 +2,6 @@ import 'dart:io';
 
 import 'package:circle_list/circle_list.dart';
 import 'package:dscnsec_app/Drawer/drawer.dart';
-import 'package:dscnsec_app/screens/screen1_home.dart';
-import 'package:dscnsec_app/screens/screen2_events.dart';
-import 'package:dscnsec_app/screens/screen4_about.dart';
-import 'package:dscnsec_app/screens/screen5_projects.dart';
-import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:dscnsec_app/screens/teams/teamDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -177,7 +172,11 @@ class teamsState extends State<teams> {
                         showInitialAnimation: true,
                         centerWidget: GestureDetector(
                           onTap: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (context)=> teamDetails("Core Team",Colors.indigo)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => teamDetails(
+                                        "Core Team", Colors.indigo)));
                             debugPrint("Tapped Core Team");
                           },
                           child: Container(
@@ -214,7 +213,12 @@ class teamsState extends State<teams> {
                         children: List.generate(teamCategory.length, (index) {
                           return GestureDetector(
                             onTap: () {
-                              Navigator.push(context,MaterialPageRoute(builder: (context)=> teamDetails(teamCategory[index],teamColor[index])));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => teamDetails(
+                                          teamCategory[index],
+                                          teamColor[index])));
                               debugPrint("Tapped Team-$index");
                             },
                             child: Container(

@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 import '../customIcons.dart';
 import 'introText.dart';
 
@@ -43,7 +42,7 @@ class aboutState extends State<about> {
     "Nationality"
   ];
 
-  var Q3points=[
+  var Q3points = [
     "Offensive verbal comments related to gender, sexual orientation, disability, gender identity, age, race, religion",
     "The use or display of sexual images in public spaces",
     "Deliberate intimidation",
@@ -549,11 +548,13 @@ class aboutState extends State<about> {
                           Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(
-                                    top: 0, left: 10, bottom: 5, right: 20),
-                                child: Icon(Icons.brightness_1,size: 10,color: Colors.purple,)
-                              ),
-
+                                  padding: EdgeInsets.only(
+                                      top: 0, left: 10, bottom: 5, right: 20),
+                                  child: Icon(
+                                    Icons.brightness_1,
+                                    size: 10,
+                                    color: Colors.purple,
+                                  )),
                               Padding(
                                 padding: EdgeInsets.only(
                                     top: 0, left: 0, bottom: 5, right: 20),
@@ -690,9 +691,6 @@ class aboutState extends State<about> {
                         ),
 
                         dsclogo(),
-
-
-
                       ],
                     ),
                   ),
@@ -705,49 +703,44 @@ class aboutState extends State<about> {
 
   //App Exit Alert Function
   Future<bool> _onBackButtonPressed() {
-
-    if(isdrawerOpen==true)
+    if (isdrawerOpen == true)
       return showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text(
-              "Do you really want to exit app?",
-              style: TextStyle(fontFamily: "productSans"),
-            ),
-            actions: [
-              FlatButton.icon(
-                  onPressed: () => exit(0),
-                  icon: Icon(
-                    Icons.done,
-                    color: Colors.green,
-                  ),
-                  label: Text(
-                    "Yes",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-              FlatButton.icon(
-                  onPressed: () => Navigator.pop(context, false),
-                  icon: Icon(
-                    Icons.clear,
-                    color: Colors.red,
-                  ),
-                  label: Text(
-                    "No",
-                    style: TextStyle(fontFamily: "productSans"),
-                  ))
-            ],
-          ));
-    else
-    if(isdrawerOpen==false)
+                title: Text(
+                  "Do you really want to exit app?",
+                  style: TextStyle(fontFamily: "productSans"),
+                ),
+                actions: [
+                  FlatButton.icon(
+                      onPressed: () => exit(0),
+                      icon: Icon(
+                        Icons.done,
+                        color: Colors.green,
+                      ),
+                      label: Text(
+                        "Yes",
+                        style: TextStyle(fontFamily: "productSans"),
+                      )),
+                  FlatButton.icon(
+                      onPressed: () => Navigator.pop(context, false),
+                      icon: Icon(
+                        Icons.clear,
+                        color: Colors.red,
+                      ),
+                      label: Text(
+                        "No",
+                        style: TextStyle(fontFamily: "productSans"),
+                      ))
+                ],
+              ));
+    else if (isdrawerOpen == false)
       setState(() {
-        xOffset =
-            MediaQuery.of(context).size.height * 0.3;
-        yOffset =
-            MediaQuery.of(context).size.width * 0.37;
+        xOffset = MediaQuery.of(context).size.height * 0.3;
+        yOffset = MediaQuery.of(context).size.width * 0.37;
         scalefactor = 0.6;
         isdrawerOpen = true;
       });
-
   }
 
   // DSC NSEC LOGO
