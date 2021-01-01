@@ -1,12 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dscnsec_app/Drawer/drawer.dart';
+import 'package:dscnsec_app/screens/teams/teams_data/Team_Data_Holder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:slimy_card/slimy_card.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:http/http.dart' as http;
 import '../customIcons.dart';
 import 'introText.dart';
 
@@ -17,6 +19,16 @@ class developerCredits extends StatefulWidget {
   State<StatefulWidget> createState() {
     return developerCreditsState();
   }
+}
+
+class Contributors {
+  String name;
+  int contribution;
+  String image;
+  String github;
+  String url;
+  Contributors(
+      {this.name, this.contribution, this.image, this.github, this.url});
 }
 
 class developerCreditsState extends State<developerCredits> {
@@ -51,6 +63,147 @@ class developerCreditsState extends State<developerCredits> {
   ];
 
 ////////////////////////////////////-->>---Do not delete or remove items--->-Ends here->
+  ///
+  ///
+
+  bool isContributorLoading = true;
+  List<Contributors> contri = List<Contributors>();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getContributionData();
+  }
+
+  void getContributionData() async {
+    var data = await http
+        .get("https://api.github.com/repos/dscnsec/DSC-NSEC-App/contributors");
+    List jsonData = json.decode(data.body);
+    if (jsonData != null) {
+      for (int i = 0; i < jsonData.length; i++) {
+        var userData = await http.get(jsonData[i]["url"]);
+        var user = json.decode(userData.body);
+        Contributors userContributor = Contributors(
+            name: user["name"],
+            image: user["avatar_url"],
+            url: user["html_url"],
+            github: user["login"],
+            contribution: jsonData[i]["contributions"]);
+        contri.add(userContributor);
+      }
+    }
+    setState(() {
+      isContributorLoading = false;
+    });
+  }
+
+  Widget contributorContainer(Contributors user) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16 , vertical: 8),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey[400], blurRadius: 2, offset: Offset(0, 0))
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                            decoration: BoxDecoration(shape: BoxShape.circle),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.transparent,
+                              radius: 45,
+                              child: ClipOval(
+                                  child: FadeInImage.assetNetwork(
+                                fadeInCurve: Curves.bounceIn,
+                                fadeInDuration: const Duration(seconds: 1),
+                                placeholder: 'assets/images/loading.gif',
+                                image:user.image,
+                                fit: BoxFit.fill,
+                              )),
+                            )),
+                        Container(
+                           padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
+                          child: Column(
+                            children: [
+                              Text(user.name,
+                                  style: TextStyle(
+                                    fontFamily: 'productSans',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                    
+                                  ),
+                                  textAlign: TextAlign.left),
+                              Text("@"+user.github,
+                                  style: TextStyle(
+                                    fontFamily: 'productSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    
+                                  ),
+                                  textAlign: TextAlign.left,)
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
+                  ),
+                            
+                    Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                      Icon(Icons.star,color: Colors.yellow,),
+                        Text("Contribution : ",
+                            style: TextStyle(
+                              fontFamily: 'productSans',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            )),
+                        Text(user.contribution.toString(),
+                            style: TextStyle(
+                              fontFamily: 'productSans',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ))
+                      ],
+                    ),
+                  ),
+
+        
+                ],
+              ),
+
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    _launchAnyURL(user.url);
+                  },
+                  child: Container(
+                    child: Icon(Icons.arrow_forward_ios),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -274,19 +427,28 @@ class developerCreditsState extends State<developerCredits> {
                   ),
 
                   Center(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                      child: Text(
-                        'No folks here yet.',
-                        style: TextStyle(
-                          fontFamily: 'productSans',
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blueGrey,
-                        ),
-                      ),
-                    ),
-                  ),
+                      child: (isContributorLoading)
+                          ? Padding(
+                            padding: const EdgeInsets.only(top:10,bottom:25.0),
+                            child: CircularProgressIndicator(),
+                          )
+                          : Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                              child: (contri.length == 0)
+                                  ? Text(
+                                      'No folks here yet.',
+                                      style: TextStyle(
+                                        fontFamily: 'productSans',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    )
+                                  : Column(children: [
+                                      for (int i = 0; i < contri.length; i++)
+                                        contributorContainer(contri[i])
+                                    ]))),
+                  Center(child: dsclogo())
                 ],
               ),
             ),
