@@ -157,7 +157,7 @@ class _TeamMemberState extends State<TeamMember> {
       ,  
       Container(
         width: ScreenUtil.instance.setWidth(ScreenUtil.instance.width),
-        height:(MediaQuery.of(context).size.height<600 ) ?MediaQuery.of(context).size.height * .72:MediaQuery.of(context).size.height * .76,
+        height:MediaQuery.of(context).size.height * .75,
         decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -296,8 +296,8 @@ class _TeamMemberState extends State<TeamMember> {
     ),
 
                   Positioned(
-          top: ScreenUtil.instance.setHeight(20),
-          left: ScreenUtil.instance.setHeight(155),
+          top: ScreenUtil.instance.setHeight(15),
+          left: ScreenUtil.instance.setWidth(130),
           child: Container(
                 padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                 decoration: BoxDecoration(shape: BoxShape.circle,boxShadow: [   BoxShadow(
