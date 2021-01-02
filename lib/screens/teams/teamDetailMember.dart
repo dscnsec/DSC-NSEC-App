@@ -148,17 +148,17 @@ class _TeamMemberState extends State<TeamMember> {
                     children:[ Column(
               children: [
                 _appbar(),
-                Expanded(child:Container( color:detail.color , child: Column(
-                      children: [
-                            
+                Expanded(child:
+                Container( color:detail.color ,
+                 child: Column(
+                      children: [                            
                             Container(
                               color: detail.color,
                               height: ScreenUtil.instance.setHeight(100), 
                             ),
-
-                          Container(
-        width: ScreenUtil.instance.setWidth(ScreenUtil.instance.width),
-        height:MediaQuery.of(context).size.height * .75,
+                          Expanded(
+                                                      child: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -174,7 +174,10 @@ class _TeamMemberState extends State<TeamMember> {
         ],
         ),
 
-          child: SingleChildScrollView(
+          child: Container(
+                child: 
+                
+SingleChildScrollView(
             child: Column(
               children: [
 
@@ -297,7 +300,12 @@ class _TeamMemberState extends State<TeamMember> {
             ),
           ),
 
-                          )
+
+
+          )
+
+                            ),
+                          ),
 
                       ],
                 ),
@@ -337,3 +345,7 @@ class _TeamMemberState extends State<TeamMember> {
     ));
   }
 }
+
+
+
+
