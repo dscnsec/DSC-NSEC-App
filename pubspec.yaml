@@ -34,6 +34,8 @@ dependencies:
   slimy_card: ^1.0.4
   circle_list: ^1.0.2
   animated_background: ^1.0.5
+  flutter_screenutil: ^0.5.3
+  
 
 
 flutter_icons:
