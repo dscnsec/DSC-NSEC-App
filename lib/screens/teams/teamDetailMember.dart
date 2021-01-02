@@ -182,7 +182,7 @@ SingleChildScrollView(
               children: [
 
                    SizedBox(
-          height: ScreenUtil.instance.setHeight(80),
+          height: ScreenUtil.instance.setHeight(100),
           ),
             textBox(detail.name, 26, FontWeight.w600),
             textBox(detail.designation, 22, FontWeight.w500),
