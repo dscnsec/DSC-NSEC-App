@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:dscnsec_app/screens/teams/teamDetailMember.dart';
-
 import 'package:dscnsec_app/screens/teams/teams_data/Team_Data_Holder.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -62,21 +60,21 @@ class Album {
 
   Album(
       {this.id,
-      this.name,
-      this.designation,
-      this.desc,
-      this.skills,
-      this.dp,
-      this.email,
-      this.alt_email,
-      this.stream,
-      this.linkedin,
-      this.github,
-      this.website,
-      this.blog,
-      this.facebook,
-      this.twitter,
-      this.instagram});
+        this.name,
+        this.designation,
+        this.desc,
+        this.skills,
+        this.dp,
+        this.email,
+        this.alt_email,
+        this.stream,
+        this.linkedin,
+        this.github,
+        this.website,
+        this.blog,
+        this.facebook,
+        this.twitter,
+        this.instagram});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
@@ -143,12 +141,12 @@ class teamDetailsState extends State<teamDetails>
     return Scaffold(
       backgroundColor: Colors.white,
       body:
-          // AnimatedBackground(
-          //   behaviour: RandomParticleBehaviour(
-          //       options: ParticleOptions(baseColor: teamColor, spawnMaxSpeed: 150)),
-          //   vsync: this,
-          //   child:
-          SafeArea(
+      // AnimatedBackground(
+      //   behaviour: RandomParticleBehaviour(
+      //       options: ParticleOptions(baseColor: teamColor, spawnMaxSpeed: 150)),
+      //   vsync: this,
+      //   child:
+      SafeArea(
         child: Stack(children: [
           //Future builder from Restful api starts from here /////-->>
           FutureBuilder<Album>(
@@ -182,34 +180,33 @@ class teamDetailsState extends State<teamDetails>
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0, vertical: 20),
-
                             child: InkWell(
-                              onTap: () {                         
-  TeamMemberDetail teamMemberDetail = TeamMemberDetail(
-      name: name[i],
-      designation: designation[i],
-      desc: desc[i],
-      skills: skills[i],
-      dp: dp[i],
-      email: email[i],
-      stream: stream[i],
-      linkedin: linkedin[i],
-      github: github[i],
-      website: website[i],
-      blog: blog[i],
-      facebook: facebook[i],
-      twitter: twitter[i],
-      instagram: instagram[i],
-      color: teamColor
-        );
-          Navigator.push(context,MaterialPageRoute(builder: (context)=> TeamMember(detail:teamMemberDetail)));
+                              onTap: () {
+                                TeamMemberDetail teamMemberDetail = TeamMemberDetail(
+                                    name: name[i],
+                                    designation: designation[i],
+                                    desc: desc[i],
+                                    skills: skills[i],
+                                    dp: dp[i],
+                                    email: email[i],
+                                    stream: stream[i],
+                                    linkedin: linkedin[i],
+                                    github: github[i],
+                                    website: website[i],
+                                    blog: blog[i],
+                                    facebook: facebook[i],
+                                    twitter: twitter[i],
+                                    instagram: instagram[i],
+                                    color: teamColor
+                                );
+                                Navigator.push(context,MaterialPageRoute(builder: (context)=> TeamMember(detail:teamMemberDetail)));
                               },
                               child: Card(
                                   elevation: 2,
                                   child: Column(children: [
                                     Container(
                                         padding:
-                                            EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
                                         decoration: BoxDecoration(
                                             shape: BoxShape.circle),
                                         child: CircleAvatar(
@@ -217,18 +214,18 @@ class teamDetailsState extends State<teamDetails>
                                           radius: 55,
                                           child: ClipOval(
                                               child: FadeInImage.assetNetwork(
-                                            fadeInCurve: Curves.bounceIn,
-                                            fadeInDuration:
+                                                fadeInCurve: Curves.bounceIn,
+                                                fadeInDuration:
                                                 const Duration(seconds: 1),
-                                            placeholder:
+                                                placeholder:
                                                 'assets/images/loading.gif',
-                                            image: dp[i],
-                                            fit: BoxFit.fill,
-                                          )),
+                                                image: dp[i],
+                                                fit: BoxFit.fill,
+                                              )),
                                         )),
                                     Container(
                                         padding:
-                                            EdgeInsets.fromLTRB(20, 2, 20, 10),
+                                        EdgeInsets.fromLTRB(20, 2, 20, 10),
                                         decoration: BoxDecoration(
                                             shape: BoxShape.circle),
                                         child: Text(
@@ -242,7 +239,7 @@ class teamDetailsState extends State<teamDetails>
                                         )),
                                     Container(
                                         padding:
-                                            EdgeInsets.fromLTRB(20, 0, 20, 15),
+                                        EdgeInsets.fromLTRB(20, 0, 20, 15),
                                         decoration: BoxDecoration(
                                             shape: BoxShape.circle),
                                         child: Text(designation[i],
@@ -255,7 +252,7 @@ class teamDetailsState extends State<teamDetails>
                                             ))),
                                     Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           SizedBox(
                                             height: 1,
@@ -334,137 +331,6 @@ class teamDetailsState extends State<teamDetails>
                                         ]),
                                   ])),
                             ),
-
-                            child: Card(
-                                elevation: 2,
-                                child: Column(children: [
-                                  Container(
-                                      padding:
-                                          EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                      decoration:
-                                          BoxDecoration(shape: BoxShape.circle),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.transparent,
-                                        radius: 55,
-                                        child: ClipOval(
-                                            child: FadeInImage.assetNetwork(
-                                          fadeInCurve: Curves.bounceIn,
-                                          fadeInDuration:
-                                              const Duration(seconds: 1),
-                                          placeholder:
-                                              'assets/images/loading.gif',
-                                          image: dp[i],
-                                          fit: BoxFit.fill,
-                                        )),
-                                      )),
-                                  Container(
-                                      padding:
-                                          EdgeInsets.fromLTRB(20, 2, 20, 10),
-                                      decoration:
-                                          BoxDecoration(shape: BoxShape.circle),
-                                      child: Text(
-                                        name[i],
-                                        style: TextStyle(
-                                          fontFamily: 'productSans',
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black87,
-                                        ),
-                                      )),
-                                  Container(
-                                      padding:
-                                          EdgeInsets.fromLTRB(20, 0, 20, 15),
-                                      decoration:
-                                          BoxDecoration(shape: BoxShape.circle),
-                                      child: Text(designation[i],
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontFamily: 'productSans',
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.black87,
-                                          ))),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          height: 1,
-                                        ),
-                                        if (linkedin[i] != "")
-                                          GestureDetector(
-                                            onTap: () {
-                                              _launchAnyURL(linkedin[i]);
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  3, 0, 3, 10),
-                                              child: Icon(
-                                                  FontAwesomeIcons.linkedin),
-                                            ),
-                                          ),
-                                        if (github[i] != "")
-                                          GestureDetector(
-                                            onTap: () {
-                                              _launchAnyURL(github[i]);
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  3, 0, 3, 10),
-                                              child:
-                                                  Icon(FontAwesomeIcons.github),
-                                            ),
-                                          ),
-                                        if (twitter[i] != "")
-                                          GestureDetector(
-                                            onTap: () {
-                                              _launchAnyURL(twitter[i]);
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  3, 0, 3, 10),
-                                              child: Icon(
-                                                  FontAwesomeIcons.twitter),
-                                            ),
-                                          ),
-                                        if (facebook[i] != "")
-                                          GestureDetector(
-                                            onTap: () {
-                                              _launchAnyURL(facebook[i]);
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  3, 0, 3, 10),
-                                              child: Icon(
-                                                  FontAwesomeIcons.facebook),
-                                            ),
-                                          ),
-                                        if (instagram[i] != "")
-                                          GestureDetector(
-                                            onTap: () {
-                                              _launchAnyURL(instagram[i]);
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  3, 0, 3, 10),
-                                              child: Icon(
-                                                  FontAwesomeIcons.instagram),
-                                            ),
-                                          ),
-                                        if (website[i] != "")
-                                          GestureDetector(
-                                            onTap: () {
-                                              _launchAnyURL(website[i]);
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  3, 0, 3, 10),
-                                              child: Icon(Icons.language),
-                                            ),
-                                          ),
-                                      ]),
-                                ])),
-
                           ),
                       ],
                     ),
@@ -522,10 +388,10 @@ class teamDetailsState extends State<teamDetails>
                     children: [
                       Center(
                           child: CircularProgressIndicator(
-                        backgroundColor: teamColor,
-                        valueColor:
+                            backgroundColor: teamColor,
+                            valueColor:
                             new AlwaysStoppedAnimation<Color>(Colors.white),
-                      )),
+                          )),
                     ],
                   );
               }),
@@ -565,7 +431,7 @@ class teamDetailsState extends State<teamDetails>
                     ),
                     Padding(
                       padding:
-                          EdgeInsets.only(right: 12.0, top: 5.0, bottom: 5),
+                      EdgeInsets.only(right: 12.0, top: 5.0, bottom: 5),
                       child: CircleAvatar(
                         radius: 29.0,
                         child: dsclogo(),
