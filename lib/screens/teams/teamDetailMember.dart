@@ -143,19 +143,20 @@ class _TeamMemberState extends State<TeamMember> {
       ..init(context);
     return SafeArea(
       child: Scaffold(
-          body: Container(
-        child: Column(children: 
-        [_appbar(), Stack(
-          children: [
-            Container(
-                 color: detail.color,
-      child: Column(
-        children: [
-      SizedBox(
-        height: MediaQuery.of(context).size.height * .1,
-      )
-      ,  
-      Container(
+          body: Stack(
+            
+                    children:[ Column(
+              children: [
+                _appbar(),
+                Expanded(child:Container( color:detail.color , child: Column(
+                      children: [
+                            
+                            Container(
+                              color: detail.color,
+                              height: ScreenUtil.instance.setHeight(100), 
+                            ),
+
+                          Container(
         width: ScreenUtil.instance.setWidth(ScreenUtil.instance.width),
         height:MediaQuery.of(context).size.height * .75,
         decoration: BoxDecoration(
@@ -172,11 +173,13 @@ class _TeamMemberState extends State<TeamMember> {
         offset: Offset(0, 0))
         ],
         ),
-        child: Container(
-        child: SingleChildScrollView(
-          child: Column(children: [
-               SizedBox(
-          height: ScreenUtil.instance.setHeight(100),
+
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+
+                   SizedBox(
+          height: ScreenUtil.instance.setHeight(80),
           ),
             textBox(detail.name, 26, FontWeight.w600),
             textBox(detail.designation, 22, FontWeight.w500),
@@ -255,7 +258,8 @@ class _TeamMemberState extends State<TeamMember> {
           SizedBox(
           height: ScreenUtil.instance.setHeight(16),
           ),
-            Padding(
+
+          Padding(
               padding: const EdgeInsets.only(left: 32, right: 32),
               child: Center(
       child: Container(
@@ -278,7 +282,6 @@ class _TeamMemberState extends State<TeamMember> {
           ),
 
      
-   
             Container(
                padding: const EdgeInsets.symmetric(horizontal:16),
               child: (detail.skills != "")
@@ -287,16 +290,24 @@ class _TeamMemberState extends State<TeamMember> {
           children: _skills())
           : Container(),
             ),
-          ]),
-        ),
-        ),
-        ),
-        ],
-      ),
-    ),
+                   SizedBox(
+          height: ScreenUtil.instance.setHeight(8),
+          ),
+              ],
+            ),
+          ),
 
-                  Positioned(
-          top: ScreenUtil.instance.setHeight(15),
+                          )
+
+                      ],
+                ),
+                )
+                ),
+              ],
+            ),
+            
+                 Positioned(
+          top: ScreenUtil.instance.setHeight(120),
           left: ScreenUtil.instance.setWidth(130),
           child: Container(
                 padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -317,11 +328,12 @@ class _TeamMemberState extends State<TeamMember> {
           fit: BoxFit.fill,
                   )),
                 )),
-        ),
-          ],
-        ) ,
-        ]),
-      )),
-    );
+        ),          
+
+            
+            ],
+            
+                    ),
+    ));
   }
 }
