@@ -3,17 +3,11 @@ import 'dart:io';
 
 import 'package:dscnsec_app/screens/project_details/projectFullDetails.dart';
 import 'package:dscnsec_app/screens/project_details/projectsData.dart';
-import 'package:dscnsec_app/screens/screen1_home.dart';
-import 'package:dscnsec_app/screens/screen2_events.dart';
-import 'package:dscnsec_app/screens/screen3_teams.dart';
-import 'package:dscnsec_app/screens/screen4_about.dart';
-import 'package:dscnsec_app/screens/screen6_developerCredits.dart';
 import 'package:flutter/material.dart';
 import '../Drawer/drawer.dart';
 import '../customIcons.dart';
 import './introText.dart';
 import 'package:http/http.dart' as http;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'project_details/projectsData.dart';
 
@@ -112,7 +106,6 @@ class _ProjectPageState extends State<ProjectPage> {
     // TODO: implement initState
     super.initState();
     futureAlbum = fetchAlbum();
-
   }
 
   @override
@@ -229,7 +222,9 @@ class _ProjectPageState extends State<ProjectPage> {
                   ),
 
                   //All the PROJECT cards will be here ->>
-                  Container(padding: EdgeInsets.only(top:10),),
+                  Container(
+                    padding: EdgeInsets.only(top: 10),
+                  ),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 2, 0, 2),
                     color: Colors.white,
@@ -242,7 +237,7 @@ class _ProjectPageState extends State<ProjectPage> {
                             pro_id = snapshot.data.pro_id;
                             pro_name = snapshot.data.pro_name;
                             pro_desc = snapshot.data.pro_desc;
-                            pro_individual=snapshot.data.pro_individual;
+                            pro_individual = snapshot.data.pro_individual;
                             pro_dev_name = snapshot.data.pro_dev_name;
                             pro_dev_dp = snapshot.data.pro_dev_dp;
                             pro_tools = snapshot.data.pro_tools;
@@ -259,7 +254,9 @@ class _ProjectPageState extends State<ProjectPage> {
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
                                     children: <Widget>[
-                                      for (int i = pro_id.length-1; i >=0; i--)
+                                      for (int i = pro_id.length - 1;
+                                          i >= 0;
+                                          i--)
                                         ProjectCard(
                                             '${pro_banner[i]}',
                                             '${pro_name[i]}',
@@ -433,7 +430,9 @@ class _ProjectPageState extends State<ProjectPage> {
                                                                 .data.pro_name;
                                                             pro_desc = snapshot
                                                                 .data.pro_desc;
-                                                            pro_individual=snapshot.data.pro_individual;
+                                                            pro_individual =
+                                                                snapshot.data
+                                                                    .pro_individual;
                                                             pro_dev_name =
                                                                 snapshot.data
                                                                     .pro_dev_name;
@@ -480,7 +479,9 @@ class _ProjectPageState extends State<ProjectPage> {
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
                                       children: <Widget>[
-                                        for (int i = pro_id.length-1; i >=0; i--)
+                                        for (int i = pro_id.length - 1;
+                                            i >= 0;
+                                            i--)
                                           ProjectCard(
                                               '${pro_banner[i]}',
                                               '${pro_name[i]}',
@@ -528,49 +529,44 @@ class _ProjectPageState extends State<ProjectPage> {
 
   //App Exit Alert Function
   Future<bool> _onBackButtonPressed() {
-
-    if(isdrawerOpen==true)
+    if (isdrawerOpen == true)
       return showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text(
-              "Do you really want to exit app?",
-              style: TextStyle(fontFamily: "productSans"),
-            ),
-            actions: [
-              FlatButton.icon(
-                  onPressed: () => exit(0),
-                  icon: Icon(
-                    Icons.done,
-                    color: Colors.green,
-                  ),
-                  label: Text(
-                    "Yes",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-              FlatButton.icon(
-                  onPressed: () => Navigator.pop(context, false),
-                  icon: Icon(
-                    Icons.clear,
-                    color: Colors.red,
-                  ),
-                  label: Text(
-                    "No",
-                    style: TextStyle(fontFamily: "productSans"),
-                  ))
-            ],
-          ));
-    else
-    if(isdrawerOpen==false)
+                title: Text(
+                  "Do you really want to exit app?",
+                  style: TextStyle(fontFamily: "productSans"),
+                ),
+                actions: [
+                  FlatButton.icon(
+                      onPressed: () => exit(0),
+                      icon: Icon(
+                        Icons.done,
+                        color: Colors.green,
+                      ),
+                      label: Text(
+                        "Yes",
+                        style: TextStyle(fontFamily: "productSans"),
+                      )),
+                  FlatButton.icon(
+                      onPressed: () => Navigator.pop(context, false),
+                      icon: Icon(
+                        Icons.clear,
+                        color: Colors.red,
+                      ),
+                      label: Text(
+                        "No",
+                        style: TextStyle(fontFamily: "productSans"),
+                      ))
+                ],
+              ));
+    else if (isdrawerOpen == false)
       setState(() {
-        xOffset =
-            MediaQuery.of(context).size.height * 0.3;
-        yOffset =
-            MediaQuery.of(context).size.width * 0.37;
+        xOffset = MediaQuery.of(context).size.height * 0.3;
+        yOffset = MediaQuery.of(context).size.width * 0.37;
         scalefactor = 0.6;
         isdrawerOpen = true;
       });
-
   }
 
   // DSC NSEC LOGO

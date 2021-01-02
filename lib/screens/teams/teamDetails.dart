@@ -1,5 +1,7 @@
 import 'dart:convert';
+
 import 'package:dscnsec_app/screens/teams/teamDetailMember.dart';
+
 import 'package:dscnsec_app/screens/teams/teams_data/Team_Data_Holder.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -180,6 +182,7 @@ class teamDetailsState extends State<teamDetails>
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0, vertical: 20),
+
                             child: InkWell(
                               onTap: () {                         
   TeamMemberDetail teamMemberDetail = TeamMemberDetail(
@@ -331,6 +334,137 @@ class teamDetailsState extends State<teamDetails>
                                         ]),
                                   ])),
                             ),
+
+                            child: Card(
+                                elevation: 2,
+                                child: Column(children: [
+                                  Container(
+                                      padding:
+                                          EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                      decoration:
+                                          BoxDecoration(shape: BoxShape.circle),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.transparent,
+                                        radius: 55,
+                                        child: ClipOval(
+                                            child: FadeInImage.assetNetwork(
+                                          fadeInCurve: Curves.bounceIn,
+                                          fadeInDuration:
+                                              const Duration(seconds: 1),
+                                          placeholder:
+                                              'assets/images/loading.gif',
+                                          image: dp[i],
+                                          fit: BoxFit.fill,
+                                        )),
+                                      )),
+                                  Container(
+                                      padding:
+                                          EdgeInsets.fromLTRB(20, 2, 20, 10),
+                                      decoration:
+                                          BoxDecoration(shape: BoxShape.circle),
+                                      child: Text(
+                                        name[i],
+                                        style: TextStyle(
+                                          fontFamily: 'productSans',
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black87,
+                                        ),
+                                      )),
+                                  Container(
+                                      padding:
+                                          EdgeInsets.fromLTRB(20, 0, 20, 15),
+                                      decoration:
+                                          BoxDecoration(shape: BoxShape.circle),
+                                      child: Text(designation[i],
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontFamily: 'productSans',
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.black87,
+                                          ))),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 1,
+                                        ),
+                                        if (linkedin[i] != "")
+                                          GestureDetector(
+                                            onTap: () {
+                                              _launchAnyURL(linkedin[i]);
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  3, 0, 3, 10),
+                                              child: Icon(
+                                                  FontAwesomeIcons.linkedin),
+                                            ),
+                                          ),
+                                        if (github[i] != "")
+                                          GestureDetector(
+                                            onTap: () {
+                                              _launchAnyURL(github[i]);
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  3, 0, 3, 10),
+                                              child:
+                                                  Icon(FontAwesomeIcons.github),
+                                            ),
+                                          ),
+                                        if (twitter[i] != "")
+                                          GestureDetector(
+                                            onTap: () {
+                                              _launchAnyURL(twitter[i]);
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  3, 0, 3, 10),
+                                              child: Icon(
+                                                  FontAwesomeIcons.twitter),
+                                            ),
+                                          ),
+                                        if (facebook[i] != "")
+                                          GestureDetector(
+                                            onTap: () {
+                                              _launchAnyURL(facebook[i]);
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  3, 0, 3, 10),
+                                              child: Icon(
+                                                  FontAwesomeIcons.facebook),
+                                            ),
+                                          ),
+                                        if (instagram[i] != "")
+                                          GestureDetector(
+                                            onTap: () {
+                                              _launchAnyURL(instagram[i]);
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  3, 0, 3, 10),
+                                              child: Icon(
+                                                  FontAwesomeIcons.instagram),
+                                            ),
+                                          ),
+                                        if (website[i] != "")
+                                          GestureDetector(
+                                            onTap: () {
+                                              _launchAnyURL(website[i]);
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  3, 0, 3, 10),
+                                              child: Icon(Icons.language),
+                                            ),
+                                          ),
+                                      ]),
+                                ])),
+
                           ),
                       ],
                     ),

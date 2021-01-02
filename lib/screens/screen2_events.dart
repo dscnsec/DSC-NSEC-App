@@ -298,8 +298,7 @@ class screen2_eventsState extends State<screen2_events> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Padding(
-                                padding: EdgeInsets.only(
-                                    left: 20.0, top: 10),
+                                padding: EdgeInsets.only(left: 20.0, top: 10),
                                 child: Text(
                                   "Upcoming Events",
                                   style: TextStyle(
@@ -318,7 +317,6 @@ class screen2_eventsState extends State<screen2_events> {
                               //     textStyle: TextStyle(color:Colors.blueAccent,fontWeight:FontWeight.bold,fontSize: 35.0, fontFamily: "productSans"),
                               //     textAlign: TextAlign.start
                               // ),
-
                             ],
                           ),
                         ),
@@ -372,13 +370,11 @@ class screen2_eventsState extends State<screen2_events> {
                             } else if (snapshot.hasError) {
                               if (up_id[0] == 0)
                                 return Container(
-                                  padding: EdgeInsets.only(
-                                      left: 0.0),
+                                  padding: EdgeInsets.only(left: 0.0),
                                   child: Image(
                                     fit: BoxFit.fill,
-
-                                    image:
-                                        AssetImage('assets/images/no_image.gif'),
+                                    image: AssetImage(
+                                        'assets/images/no_image.gif'),
                                   ),
                                 );
                               else
@@ -412,13 +408,10 @@ class screen2_eventsState extends State<screen2_events> {
                             return Container(
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                               height: 395,
-
                               child: Center(
-
-                                    child:
-                                        // loadingAnimation()
-                                CircularProgressIndicator()
-                                      ),
+                                  child:
+                                      // loadingAnimation()
+                                      CircularProgressIndicator()),
                             );
                           },
                         ),
@@ -460,8 +453,7 @@ class screen2_eventsState extends State<screen2_events> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Padding(
-                                padding: EdgeInsets.only(
-                                    left: 20.0, top: 10),
+                                padding: EdgeInsets.only(left: 20.0, top: 10),
                                 child: Text(
                                   "Past Events",
                                   style: TextStyle(
@@ -567,12 +559,10 @@ class screen2_eventsState extends State<screen2_events> {
                             return Container(
                               padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
                               height: 395,
-                              child:
-                                   Center(
-                                    child:
-                                        // loadingAnimation()
-                                    CircularProgressIndicator()
-                                  ),
+                              child: Center(
+                                  child:
+                                      // loadingAnimation()
+                                      CircularProgressIndicator()),
                             );
                           },
                         ),
@@ -616,49 +606,44 @@ class screen2_eventsState extends State<screen2_events> {
 
   //App Exit Alert Function
   Future<bool> _onBackButtonPressed() {
-
-    if(isdrawerOpen==true)
+    if (isdrawerOpen == true)
       return showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text(
-              "Do you really want to exit app?",
-              style: TextStyle(fontFamily: "productSans"),
-            ),
-            actions: [
-              FlatButton.icon(
-                  onPressed: () => exit(0),
-                  icon: Icon(
-                    Icons.done,
-                    color: Colors.green,
-                  ),
-                  label: Text(
-                    "Yes",
-                    style: TextStyle(fontFamily: "productSans"),
-                  )),
-              FlatButton.icon(
-                  onPressed: () => Navigator.pop(context, false),
-                  icon: Icon(
-                    Icons.clear,
-                    color: Colors.red,
-                  ),
-                  label: Text(
-                    "No",
-                    style: TextStyle(fontFamily: "productSans"),
-                  ))
-            ],
-          ));
-    else
-    if(isdrawerOpen==false)
+                title: Text(
+                  "Do you really want to exit app?",
+                  style: TextStyle(fontFamily: "productSans"),
+                ),
+                actions: [
+                  FlatButton.icon(
+                      onPressed: () => exit(0),
+                      icon: Icon(
+                        Icons.done,
+                        color: Colors.green,
+                      ),
+                      label: Text(
+                        "Yes",
+                        style: TextStyle(fontFamily: "productSans"),
+                      )),
+                  FlatButton.icon(
+                      onPressed: () => Navigator.pop(context, false),
+                      icon: Icon(
+                        Icons.clear,
+                        color: Colors.red,
+                      ),
+                      label: Text(
+                        "No",
+                        style: TextStyle(fontFamily: "productSans"),
+                      ))
+                ],
+              ));
+    else if (isdrawerOpen == false)
       setState(() {
-        xOffset =
-            MediaQuery.of(context).size.height * 0.3;
-        yOffset =
-            MediaQuery.of(context).size.width * 0.37;
+        xOffset = MediaQuery.of(context).size.height * 0.3;
+        yOffset = MediaQuery.of(context).size.width * 0.37;
         scalefactor = 0.6;
         isdrawerOpen = true;
       });
-
   }
 
 // DSC NSEC LOGO

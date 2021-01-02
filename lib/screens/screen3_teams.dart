@@ -172,7 +172,11 @@ class teamsState extends State<teams> {
                         showInitialAnimation: true,
                         centerWidget: GestureDetector(
                           onTap: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (context)=> teamDetails("Core Team",Colors.indigo)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => teamDetails(
+                                        "Core Team", Colors.indigo)));
                             debugPrint("Tapped Core Team");
                           },
                           child: Container(
@@ -209,7 +213,12 @@ class teamsState extends State<teams> {
                         children: List.generate(teamCategory.length, (index) {
                           return GestureDetector(
                             onTap: () {
-                              Navigator.push(context,MaterialPageRoute(builder: (context)=> teamDetails(teamCategory[index],teamColor[index])));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => teamDetails(
+                                          teamCategory[index],
+                                          teamColor[index])));
                               debugPrint("Tapped Team-$index");
                             },
                             child: Container(
