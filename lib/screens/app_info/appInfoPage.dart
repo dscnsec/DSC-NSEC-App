@@ -106,7 +106,7 @@ class appInfoPageState extends State<appInfoPage> {
                     child: OutlineButton(
                       onPressed: () {
                         _launchAnyURL(
-                            "https://github.com/dscnsec/DSC-NSEC-App/blob/master/LICENSE");
+                            "https://raw.githubusercontent.com/dscnsec/DSC-NSEC-App/master/LICENSE");
                       },
                       child: Text(
                         "View Full LICENSE",

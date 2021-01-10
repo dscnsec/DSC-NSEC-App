@@ -243,10 +243,10 @@ class eventFullDetailsForHomeState extends State<eventFullDetailsForHome> {
                           ),
                         if (up_desc[j] != "")
                           Container(
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                            padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
                             child: Text(
                               "${up_desc[j]}",
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.justify,
                               style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: 'productSans',
@@ -266,29 +266,35 @@ class eventFullDetailsForHomeState extends State<eventFullDetailsForHome> {
                           ),
                         ),
                         if (up_prerequire[j] != "")
-                          for (int i = 0; i < pre.length; i++)
-                            Container(
-                              padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                              child: Chip(
-                                label: Text(
-                                  "${pre[i]}",
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      fontFamily: 'productSans',
-                                      color: Colors.grey[600]),
+                            Wrap(
+                                alignment: WrapAlignment.center,
+                              children:[
+                                for (int i = 0; i < pre.length; i++)
+                                Container(
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                child: Chip(
+                                  backgroundColor: Colors.amber[50],
+                                  label: Text(
+                                    "${pre[i]}",
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontFamily: 'productSans',
+                                        color: Colors.amber[700]),
+                                  ),
                                 ),
-                              ),
+                              ),]
                             ),
                         if (up_prerequire[j] == "")
                           Container(
                             padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                             child: Chip(
+                              backgroundColor: Colors.amber[50],
                               label: Text(
                                 "No prior knowledge is required.",
                                 style: TextStyle(
                                     fontSize: 17,
                                     fontFamily: 'productSans',
-                                    color: Colors.grey[600]),
+                                    color: Colors.amber[700]),
                               ),
                             ),
                           ),
@@ -305,18 +311,23 @@ class eventFullDetailsForHomeState extends State<eventFullDetailsForHome> {
                             ),
                           ),
                         if (up_speakers[j] != "")
-                          for (int i = 0; i < speakers.length; i++)
-                            Container(
-                              padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                              child: Chip(
-                                label: Text(
-                                  "${speakers[i]}",
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      fontFamily: 'productSans',
-                                      color: Colors.grey[600]),
+                            Wrap(
+                                alignment: WrapAlignment.center,
+                              children: [
+                                for (int i = 0; i < speakers.length; i++)
+                                Container(
+                                padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                child: Chip(
+                                  backgroundColor: Colors.blue[50],
+                                  label: Text(
+                                    "${speakers[i]}",
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontFamily: 'productSans',
+                                        color: Colors.blue[600]),
+                                  ),
                                 ),
-                              ),
+                              ),]
                             ),
                         //registration details
                         Container(

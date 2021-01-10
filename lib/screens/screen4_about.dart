@@ -172,9 +172,10 @@ class aboutState extends State<about> {
 
                         //About main intro text
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                           child: Text(
                             about_main_text,
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'productSans',
                               fontSize: 20.0,
@@ -573,9 +574,10 @@ class aboutState extends State<about> {
 
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 7, left: 5, bottom: 5, right: 20),
+                              top: 7, left: 5, bottom: 5, right: 25),
                           child: Text(
                             "The above is not an exhaustive list -- we do not tolerate harassment of event spanarticipants in any form.",
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'productSans',
                               fontSize: 18.0,
@@ -587,9 +589,10 @@ class aboutState extends State<about> {
 
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 7, left: 5, bottom: 5, right: 20),
+                              top: 7, left: 5, bottom: 5, right: 25),
                           child: Text(
                             "Sexual language and imagery is not appropriate for any event venue, including talks. Event participants violating these rules may be expelled from the event, and event banned from future events at the discretion of the event organizers/management.",
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'productSans',
                               fontSize: 18.0,
@@ -636,7 +639,7 @@ class aboutState extends State<about> {
 
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 10, left: 5, bottom: 5, right: 20),
+                              top: 10, left: 5, bottom: 5, right: 25),
                           child: Text(
                             "Participants asked to stop any harassing behavior are expected to comply immediately.",
                             style: TextStyle(
@@ -650,9 +653,10 @@ class aboutState extends State<about> {
 
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 10, left: 5, bottom: 5, right: 20),
+                              top: 10, left: 5, bottom: 5, right: 25),
                           child: Text(
                             "Exhibiting partners and guests are also subject to the anti-harassment policy. In particular, exhibitors and speakers should not use sexualized images, activities, or other material, or otherwise create a sexualized environment in their slide decks, exhibit material, exhibit staffing, promotional items or demo material.",
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'productSans',
                               fontSize: 18.0,
@@ -664,9 +668,10 @@ class aboutState extends State<about> {
 
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 10, left: 5, bottom: 5, right: 20),
+                              top: 10, left: 5, bottom: 5, right: 25),
                           child: Text(
                             "If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact an organizer or event volunteer immediately. Organizers and event volunteers may be identified by t-shirts or special badges/lanyards. Organizers will investigate the issue and take appropriate action. This may include helping participants contact venue security or local law enforcement, provide escorts, or otherwise assist these experiencing harassment to fell safe for the duration of the event.",
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'productSans',
                               fontSize: 18.0,
@@ -678,9 +683,10 @@ class aboutState extends State<about> {
 
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 10, left: 5, bottom: 10, right: 20),
+                              top: 10, left: 5, bottom: 10, right: 25),
                           child: Text(
                             "Though we hope that we never have to invoke this policy, we believe that having this document helps everyone think a little more about how their actions and words affect the whole community, as well as individuals in the community.",
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'productSans',
                               fontSize: 18.0,

@@ -21,7 +21,7 @@ var eventType = "up";
 //Upcoming Events at Home REST api
 Future<Album> fetchAlbum() async {
   final response = await http
-      .get('https://www.attendanceapp.ml/dsc_testing/upcoming_events.json');
+      .get('https://raw.githubusercontent.com/dscnsec/dscnsec-app-resources/main/api/events_data/upcoming_events.json');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -877,7 +877,7 @@ class EventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //the card....
     return Padding(
-      padding: EdgeInsets.only(left: 10.0, right: 20.0, top: 20.0),
+      padding: EdgeInsets.only(left: 7.0, right: 7.0, top: 20.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
@@ -1008,7 +1008,7 @@ class TransitionEventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //the card....
     return Padding(
-      padding: EdgeInsets.only(left: 10.0, right: 20.0, top: 20.0),
+      padding: EdgeInsets.only(left: 7.0, right: 7.0, top: 20.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),

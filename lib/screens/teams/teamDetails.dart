@@ -11,7 +11,7 @@ var teamCategoryFinal;
 //Team Page REST api --starts here--->>
 Future<Album> fetchAlbum() async {
   final response = await http.get(
-      'https://www.attendanceapp.ml/dsc_testing/${teamCategoryFinal}.json');
+      'https://raw.githubusercontent.com/dscnsec/dscnsec-app-resources/main/api/teams_data/${teamCategoryFinal}.json');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

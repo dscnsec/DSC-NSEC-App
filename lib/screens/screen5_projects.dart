@@ -17,7 +17,7 @@ TextofIntro text = TextofIntro();
 
 Future<Album> fetchAlbum() async {
   final response =
-      await http.get('https://www.attendanceapp.ml/dsc_testing/projects.json');
+      await http.get('https://raw.githubusercontent.com/dscnsec/dscnsec-app-resources/main/api/projects_data/projects.json');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -597,7 +597,7 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //the card....
     return Padding(
-      padding: EdgeInsets.only(left: 15.0, right: 5.0, top: 15.0),
+      padding: EdgeInsets.only(left: 5.0, right: 5.0, top: 15.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
@@ -605,8 +605,8 @@ class ProjectCard extends StatelessWidget {
           boxShadow: [
             new BoxShadow(
               color: Colors.black45,
-              offset: new Offset(15.0, 5.0),
-              blurRadius: 20.0,
+              offset: new Offset(5.0, 5.0),
+              blurRadius: 10.0,
             )
           ],
         ),
@@ -726,7 +726,7 @@ class TransitionProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     //the card....
     return Padding(
-      padding: EdgeInsets.only(left: 15.0, right: 5.0, top: 15.0),
+      padding: EdgeInsets.only(left: 5.0, right: 5.0, top: 15.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
@@ -734,8 +734,8 @@ class TransitionProjectCard extends StatelessWidget {
           boxShadow: [
             new BoxShadow(
               color: Colors.grey,
-              offset: new Offset(15.0, 5.0),
-              blurRadius: 20.0,
+              offset: new Offset(5.0, 5.0),
+              blurRadius: 10.0,
             )
           ],
         ),

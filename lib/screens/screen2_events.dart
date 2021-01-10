@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 //Upcoming Events at Events Page REST api --starts here--->>
 Future<Album> fetchAlbum() async {
   final response = await http
-      .get('https://www.attendanceapp.ml/dsc_testing/upcoming_events.json');
+      .get('https://raw.githubusercontent.com/dscnsec/dscnsec-app-resources/main/api/events_data/upcoming_events.json');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -83,7 +83,7 @@ class Album {
 //Past Events at Events Page REST api --starts here--->>
 Future<Album2> fetchAlbum2() async {
   final response =
-      await http.get('https://attendanceapp.ml/dsc_testing/past_events.json');
+      await http.get('https://raw.githubusercontent.com/dscnsec/dscnsec-app-resources/main/api/events_data/past_events.json');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

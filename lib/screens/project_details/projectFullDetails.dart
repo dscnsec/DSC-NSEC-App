@@ -204,10 +204,10 @@ class projectFullDetailsState extends State<projectFullDetails> {
                   ),
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(10, 5, 10, 15),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 15),
                     child: Text(
                       "${pro_desc[card_index]}",
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.justify,
                       style: TextStyle(
                           fontSize: 16,
                           fontFamily: 'productSans',
