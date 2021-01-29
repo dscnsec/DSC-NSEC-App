@@ -737,7 +737,7 @@ class CardScrollUpWidget extends StatelessWidget {
                             fadeInDuration: const Duration(seconds: 1),
                             placeholder: 'assets/images/loading.gif',
                             image: up_banner[i],
-                            fit: BoxFit.fitWidth),
+                            fit: BoxFit.contain),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
@@ -747,7 +747,7 @@ class CardScrollUpWidget extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 20.0, vertical: 8.0),
-                              child: Text(up_name[i],
+                              child: Text(" "+up_name[i]+" ",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 25.0,
@@ -857,7 +857,7 @@ class CardScrollPastWidget extends StatelessWidget {
                           fadeInDuration: const Duration(seconds: 1),
                           placeholder: 'assets/images/loading.gif',
                           image: past_banner[i],
-                          fit: BoxFit.fitWidth,
+                          fit: BoxFit.contain,
                         ),
                       Align(
                         alignment: Alignment.bottomLeft,
@@ -868,7 +868,7 @@ class CardScrollPastWidget extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 20.0, vertical: 8.0),
-                              child: Text(past_name[i],
+                              child: Text(" "+past_name[i]+" ",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 25.0,

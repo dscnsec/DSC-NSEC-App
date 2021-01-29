@@ -44,8 +44,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       'More to',
                       style: TextStyle(
                         fontFamily: 'productSans',
-                        fontWeight: FontWeight.w300,
-                        fontSize: 31,
+                        fontWeight: FontWeight.w100,
+                        fontSize: 30,
                         color: Colors.white,
                       ),
                     ),
@@ -53,18 +53,18 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   Text(
                     'Explore',
                     style: TextStyle(
-                        letterSpacing: 5.0,
+                        letterSpacing: 6.0,
                         color: Colors.white,
                         fontFamily: 'productSans',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 35),
+                        fontWeight: FontWeight.w300,
+                        fontSize: 37),
                   ),
                 ],
               ),
             ),
 //Middle part
             Padding(
-              padding: EdgeInsets.only(top: 11, left: 22.0),
+              padding: EdgeInsets.only(top: 18, left: 22.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -144,8 +144,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
             //footer part
             Padding(
-              padding: EdgeInsets.only(left: 20.0),
+              padding: EdgeInsets.only(left: 5.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   GestureDetector(
                       onTap: () {
@@ -162,6 +163,19 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         _launchAnyURL("https://www.instagram.com/dscnsec/");
                       },
                       child: socialMedia(FontAwesomeIcons.instagram)),
+
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://t.me/dscnsec");
+                      },
+                      child: socialMedia(FontAwesomeIcons.telegramPlane)),
+
+                  GestureDetector(
+                      onTap: () {
+                        _launchAnyURL("https://www.youtube.com/c/DSCNSEC");
+                      },
+                      child: socialMedia(FontAwesomeIcons.youtube)),
+
                   GestureDetector(
                       onTap: () {
                         _launchAnyURL("https://github.com/dscnsec");
@@ -172,17 +186,18 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         _launchAnyURL("https://dscnsec.com/");
                       },
                       child: socialMedia(FontAwesomeIcons.globe)),
+
                   //This icon is for App info> Licenses/App version. etc.
                   GestureDetector(
                     onTap: (){
                       Navigator.push(context,MaterialPageRoute(builder: (context)=>appInfoPage()));
                     },
                       child: Padding(
-                        padding: EdgeInsets.only(left:25,right: 0, bottom: 14),
-                        child: Row(
+                        padding: EdgeInsets.only(left:18,right: 5, bottom: 7),
+                        child: Column(
                           children: [
-                            Icon(Icons.perm_device_information, size: 26,color:Colors.white),
-                            Text("App Info",style: TextStyle(fontFamily: "productSans",color: Colors.white),)
+                            Icon(Icons.perm_device_information, size: 28,color:Colors.white),
+                             Text("App Info",style: TextStyle(fontFamily: "productSans",color: Colors.white),)
                           ],
                         ),
                       )),
@@ -198,7 +213,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
 
 Widget socialMedia(IconData icn) {
   return Padding(
-      padding: EdgeInsets.only(right: 18, bottom: 15),
+      padding: EdgeInsets.only(right: 12, bottom: 15),
       child: Icon(
         icn,
         size: 25,
